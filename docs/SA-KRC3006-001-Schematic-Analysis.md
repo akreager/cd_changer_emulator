@@ -1,0 +1,531 @@
+# KRC-3006 Service Manual Schematic Analysis
+## Document ID: SA-KRC3006-001 Rev B
+**Date:** ___  
+**Source Documents:**
+- Kenwood KRC-3006 Service Manual (B51-6670-00), Schematic Y36-1740-10 — Head Unit
+- Kenwood KDC-CX85/CPS85 Service Manual (B51-7552-00) — CD Auto Changer (companion unit)
+
+---
+
+## 1. Confirmed CD-CH Connector Pinout (from Kenwood Schematic)
+
+The CD changer connector is part **E06-1301-05**, a 13-pin round DIN. The pin table directly from the Kenwood schematic is:
+
+| Pin | Kenwood Name | Published Name | Function |
+|-----|-------------|----------------|----------|
+| 1   | **REQ H**   | CH-REQH        | Request handshake from head unit |
+| 2   | **GND**     | GND            | Ground |
+| 3   | **B.U**     | +12V           | Battery Unswitched — raw +12V from vehicle battery via 3A fuse |
+| 4   | **ON**      | CH-CON         | Changer connect / enable signal |
+| 5   | **MUTE**    | CH-MUTE        | Mute request line |
+| 6   | **D.GND**   | AGND           | Digital Ground (Kenwood labels this "D.GND", not "Audio GND") |
+| 7   | **RESET**   | CH-RST         | Reset signal to changer |
+| 8   | **R ch**    | R-CH           | Right audio channel (analog) |
+| 9   | **REQ C**   | CH-REQC        | Request handshake from changer |
+| 10  | **DATA C**  | CH-DATAC       | Data from changer to head unit |
+| 11  | **DATA H**  | CH-DATAH       | Data from head unit to changer |
+| 12  | **L ch**    | L-CH           | Left audio channel (analog) |
+| 13  | **CLK**     | CLK            | 125 KHz synchronous clock |
+
+**Notable differences from published documentation:**
+- Pin 4 is labeled "ON" by Kenwood (not "CH-CON") — same function, different naming
+- Pin 6 is labeled "D.GND" (Digital Ground), not "AGND" (Audio Ground) as in published pinouts. This may mean Kenwood intended a single digital ground reference, not a separate audio ground. **This must be verified during Phase 1 continuity testing** — measure resistance between Pin 2 (GND) and Pin 6 (D.GND) to determine if they are tied together or isolated on the head unit side.
+
+---
+
+## 2. Pin 3 (B.U) Power Path — CONFIRMED: No Head Unit Filtering
+
+The schematic confirms the +12V supply path to Pin 3:
+
+```
+Vehicle Battery → Main Harness → E30-4119-05 DC Cord → 3A Fuse → B.U bus → Pin 3 of CD-CH connector
+```
+
+- The DC cord (E30-4119-05) carries GND, ACC (7.5A fuse), B.U (3A fuse), P.CON, and speaker wires
+- B.U stands for "Battery Unswitched" — always-on +12V directly from the vehicle battery
+- The 3A fuse is the ONLY protection between the vehicle battery and Pin 3
+- **There is NO internal regulator, filter, inductor, TVS diode, or any other conditioning** between the fuse and Pin 3
+- The B.U bus also powers IC7 (TA8232H power amplifier) at 14.4V as shown on the schematic
+
+**Implication for HAT design:** The HAT's input protection circuit is the ONLY protection for the Pi and all electronics. The pi-filter, TVS diode, and Schottky designs in DR-KRC3006-002 are essential, not optional. On the '85 Silverado, Pin 3 will see every voltage transient, alternator ripple, and cranking sag that the vehicle battery sees, delayed only by the wire impedance and the 3A fuse.
+
+---
+
+## 3. Signal Routing from Connector to µ-COM
+
+### 3.1 Digital Signal Path
+
+All digital control and data signals route from J3 (the board-level connector for the 13-pin DIN) through series resistors to the main bus, then to IC6 (LC72329-8839 µ-COM).
+
+**Series resistors on data/clock lines (visible on schematic):**
+
+| Signal | Pin | Series Resistor(s) | Value | Purpose |
+|--------|-----|--------------------|-------|---------|
+| DATA H | 11  | R145               | 100K  | Current limiting on head-unit-to-changer data |
+| CLK    | 13  | R146               | 100K  | Current limiting on clock line |
+| DATA C | 10  | R130, R131         | 2.2K each | Lower impedance for changer-to-head-unit data |
+| REQ C  | 9   | (trace visible)    | —     | Connects through to µ-COM |
+| REQ H  | 1   | (trace visible)    | —     | Connects through to µ-COM |
+
+**Key observation:** The 100K series resistors on DATA H and CLK (the lines driven BY the head unit) are surprisingly high. At 5V through 100K, the maximum current is only 50µA. This suggests these lines are CMOS-level inputs on the changer side with very high input impedance, and the head unit drives them through current-limiting resistors as protection. The 2.2K resistors on DATA C (driven BY the changer back to the head unit) are much lower, allowing ~2.3mA drive current.
+
+**Implication for emulator:** The ATtiny reading DATA H and CLK only needs to handle 50µA signal currents through 100K resistors. These signals will be slow to rise/fall due to the RC time constant of 100K × parasitic capacitance. At 125 KHz, the period is 8µs — with even 20pF of parasitic capacitance, τ = 100K × 20pF = 2µs, which is 25% of the clock period. **This may explain why some emulator projects have had timing issues** — the signal edges are significantly rounded by these series resistors.
+
+### 3.2 Mute Control (Pin 5)
+
+Pin 5 (MUTE) is controlled by **Q12**, labeled "CD-CH MUTE SW":
+- Q12 is a transistor switch (DTC114YK — NPN digital transistor with built-in bias resistors)
+- Driven from the µ-COM IC6
+- External components: R140 (7.5K), 10K, 47K resistors; C103 (0.01µF) for noise filtering
+- When the µ-COM drives Q12, it pulls MUTE low, requesting the head unit to mute audio output
+- During disc changes or error conditions, the changer would pull this line
+
+**For emulator:** The ATtiny should drive MUTE low during virtual disc changes (switching between music folders) to prevent audio pops/clicks during the transition. A brief 200-500ms mute during folder changes would be appropriate.
+
+### 3.3 Reset Control (Pin 7)
+
+Pin 7 (RESET) is controlled by **Q13**, labeled "CD-CH RESET SW":
+- Q13 is a transistor switch (DTA114EK — PNP digital transistor with built-in bias resistors)
+- Driven from the µ-COM IC6
+- 22K/22K resistor pair for biasing
+- The head unit sends a reset pulse to the changer on power-up or error recovery
+
+**For emulator:** The ATtiny should monitor RESET (Pin 7) as an input. When RESET is asserted by the head unit, the ATtiny should reinitialize its protocol state machine and restart the handshake sequence. This is equivalent to a "reboot" command for the changer emulation.
+
+### 3.4 µ-COM Hold Switch (Q19)
+
+**Q19** is labeled "µ-COM HOLD SW" with 47K/47K resistors and C109 (0.1µF):
+- This is a power hold circuit that keeps the µ-COM energized during brief power interruptions
+- Connected through R150 (4.7K) and C74 (4.7µF, 35V)
+- Likely provides a few hundred milliseconds of power hold-up for the µ-COM itself during cranking
+
+**Implication:** Even Kenwood's own design includes a power holdup mechanism for the µ-COM during cranking. This validates our supercap approach for the Pi — if Kenwood needed it for a simple microcontroller, we definitely need it for a full Linux SBC.
+
+---
+
+## 4. Audio Path Analysis
+
+### 4.1 Audio Signal Flow
+
+```
+CD-CH Pin 8 (R ch) → CN5 (CH R) → Sub-board X13-8570-10 → R12 (1K) → R18 (47K) → C12 (1µF/50V) → IC3 Pin 7
+CD-CH Pin 12 (L ch) → CN5 (CH L) → Sub-board X13-8570-10 → R11 (1K) → R17 (47K) → C11 (1µF/50V) → IC3 Pin 2
+CD-CH Pin 6 (D.GND) → CN5 (CH GND) → Sub-board ground reference
+```
+
+### 4.2 IC3 — Audio Isolation Amplifier
+
+**IC3: NJM4565MD** (JRC dual op-amp)
+- Configured as an isolation/buffer amplifier for CD changer audio
+- Powered from 8.0V on pin 8 (+B), with 5.1V bias points on signal pins
+- Input coupling: 1K series resistor + 47K to bias + 1µF DC-blocking capacitor per channel
+- Output coupling: 680Ω resistors (R28/R27) to the main audio bus, then through 100µF/10V electrolytic caps (C16/C15) to the selector (IC2, TC4066BF)
+
+**Input impedance seen by the changer:** The 1K series resistor and 47K to bias create an input impedance of approximately 1K + 47K = 48K ohms. The 1µF coupling caps (C12, C11) provide a low-frequency cutoff of approximately 1/(2π × 48K × 1µF) ≈ 3.3 Hz — essentially passing all audio frequencies.
+
+### 4.3 IC2 — Audio Selector (TC4066BF)
+
+**IC2: TC4066BF** (CMOS bilateral switch)
+- Selects between audio sources: CD changer, tape, FM, AM
+- Controlled by the µ-COM IC6 via CH-CON and source selection signals
+- The µ-COM must assert CH-CON (Pin 4 "ON") AND complete the digital handshake before IC2 routes the CD changer audio to the preamp/tone/power amp chain
+
+**Critical implication:** Audio from the DAC will NOT reach the speakers until BOTH conditions are met:
+1. Pin 4 (ON/CH-CON) is asserted by the head unit (confirming CD changer source is selected)
+2. The digital protocol handshake succeeds (the µ-COM must recognize a valid changer before enabling the audio path through IC2)
+
+This confirms what the initial research document stated — there is no "audio only" shortcut. Full protocol emulation is mandatory.
+
+### 4.4 Audio Levels
+
+The preout level specification from the service manual back cover:
+- **Preout Level/Load: 1000mV (MAX.) / 10kΩ**
+
+The CD changer audio input goes through IC3 (gain to be determined from feedback resistors), then through IC2 (unity gain switch), then to the preamp/tone circuits. The PCM5102A DAC outputs approximately 1V RMS at full scale. With the 1K/47K input network, the signal reaching IC3 is essentially the full DAC output voltage. This should be a good match — possibly even slightly hot depending on IC3's gain setting.
+
+**During Phase 5 testing:** If the audio is too loud or distorted when the Pi plays at full volume through the DAC, reduce the DAC output level in software (ALSA mixer or MPD volume control) rather than adding hardware attenuation. The NJM4565 has plenty of headroom.
+
+---
+
+## 5. Power Supply Architecture (Internal)
+
+### 5.1 Voltage Rails Identified on Schematic
+
+| Rail | Voltage | Source | Consumers |
+|------|---------|--------|-----------|
+| B.U  | 14.4V (nominal) | Vehicle battery via 3A fuse | IC7 power amp, CD-CH Pin 3 |
+| ACC  | 14.4V (switched) | Vehicle ignition via 7.5A fuse | Main power control |
+| 8.0V | 8.0V regulated | Internal AVR (Q2,7 "8V AVR") | IC3 (audio isolation amp), IC5 (FM MPX) |
+| 5.1V | 5.1V regulated | Internal 5V AVR (R99, Q6) | IC6 µ-COM, digital circuits |
+| 5.0V | 5.0V regulated | "5V AVR" circuit | Logic ICs |
+
+### 5.2 IC6 µ-COM Operating Voltage
+
+The LC72329-8839 µ-COM operates at **5.0V** (from the internal 5V AVR). The schematic shows pin voltages on IC6 in the 4.9V-5.4V range. This confirms:
+- All digital signals on the CD changer bus are **5V logic levels**
+- The bus protocol uses 5V TTL/CMOS signaling
+- Running the ATtiny1616 at 5V is the safest approach for direct bus compatibility
+- Running at 3.3V would require confirming the head unit reads 3.3V as a valid HIGH through the 2.2K series resistors on DATA C
+
+---
+
+## 6. Key Components Summary
+
+| Ref | Part Number | Function | Relevance |
+|-----|-------------|----------|-----------|
+| IC6 | LC72329-8839 | µ-COM (main microcontroller) | Generates all CD changer protocol commands; processes responses |
+| IC3 | NJM4565MD | Dual op-amp (audio isolation) | Buffers CD changer audio before routing to selector |
+| IC2 | TC4066BF | CMOS bilateral switch (audio selector) | Routes selected source (CD-CH, tape, FM, AM) to output |
+| IC7 | TA8232H | Dual power amplifier | Drives speakers; powered from B.U (14.4V) |
+| Q12 | DTC114YK | CD-CH MUTE SW | Transistor switch for mute control line |
+| Q13 | DTA114EK | CD-CH RESET SW | Transistor switch for reset control line |
+| Q19 | — | µ-COM HOLD SW | Power hold for µ-COM during brief interruptions |
+| J3  | — | 13-pin connector (board side) | Board-level connection to CD-CH DIN connector |
+| CN5 | — | Audio connector to sub-board | Routes CH R, CH GND, CH L, CH CON to IC3 |
+
+---
+
+## 7. Findings That Affect Emulator Design
+
+### 7.1 Pin 3 is Raw Battery Voltage — Confirmed
+No filtering whatsoever between vehicle battery and the changer connector power pin. The HAT's input protection is the sole defense. Design accordingly with the pi-filter, TVS, and Schottky protection detailed in DR-KRC3006-002.
+
+### 7.2 High-Value Series Resistors on Clock and Data Lines
+The 100K resistors on DATA H (R145) and CLK (R146) will significantly affect signal rise/fall times. During logic analyzer capture in Phase 2, expect to see rounded edges rather than sharp square waves. This is normal — the protocol was designed for this impedance. The ATtiny's Schmitt-trigger inputs will clean up these edges nicely.
+
+### 7.3 Audio Path Requires Full Protocol Handshake
+The TC4066BF bilateral switch (IC2) won't route audio until the µ-COM activates it via the CH-CON signal AND validates the changer protocol. No shortcut possible.
+
+### 7.4 Pin 6 (D.GND) May Not Be Isolated
+Kenwood labels Pin 6 as "Digital Ground" not "Audio Ground." It may be tied to Pin 2 (GND) internally. Phase 1 continuity testing will resolve this. If they ARE tied together, the separate ground strategy on the HAT is still valuable (prevents ground loops from the vehicle wiring), but the HAT can use a single ground connection to Pin 2/6.
+
+### 7.5 Mute Line Is Active for Disc Changes
+Q12 shows the head unit has a dedicated mute switch circuit for the CD changer. The emulator should pull MUTE low for 200-500ms during virtual disc changes to suppress clicks/pops.
+
+### 7.6 µ-COM Has Its Own Power Holdup
+Q19 (µ-COM HOLD SW) confirms that even Kenwood's engineers found it necessary to hold the µ-COM through brief power interruptions. This further validates the supercap approach for the Pi.
+
+### 7.7 Operating Voltage Confirmed at 5V
+The µ-COM runs at 5.0-5.1V. All bus signals are 5V logic. For maximum compatibility and signal integrity, run the ATtiny1616 at 5V with a voltage divider on the UART TX to the Pi (3.3V).
+
+---
+
+## 8. Recommended Updates to Test Procedure (TP-KRC3006-001)
+
+Based on these schematic findings, add the following to Phase 1:
+
+1. **Measure Pin 2 to Pin 6 resistance** with the head unit unpowered (just measure the connector). If <1Ω, they're tied together internally. Record this on the test log.
+
+2. **Measure Pin 3 voltage while toggling sources** — Pin 3 (B.U) should show constant ~12V regardless of source selection (it's unswitched). Pin 4 (ON) should toggle with source. This confirms the schematic.
+
+3. **Check for 100K series resistance on CLK and DATA H** — With head unit unpowered, measure resistance between Pin 13 (CLK) and Pin 2 (GND). If you read ~100K, that confirms R146 is in series. Same for Pin 11 (DATA H) and R145. This is important for understanding signal levels during emulation.
+
+4. **During Phase 2 idle capture**, look for signal rise times of 1-3µs on CLK and DATA H due to the 100K series resistors. If edges are very slow, reduce the PulseView sample rate threshold for edge detection, or use the analog channels if your logic analyzer supports them.
+
+---
+
+# PART 2: KDC-CX85 CD Changer Analysis (Changer-Side View)
+
+The following sections are derived from the KDC-CX85/CPS85 service manual — the actual 10-disc CD changer that ships with the KRC-3006. This gives us the mirror image of the protocol: what the changer firmware does internally is exactly what our emulator must replicate.
+
+---
+
+## 9. Changer Architecture Overview
+
+The KDC-CX85 uses a dual-processor architecture:
+
+| IC | Part Number | Role | Relevance |
+|----|-------------|------|-----------|
+| IC1 | **UPD78058GCB82T** | I/F µ-COM (Interface Microcontroller) | Handles ALL communication with the head unit and optional second changer. This is the IC whose behavior we are emulating. |
+| IC7 | **UPD784214GC066** | System µ-COM (CD Player Controller) | Controls the CD mechanism, laser, servo, DSP, DAC. Not relevant to emulation except for understanding status responses. |
+| IC2 | PST9137NR | Reset IC | Generates system reset on power-up |
+| IC6 | KKZ05F | D.R.I.V.E. DAC/Digital Filter | Audio processing — our PCM5102A replaces this function |
+| IC1 (audio) | NJM5532MD | Output active filter / LPF | Analog audio output filtering |
+
+**Key insight:** The communication with the head unit is entirely handled by IC1 (I/F µ-COM). The system µ-COM (IC7) handles CD mechanics and audio. In our emulator, the ATtiny1616 replaces IC1, and the Raspberry Pi replaces IC7 + the entire CD mechanism + DAC chain.
+
+---
+
+## 10. I/F µ-COM (IC1) — Complete Pin Mapping for H/U Communication
+
+The UPD78058GCB82T is an 80-pin NEC µ-COM. The following pins handle head unit communication (from the service manual's terminal description table):
+
+### 10.1 Head Unit Communication Pins (Primary — what we emulate)
+
+| IC1 Pin | Pin Name | I/O | Signal | Description |
+|---------|----------|-----|--------|-------------|
+| 11 | P20/SI1 | **Input** | DATAH0 | Data input FROM head unit |
+| 12 | P21/SO1 | **Output** | DATAC0 | Data output TO head unit |
+| 13 | P22/SCK1 | **I/O** | HCLK0 | Communication clock — bidirectional |
+| 14 | P23/STB | **Output** | REQC0 | Communication request TO head unit — **L: Request** |
+| 64 | P03/INTP3 | **Input** | REQH0 | Communication request FROM head unit — **L: Request** |
+| 66 | P05/INTP5 | **Input** | CHCON1 | CH1 control input from H/U — **L: Control on** |
+
+**Critical observations:**
+
+1. **HCLK0 (Pin 13) is I/O** — connected to the NEC µ-COM's SCK1 (SPI clock) pin. This means the clock can be driven by either side. The NEC's SPI peripheral can operate in both master and slave modes. During head-unit-initiated transfers, the head unit drives the clock and the changer's SPI operates in slave mode. During changer-initiated transfers (e.g., spontaneous status updates), the changer may drive the clock in master mode.
+
+2. **REQH0 is on an interrupt pin (INTP3)** — Pin 64 is P03/INTP3, a dedicated external interrupt input. This means the changer responds to head unit requests via hardware interrupt, not polling. The ATtiny1616 should similarly use an external interrupt on the REQH input for fast response.
+
+3. **REQC0 is on the STB (strobe) pin** — Pin 14 (P23/STB) is the SPI strobe output. In the NEC architecture, STB asserts automatically during SPI transfers. This means REQC may be hardware-managed during data exchange rather than manually toggled by firmware. Our ATtiny firmware should toggle REQC in coordination with data transmission.
+
+4. **CHCON1 is active LOW** — "L: Control on CH1." This is the opposite polarity from what some published documentation claims. The head unit pulls this line LOW to activate the changer, not HIGH. **Verify during Phase 1 testing** by measuring Pin 4 voltage when CD changer source is selected vs. another source.
+
+### 10.2 Second Changer / AUX Cascade Pins (Not needed for emulator)
+
+| IC1 Pin | Signal | Description |
+|---------|--------|-------------|
+| 8 | DATAC1 | Data input from second changer (CH1 port) |
+| 9 | DATAH1 | Data output to second changer |
+| 10 | HCLK1 | Clock to/from second changer |
+| 6 | REQH1 | Request output to second changer |
+| 65 | REQC1 | Request input from second changer |
+| 15 | REQH2 | Request output to third device (CH2 port) |
+| 16-18 | DATAC2/DATAH2/HCLK2 | Data/clock for CH2 port |
+| 61 | REQC2 | Request input from CH2 |
+| 19-20 | CHCONO1/CHCONO2 | Control outputs to CH1/CH2 |
+
+The CX85 acts as a hub — it can cascade communication to a second changer (CH2) or AUX device. Our emulator only needs to handle the J1 "to H.U" side (DATAH0/DATAC0/HCLK0/REQH0/REQC0). The cascade functionality is irrelevant.
+
+### 10.3 Power Management Pins
+
+| IC1 Pin | Signal | I/O | Description |
+|---------|--------|-----|-------------|
+| 62 | BUDET | **Input** | BU instant dip detection — **H: BU dip detected** |
+| 23 | MSTOP | **Output** | BU instant dip detection output to CH1 — **H: BU dip** |
+| 63 | AUX SW | **Input** | External input switch — H: External input active |
+
+**BUDET (Pin 62)** is the cranking/brownout detection input. When vehicle battery voltage dips during cranking, external circuitry detects the dip and drives BUDET HIGH. The I/F µ-COM then outputs MSTOP to tell the system µ-COM to halt disc operations (motor stop) to reduce current draw during the voltage sag. This is exactly analogous to our ATtiny's ADC-based voltage monitoring described in DR-KRC3006-002 Section 4.7.
+
+### 10.4 Protocol Variant Switch (COMMSW)
+
+| IC1 Pin | Signal | I/O | Description |
+|---------|--------|-----|-------------|
+| 67 | COMMSW | **Input** | 5-line communication old/new selection — **H: New, L: Old** |
+
+**This is a critical discovery.** The COMMSW pin selects between two protocol variants:
+
+- **Old communication (COMMSW = LOW)**: Used with older head units like the KRC-3006 (round 13-pin DIN connector, pre-1998). This is the "O protocol" referenced in Mictronics documentation.
+- **New communication (COMMSW = HIGH)**: Used with newer head units (rectangular connector, post-1998). This is the "C protocol."
+
+The System µ-COM (IC7) also has a COMMSW pin (Pin 19) with identical description, confirming both processors must agree on the protocol variant.
+
+**For our emulator:** We are implementing the **Old (O) protocol** exclusively, since the KRC-3006 is a 1994 head unit with the round DIN connector. The COMMSW pin tells us the changer hardware-selects the protocol, meaning the differences between O and C protocol are in the data encoding/command set, not in the electrical signaling.
+
+**Action item for testing:** When you have the CX85 changer on the bench, check the COMMSW state. Trace pin 67 of IC1 on the X13-9790-00 sub-circuit board — it likely goes to a pull-down resistor (selecting Old protocol by default) or to the COMMSW line on the CN1/CN2 connector where the head unit can set it. If COMMSW is hardwired LOW on the board, it confirms the CX85 always uses O protocol when connected to an old-style head unit.
+
+---
+
+## 11. System µ-COM (IC7) — Changer-Side Status Signals
+
+The UPD784214GC066 (IC7) manages the CD mechanism. Its communication pins relevant to the emulator:
+
+| IC7 Pin | Signal | I/O | Description |
+|---------|--------|-----|-------------|
+| 40 | DATAH | **Input** | Data input from H/U (routed through IC1) |
+| 41 | DATAC | **Output** | Data output to H/U (routed through IC1) |
+| 42 | HCLK | **I/O** | Communication clock |
+| 43 | REQC | **Output** | Communication request to H/U |
+| 83 | REQH | **Input** | Communication request from H/U |
+| 44 | CHMUTE | **Output** | Audio mute output to H/U — **L: Mute ON** |
+| 35 | AMUTE | **Output** | Internal audio mute (to DAC chain) |
+| 21 | CHCON | **Input** | Changer control from H/U |
+| 22 | BUDET | **Input** | BU instant dip detection |
+| 19 | COMMSW | **Input** | Old/New protocol selection |
+| 99 | PON | **Output** | Power ON control — **L: AVR power ON** |
+
+### 11.1 Mute Signal Confirmation
+
+**CHMUTE (IC7 Pin 44) — "Audio mute output to H/U — L: Mute ON"**
+
+This definitively confirms:
+- The MUTE line (Pin 5 on the 13-pin DIN) is driven by the **changer**, not the head unit
+- It is **active LOW** — pull LOW to mute, release HIGH (or high-Z) to unmute
+- The head unit's Q12 (CD-CH MUTE SW) circuit on the KRC-3006 schematic is the receiving end, not the driving end
+
+**Emulator implementation:** The ATtiny should:
+1. Hold MUTE HIGH (or floating with pull-up) during normal playback
+2. Pull MUTE LOW ~100ms before a virtual disc change begins
+3. Keep MUTE LOW throughout the disc change transition (~200-500ms)
+4. Release MUTE HIGH ~100ms after the new track begins playing
+5. Pull MUTE LOW during power-up initialization until the protocol handshake succeeds and audio playback is ready
+
+### 11.2 Power ON Sequence
+
+**PON (IC7 Pin 99) — "PON output — L: AVR power ON"**
+
+The system µ-COM controls its own power regulator via the PON pin. When the µ-COM decides to power down (e.g., after the head unit deselects the changer), it drives PON HIGH to shut off the voltage regulator. This is directly analogous to our ATtiny controlling the buck converter's enable pin in the graceful shutdown sequence.
+
+---
+
+## 12. Series Resistor Cross-Reference: Head Unit vs. Changer
+
+Both service manuals now allow us to see the complete impedance picture for each signal line — from driver through series resistors on both sides to receiver.
+
+### 12.1 Head-Unit-to-Changer Direction
+
+```
+KRC-3006 IC6 (µ-COM) → [R145: 100K] → Pin 11 (DATA H) → cable → CX85 IC1 Pin 11 ← [R24: 100K]
+KRC-3006 IC6 (µ-COM) → [R146: 100K] → Pin 13 (CLK)    → cable → CX85 IC1 Pin 13 ← [R25: 100K]
+KRC-3006 IC6 (µ-COM) → [direct?]    → Pin 1 (REQ H)   → cable → CX85 IC1 Pin 64 ← [R34: 100K]
+```
+
+**Total series resistance on DATA H and CLK: ~200K** (100K on each end). At 5V, signal current is only ~25µA. The cable capacitance and input pin capacitance form an RC filter with these resistors, further explaining why signal edges will be slow. With even 30pF total capacitance, τ = 200K × 30pF = 6µs — which is 75% of the 8µs clock period at 125 KHz. This means the signals may barely reach full swing before the next transition.
+
+**Implication:** The actual protocol may operate slower than 125 KHz due to these RC time constants, or the voltage thresholds may be set to trigger well before signals reach full 5V/0V levels. Your Phase 2 logic analyzer captures will reveal the actual waveform shape and timing. Use the analog view in PulseView if available to see the actual voltage levels, not just the digital interpretation.
+
+### 12.2 Changer-to-Head-Unit Direction
+
+```
+CX85 IC1 Pin 12 (DATAC0) → [R28: 1K] → Pin 10 (DATA C) → cable → KRC-3006 → [R130/R131: 2.2K each]
+CX85 IC1 Pin 14 (REQC0)  → [R30: 1K] → Pin 9 (REQ C)   → cable → KRC-3006 → [series R]
+```
+
+**Total series resistance on DATA C: ~5.4K** (1K + 2×2.2K). Much lower than the other direction, allowing faster edges and higher signal current (~1mA). This asymmetry makes sense — the changer's responses need to be crisp for the head unit to read reliably.
+
+**Emulator implication:** When the ATtiny drives DATA C and REQ C, it's driving through relatively low impedance. No special drive considerations needed — standard GPIO push-pull output is ideal.
+
+### 12.3 Complete Signal Impedance Summary
+
+| Signal | Direction | Driver-Side R | Receiver-Side R | Total R | Max Current | Edge Speed |
+|--------|-----------|---------------|-----------------|---------|-------------|------------|
+| DATA H (Pin 11) | H/U → Changer | 100K | 100K | 200K | ~25µA | Very slow |
+| CLK (Pin 13) | H/U → Changer | 100K | 100K | 200K | ~25µA | Very slow |
+| REQ H (Pin 1) | H/U → Changer | TBD | 100K | ≥100K | ~50µA | Slow |
+| DATA C (Pin 10) | Changer → H/U | 1K | 2×2.2K | ~5.4K | ~1mA | Fast |
+| REQ C (Pin 9) | Changer → H/U | 1K | TBD | ~1K+ | ~5mA max | Fast |
+| MUTE (Pin 5) | Changer → H/U | varies | varies | TBD | TBD | N/A (DC) |
+| ON/CHCON (Pin 4) | H/U → Changer | TBD | TBD | TBD | TBD | N/A (DC) |
+| RESET (Pin 7) | H/U → Changer | TBD | TBD | TBD | TBD | N/A (pulse) |
+
+---
+
+## 13. Changer Power Supply and Supercap
+
+### 13.1 Power Input
+
+The CX85's power cord (E30-4138-05) brings BU+14V directly from the head unit's Pin 3 (which we confirmed in Section 2 is raw battery voltage through a 3A fuse). The changer has its own internal regulation:
+
+| Rail | Source | Components |
+|------|--------|------------|
+| BU14V | Raw battery input | Direct from connector, shared bus |
+| S8V (Servo 8V) | Regulated from BU14V | 8V AVR circuit, switchable to 7V via IC7 Pin 92 |
+| +5V | Regulated from BU14V | IC3 (TA78L05F, 100mA LDO regulator) |
+| BU5V | Regulated 5V for I/F µ-COM | Separate 5V AVR circuit |
+| DA5V | Regulated 5V for DAC | Separate regulator for audio DAC |
+| D5V (DSP 5V) | Regulated 5V for DSP | Via IC10 area |
+| M5V | Motor 5V | Motor drive supply |
+
+**The changer has FIVE separate 5V rails** — BU5V, +5V, DA5V, D5V, and M5V — all isolated from each other. This extreme supply isolation is how Kenwood achieves 110dB S/N ratio and 96dB dynamic range. Our HAT design's separate 3.3V LDO for the DAC follows the same principle, just less aggressively.
+
+### 13.2 Supercapacitor in the CX85
+
+**Part C1: C90-2945-05 — Electrolytic 0.047F (47,000µF) 5.5V**
+
+This is located in the mechanism assembly (reference 1A on the exploded view), suggesting it's on the main power input path. At 47mF charged to 5V:
+- Stored energy: ½ × 0.047 × 25 = 0.59 joules
+- At 100mA draw (typical µ-COM idle): holds voltage for ~0.047 × 0.4V / 0.1A = 0.19 seconds
+
+This is enough for the microcontrollers to detect the power loss, save state to EEPROM (the CX85 has an AK93C45AF EEPROM), and halt gracefully — but NOT enough to keep the CD mechanism running. Kenwood's strategy: detect the dip, stop the motor immediately (MSTOP signal), save state, ride it out on the supercap, then resume when power returns.
+
+**Our emulator's 22F supercap provides ~470× more energy** than Kenwood's original design, but we need it because the Pi draws ~100× more current than the changer's µ-COMs and takes ~100× longer to shut down.
+
+### 13.3 BUDET — Battery Dip Detection Circuit
+
+The CX85 schematic (page 11) shows the BUDET circuit:
+- R46 (100K) and R47 (10K) form a voltage divider from BU14V
+- R48 (18K) and C7 (0.1µF) provide filtering
+- R44 (100K) and R45 (1K) set the threshold
+- The resulting signal goes to IC1 Pin 62 (BUDET) and IC7 Pin 22 (BUDET)
+
+The divider ratio of 100K/(100K+10K) ≈ 0.91 means at 14.4V nominal, the BUDET pin sees ~13.1V — but this is a 5V µ-COM, so there must be clamping. The additional resistors and cap form a filtered threshold detector. When BU14V drops below approximately 10-11V, BUDET transitions to indicate a dip.
+
+**This matches our ATtiny design** in DR-KRC3006-002 Section 4.7, where we use a 100K/33K divider to monitor the 12V input via the ATtiny's ADC. The Kenwood engineers chose a similar approach with discrete components to create a binary threshold, while our ADC-based approach gives us more flexibility to measure the actual voltage level.
+
+---
+
+## 14. Protocol Variant Identification Strategy
+
+The COMMSW discovery gives us a clear strategy for determining which protocol variant the KRC-3006 uses:
+
+### Method 1: Check COMMSW on the CX85 Board (Easiest)
+
+1. Locate IC1 Pin 67 on the X13-9790-00 sub-circuit board
+2. Trace the pin to its external circuit — look for a pull-up or pull-down resistor
+3. If pulled LOW via resistor to GND → Old (O) protocol is hardwired
+4. If pulled HIGH via resistor to VCC → New (C) protocol is hardwired
+5. If connected to a connector pin or solder jumper → protocol is selectable by the head unit
+
+### Method 2: Check COMMSW on Head Unit Bus (During Phase 1)
+
+The COMMSW signal may be one of the unnamed or dual-purpose pins on the 13-pin DIN connector. Check the head unit schematic for any output that could drive a protocol selection signal to the changer. If no such signal exists on the connector, the changer must self-select.
+
+### Method 3: Compare Captured Messages (During Phase 2)
+
+Capture the idle polling messages from the KRC-3006 and compare byte patterns against both the documented O-protocol and C-protocol command tables. The initialization sequence should be distinguishable between the two variants.
+
+**Expected result:** The KRC-3006 (1994, round DIN) almost certainly uses O protocol. The COMMSW pin on the CX85 is likely either pulled LOW by default or driven LOW when connected to an old-style head unit.
+
+---
+
+## 15. Relay Switching Architecture (Reference Only)
+
+The CX85 has four relays (K1-K4) that switch between three possible signal paths:
+
+| State | K1/K2 | K3/K4 | Audio Path | Data Path |
+|-------|-------|-------|------------|-----------|
+| Normal (CH1) | De-energized | De-energized | CX85 audio → H/U | H/U ↔ CX85 directly |
+| CH2 Cascade | Energized | De-energized | CH2 audio → H/U | H/U ↔ CH2 via CX85 |
+| AUX Input | De-energized | Energized | AUX audio → H/U | N/A (analog only) |
+
+The S1 switch on the X13-9790-00 board selects AUX ON/OFF. This entire relay architecture exists because the CX85 acts as a hub between the head unit and additional devices. 
+
+**For our emulator: None of this relay logic is needed.** We connect directly to the head unit's 13-pin DIN and handle all communication and audio in one device. The relay section is irrelevant.
+
+---
+
+## 16. Updated Emulator Design Implications (Changer-Side Findings)
+
+### 16.1 CHCON is Active LOW (Corrected)
+The CX85 service manual states CHCON1 "L: Control on CH1." This means Pin 4 (ON/CH-CON) is pulled LOW by the head unit to activate the changer, not HIGH as some published documentation suggests. **Phase 1 testing must verify this** — measure Pin 4 when CD changer source is selected. If it reads LOW (~0V) when changer is selected and HIGH (~5V) on other sources, the CX85 documentation is correct and published pinouts are wrong on the polarity.
+
+**Note:** This could also be an inversion at the receiving end — the CX85 may have an inverting buffer on the CHCON input. The Phase 1 measurement from the head unit side will be the definitive answer for our emulator.
+
+### 16.2 Clock Is Bidirectional — Emulator Must Handle Both Modes
+HCLK0 on the NEC µ-COM is mapped to the SPI SCK pin (SCK1), configured as I/O. The ATtiny1616's SPI peripheral can also operate in master or slave mode. During Phase 2 idle captures, watch carefully whether the clock is always driven by the head unit, or if there are scenarios where the changer side would need to drive it. If the clock is always head-unit-driven, the emulator can operate in SPI slave mode exclusively, simplifying the firmware.
+
+### 16.3 Use Hardware Interrupts for REQ H
+The CX85 maps REQH0 to INTP3 (a dedicated external interrupt). The ATtiny1616 should use a pin-change or external interrupt on the REQH input for immediate response. Do not poll this signal — interrupt-driven response is essential for meeting the tight timing requirements.
+
+### 16.4 Mute Protocol Is Active-LOW, Changer-Driven
+Confirmed from IC7 Pin 44 description. The ATtiny must actively drive MUTE LOW during disc changes and power-up, and release it HIGH when audio is ready.
+
+### 16.5 Battery Dip Detection Is Built Into the Kenwood Protocol
+The BUDET/MSTOP signals prove that the Kenwood protocol explicitly accounts for battery voltage dips. The head unit may expect or tolerate brief communication pauses during cranking. This is good news — our ATtiny can pause protocol responses during a detected voltage dip without the head unit necessarily dropping the changer connection.
+
+### 16.6 Kenwood Used Five Separate 5V Rails for Audio Quality
+The CX85's aggressive supply isolation (BU5V, +5V, DA5V, D5V, M5V) explains the 110dB S/N spec. Our simpler two-rail approach (5V for Pi/ATtiny, separate 3.3V LDO for DAC) should still achieve very good audio quality for a car environment, but if audio noise is an issue during testing, consider adding a dedicated LC filter between the 5V rail and the DAC's 3.3V LDO input.
+
+---
+
+## 17. Updated Test Procedure Recommendations
+
+In addition to the Phase 1 updates in Section 8, add the following based on changer-side findings:
+
+### Phase 1 Additions:
+
+5. **Verify Pin 4 (ON/CHCON) polarity** — Is it HIGH or LOW when CD changer source is selected? The CX85 manual says active LOW. Published docs often say active HIGH. Only one is correct for the KRC-3006. Record the actual voltage in both states.
+
+6. **If you have the CX85 changer available**, locate COMMSW (IC1 Pin 67) on the X13-9790-00 sub-circuit board and check whether it's pulled HIGH or LOW. This identifies the protocol variant without any protocol capture needed.
+
+### Phase 2 Additions:
+
+5. **Watch for clock direction changes** — In PulseView, observe whether the CLK line (CH0) is always driven from the same side, or if it switches between H/U-driven and changer-driven at different times. If only H/U-driven during idle polling (expected), note this.
+
+6. **Capture a power-cycle sequence** — Turn the head unit off and back on while capturing. The first few hundred milliseconds after power-on will show the initialization sequence, including any RESET pulse on Pin 7. Record how quickly the first polling message appears after power-on.
+
+### Phase 3 Additions:
+
+7. **Test MUTE line behavior** — When the Arduino successfully handshakes, try pulling MUTE LOW and HIGH and observe if the head unit mutes/unmutes the speaker output. This verifies the MUTE line polarity and function before integration.
+
+8. **Test with CHCON LOW expectation** — If Phase 1 confirms CHCON is active LOW, ensure the Arduino firmware checks for Pin 4 LOW (not HIGH) as the precondition for entering active protocol mode.
