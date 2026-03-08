@@ -1,0 +1,98 @@
+# ===== OS =====
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ===== IDEs & Editors =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+*.egg-info/
+dist/
+build/
+
+# ===== Arduino / PlatformIO =====
+.pio/
+.pioenvs/
+.piolibdeps/
+.clang_complete
+.gcc-flags.json
+
+# ===== KiCad =====
+# Backup files
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.sch-bak
+*-backups/
+_autosave-*
+fp-info-cache
+*.dsn
+*.ses
+
+# Gerber output (keep in hardware/gerbers/ but ignore stray outputs)
+*.gbr
+*.drl
+*.gbrjob
+!hardware/gerbers/**
+
+# ===== Logic Analyzer =====
+# Keep .sr capture files (they're part of the project data)
+# But ignore PulseView session files
+*.pvs
+
+# ===== Build Artifacts =====
+*.hex
+*.elf
+*.bin
+*.map
+*.lst
+!firmware/releases/**
+
+# ===== Documentation Build =====
+*.pdf
+!docs/**/*.pdf
+!reference/**/*.pdf
+
+# ===== Sensitive / Local Config =====
+# WiFi credentials, API keys, etc.
+secrets.py
+secrets.h
+wifi_config.json
+*.pem
+*.key
+
+# ===== Large Media Files =====
+# Don't commit actual music files to the repo
+*.mp3
+*.flac
+*.wav
+*.ogg
+*.m4a
+*.aac
+*.wma
+
+# ===== Misc =====
+*.log
+*.tmp
+*.bak
+*.orig
+node_modules/
