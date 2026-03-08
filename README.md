@@ -41,8 +41,8 @@ Any vintage automobile still using a Kenwood head unit with CD changer control. 
 ```
 cd_changer_emulator/
 ├── docs/                    # Project documentation
-│   ├── TP-KRC3006-001.docx  # Test procedure (IEEE 829 structure)
-│   ├── TL-KRC3006-001.xlsx  # Test log workbook
+│   ├── TP-KRC3006-001.odt  # Test procedure (IEEE 829 structure)
+│   ├── TL-KRC3006-001.ods  # Test log workbook
 │   ├── DR-KRC3006-002.md    # HAT design research
 │   ├── SA-KRC3006-001.md    # Schematic analysis (head unit + changer)
 │   └── protocol/            # Protocol captures and decoded data
