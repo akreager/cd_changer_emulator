@@ -1,0 +1,649 @@
+# KRC-3006 CD Changer Emulator — Raspberry Pi HAT Design Research
+
+## Document ID: DR-KRC3006-002
+**Date:** ___  
+**Author:** ___  
+**Status:** Pre-design research — to inform schematic and layout
+
+---
+
+## 1. System Architecture Overview
+
+The final product is a single Raspberry Pi HAT PCB that plugs onto the Pi 3B+ GPIO header and provides everything needed to emulate a Kenwood CD changer. The HAT consolidates four subsystems:
+
+1. **ATtiny1616 Protocol Controller** — Handles all real-time Kenwood bus communication
+2. **PCM5102A I2S DAC** — Converts digital audio from the Pi to analog line-level output
+3. **Automotive Power Supply** — Steps 12V from the Kenwood head unit down to 5V and 3.3V
+4. **Connectors & Interface** — 13-pin DIN breakout, UPDI programming header, status LEDs
+
+The Raspberry Pi 3B+ provides: WiFi AP for the web control interface, media storage (USB or SD), audio playback via MPD/Flask, and UART communication with the ATtiny.
+
+---
+
+## 2. ATtiny1616 Selection Rationale
+
+### Why ATtiny1616 (not ATtiny85 or ATtiny3216)
+
+| Parameter | ATtiny85 | ATtiny1616 | ATtiny3216 |
+|-----------|----------|------------|------------|
+| Pins (GPIO) | 6 | 18 | 18 |
+| Flash | 8KB | 16KB | 32KB |
+| SRAM | 512B | 2KB | 2KB |
+| Hardware UART | No (USI only) | Yes (1x) | Yes (1x) |
+| Hardware SPI | No (USI only) | Yes (1x) | Yes (1x) |
+| Ext. Interrupts | Limited | All pins | All pins |
+| CCL (Custom Logic) | No | Yes (2 LUT) | Yes (2 LUT) |
+| Max Clock | 20MHz | 20MHz | 20MHz |
+| JLCPCB Part # | Various | **C507118** | C507136 |
+| JLCPCB Price | ~$0.30 | **~$0.49** | ~$0.80 |
+| Package | SOIC-8 | **QFN-20 (3x3mm)** | QFN-20 (3x3mm) |
+
+**Decision: ATtiny1616** — The ATtiny85 simply doesn't have enough I/O (need 7 bus pins + UART TX/RX = 9 minimum). The 1616 provides exactly what's needed with headroom. The 3216 doubles the flash but is otherwise identical and costs more — 16KB is plenty for the protocol state machine.
+
+### JLCPCB Assembly Notes
+- JLCPCB Part: **C507118** (ATTINY1616-MNR, QFN-20-EP 3x3mm)
+- Assembly type: SMT, compatible with both Economic and Standard PCBA
+- MSL Level 1 (no baking required)
+- The QFN-20 package requires proper thermal pad design — include thermal vias under the exposed pad
+
+### Pin Assignment Plan
+
+The ATtiny1616 in the QFN-20 package has pins PA0-PA7 and PB0-PB5, plus the UPDI pin (PA0 is shared with UPDI by default but can be freed via fuse setting).
+
+**Recommended pin mapping:**
+
+| ATtiny Pin | Function | Kenwood Signal | Direction | Notes |
+|-----------|----------|----------------|-----------|-------|
+| PA1 | UART TX | → Pi GPIO15 (RXD) | Output | Hardware USART0 TXD |
+| PA2 | UART RX | ← Pi GPIO14 (TXD) | Input | Hardware USART0 RXD |
+| PA3 | SPI SCK | CLK (Pin 13) | Input | Use as ext interrupt for clock |
+| PA4 | SPI MOSI | CH-DATAH (Pin 11) | Input | Data from head unit |
+| PA5 | SPI MISO | CH-DATAC (Pin 10) | Output | Data to head unit |
+| PA6 | GPIO | CH-REQH (Pin 1) | Input | Ext interrupt on falling edge |
+| PA7 | GPIO | CH-REQC (Pin 9) | Output | Changer handshake |
+| PB0 | GPIO | CH-CON (Pin 4) | Input | Changer connect detect |
+| PB1 | GPIO | CH-MUTE (Pin 5) | Output | Mute request |
+| PB2 | GPIO | CH-RST (Pin 7) | Input | Reset detect |
+| PB3 | GPIO | Status LED 1 | Output | Activity indicator |
+| PB4 | GPIO | Status LED 2 | Output | Error indicator |
+| PB5 | GPIO | (spare) | — | Reserve for future use |
+| PA0 | UPDI | Programming | Bidir | In-circuit programming from Pi |
+
+### Level Shifting: NOT Required
+Both the ATtiny1616 (running at 5V) and the Kenwood bus (5V TTL) are at the same voltage level. However, the Pi's GPIO is 3.3V. For the UART connection:
+- **ATtiny TX → Pi RX**: Needs a voltage divider (2.2kΩ / 3.3kΩ) to drop 5V to ~3.3V
+- **Pi TX → ATtiny RX**: The ATtiny's 5V logic reads 3.3V as HIGH (Vih min = 0.6×Vcc = 3.0V at 5V supply, so 3.3V is marginal). Run the ATtiny at 3.3V instead if this is a concern, OR add a level shifter IC. Running at 3.3V simplifies things significantly but must be verified against Kenwood bus voltage requirements.
+
+**Alternative: Run ATtiny1616 at 3.3V** — The 1616 operates from 1.8V to 5.5V and runs at full 20MHz speed at 3.3V. The Kenwood bus is 5V but the ATtiny's 3.3V output high would read as 3.3V on the bus. Whether the Kenwood head unit reads 3.3V as a valid HIGH needs verification during Phase 3 testing. If it doesn't work, add a 74LVC245 or TXB0108 level shifter.
+
+### UPDI In-Circuit Programming from the Pi
+The ATtiny 1-series uses UPDI (Unified Program and Debug Interface) — a single-wire protocol that can be driven by a standard UART with a resistor and diode. The pyupdi/pymcuprog tools run on the Pi.
+
+**Circuit for Pi-based UPDI programming:**
+```
+Pi GPIO14 (TX) ---[470Ω]---+--- ATtiny UPDI pin
+                            |
+Pi GPIO15 (RX) ---[Schottky]---+
+                  (cathode to TX side)
+```
+A GPIO-controlled MOSFET can disconnect this circuit during normal operation so the UART is free for the ATtiny ↔ Pi command link. Alternatively, use a second UART (the Pi 3B+ has a mini-UART on GPIO14/15 and the PL011 UART available when Bluetooth is moved).
+
+---
+
+## 3. PCM5102A I2S DAC Circuit
+
+### I2S Connection to Pi GPIO Header
+
+| Pi GPIO | Pi Header Pin | PCM5102A Pin | Signal |
+|---------|--------------|--------------|--------|
+| GPIO18 | Pin 12 | BCK | Bit clock |
+| GPIO19 | Pin 35 | LRCK | L/R word clock |
+| GPIO21 | Pin 40 | DIN | Serial data |
+| — | — | SCK | **Tie to GND** (self-generated) |
+
+### PCM5102A Configuration Pins (active-LOW, active during power-up)
+
+| Pin | Setting | Effect |
+|-----|---------|--------|
+| FMT (H4L) | **LOW** (GND) | I2S format (required for Pi) |
+| FLT (H1L) | LOW (GND) | Normal latency filter |
+| DMP (H2L) | LOW (GND) | Normal de-emphasis |
+| XSMT | **HIGH** (3.3V via 47kΩ pull-up) | Soft-mute OFF (unmuted) |
+
+### Key Design Points
+- **Power**: 3.3V only (from the on-board LDO, NOT from the Pi's 3.3V rail — keep DAC power isolated)
+- **Decoupling**: Place 10µF + 100nF ceramic caps close to AVDD, DVDD, and CPVDD pins per TI datasheet Figure 38
+- **Charge pump caps**: 2x 2.2µF between CAPP/CAPN pins (generates internal negative rail for bipolar output swing)
+- **Output coupling caps**: 2x 2.2µF in series with each audio output (OUTL, OUTR) → to Kenwood pins 12 and 8
+- **Output filter**: Optional low-pass RC filter after coupling caps (1kΩ + 100pF = ~1.6MHz cutoff) to suppress any ultrasonic content
+- **Ground**: Separate analog ground pour under the DAC, connected to digital ground at a single star point
+
+### Linux Configuration
+Add to `/boot/config.txt`:
+```
+dtoverlay=hifiberry-dac
+```
+Verify with: `aplay -l` → should show `snd_rpi_hifiberry_dac`
+
+### JLCPCB Parts
+- PCM5102A: Search JLCPCB parts library — TI's PCM5102APWR (TSSOP-20) is the target. **Check stock before layout** — this part has had availability issues. The PCM5102 (non-A) is an acceptable alternative (same pinout, slightly different specs).
+- If PCM5102A is unavailable at JLCPCB, consider: (a) using a pre-built GY-PCM5102 module soldered to the HAT via header pins, or (b) switching to PCM5122 which adds I2C volume control but requires a more complex driver setup.
+
+---
+
+## 4. Automotive Power Supply & Energy Storage
+
+### 4.1 Target Vehicle: 1985 Chevrolet C10/K10 Silverado
+
+The target installation vehicle significantly impacts power supply design. An '85 Silverado presents a harsher electrical environment than modern vehicles:
+
+- **Ignition system**: GM HEI (High Energy Ignition) distributor — every spark event collapses an ignition coil inside the distributor cap, generating broadband EMI pulses that couple into the wiring harness. No modern ECU filtering or shielded ignition wires.
+- **Charging system**: Internal-regulator alternator with no smart voltage management. Output is a relatively coarse 13.8–14.8V with significant AC ripple. Aging diodes in a 40-year-old alternator (even a replacement) can pass AC into the DC bus.
+- **Cranking behavior**: The starter motor draws 150–250A. Battery voltage sags to 8V or lower during cranking, especially on cold Ohio mornings. The sag lasts 1–5 seconds depending on engine temperature and battery condition.
+- **Load dump transients**: When large inductive loads disconnect (A/C compressor clutch, blower motor), voltage spikes of 40V+ can occur for microseconds to milliseconds.
+- **Wiring age**: 40-year-old wiring with potentially corroded grounds and increased resistance throughout. Voltage drops across connectors may be significant.
+- **No modern filtering**: No CAN bus, no body control module, no suppression capacitors on relays. What the alternator and ignition system produce, the wiring carries.
+
+**Does the Kenwood head unit protect us?**
+The KRC-3006 has its own internal voltage regulation for its logic and display, so the head unit itself survives automotive environments. However, Pin 3 (+12V) on the changer connector is almost certainly just battery voltage routed through a fuse and possibly a small series inductor — it was designed to power a CD changer's motors and laser optics, not sensitive digital electronics. The head unit protects *itself* but does NOT provide a clean, regulated, filtered supply on the changer port. **Verify this by examining the service manual schematic for the Pin 3 supply path.** The HAT must include its own full input protection and filtering.
+
+### 4.2 Requirements
+
+| Rail | Voltage | Max Current | Consumer |
+|------|---------|-------------|----------|
+| 5V | 5.0V ±5% | 2.5A | Raspberry Pi 3B+ (via GPIO header pins 2,4) |
+| 3.3V | 3.3V ±3% | 200mA | ATtiny1616, PCM5102A, EEPROM, LEDs |
+
+Input: 12V nominal from Kenwood Pin 3 (actual range in an '85 Silverado: 8V during cranking, 14.5V running, 40V+ transient spikes)
+
+### 4.3 Input Protection Circuit (Strengthened for Vintage Vehicle)
+
+```
+Pin 3 (+12V) → [PTC fuse] → [Schottky] → [TVS] → [Pi-filter: C-L-C] → VBATT_FILT
+```
+
+**Full chain, in order from connector to buck converter input:**
+
+1. **PTC resettable fuse** (1812 package, 2A hold / 4A trip): First line of defense against dead shorts during prototyping or wiring errors. Self-resetting means you don't blow a one-time fuse during development.
+
+2. **Reverse polarity protection**: SS34 Schottky diode (40V, 3A) in series — low forward drop (~0.5V). Protects against accidentally swapping wires on the DIN connector. On an '85 Silverado with no polarity-protected connectors elsewhere in the vehicle, this is essential.
+
+3. **Transient voltage suppression**: SMAJ24A TVS diode (24V standoff, 400W peak pulse power) from VBATT to GND. Clamps load dump spikes to ~39V (clamping voltage at 1A). This is the primary defense against the 40V+ transients that occur when inductive loads disconnect.
+
+4. **Pi-filter for EMI** (upgraded from single LC for the HEI ignition environment):
+   ```
+   VBATT_PROT → [100µF electrolytic] → [22µH inductor, ≥3A sat] → [100µF electrolytic + 100nF ceramic] → VBATT_FILT
+   ```
+   The pi-filter (capacitor-inductor-capacitor) provides significantly better high-frequency rejection than a single LC stage. The first cap absorbs sharp transient edges from HEI ignition pulses. The inductor blocks conducted EMI. The second cap provides a clean, low-impedance supply to the buck converter input. The 100nF ceramic in parallel with the output electrolytic handles high-frequency noise that electrolytics are too slow to absorb.
+
+   **Why a pi-filter matters for this vehicle**: HEI ignition pulses contain energy from DC up through 100+ MHz. A single LC filter has a resonant peak that can actually amplify noise at its resonant frequency. The pi-filter's double capacitive termination damps this resonance and provides a steeper rolloff.
+
+5. **Optional: Common-mode choke** on the 12V and GND lines entering the HAT, before the pi-filter. This suppresses differential AND common-mode noise from the vehicle wiring harness. A Würth 744272102 or similar SMD common-mode choke rated for DC current would go here. This is the "belt and suspenders" approach for audio quality — if you hear alternator whine through the speakers during testing, add this.
+
+### 4.4 12V → 5V Buck Converter
+
+**Recommended: TPS5430DDAR** (TI)
+- **5.5V–36V input range** — critical: survives automotive transients that the TVS clamps to ~39V
+- 3A output continuous
+- 500kHz switching frequency
+- Widely available on JLCPCB/LCSC (check current stock)
+- Well-documented application circuit in datasheet
+- Internal UVLO (under-voltage lockout) at 5.5V — converter shuts down cleanly if input sags below this during cranking, rather than producing garbage output
+
+**Alternative: MP1584EN** (MPS)
+- Very popular on JLCPCB, often "basic" part = lower assembly fee
+- **4.5V–28V input** — NOTE: lower max input than TPS5430. The TVS clamp voltage (~39V) exceeds this rating. If using MP1584, you MUST ensure the TVS clamps below 28V, or add a series resistor to drop voltage before the converter. **The TPS5430 is preferred for this vehicle.**
+- 3A output, smaller package (SOIC-8)
+
+**Layout critical**: Keep the input cap → SW pin → inductor → output cap loop as tight as possible. Place input caps directly adjacent to VIN and GND pins. Unbroken ground pour under the converter with vias to inner/back ground plane. Place the buck converter as far from the PCM5102A DAC as board space allows — opposite corners of the HAT is ideal.
+
+### 4.5 5V → 3.3V LDO
+
+**Recommended: AMS1117-3.3** (LCSC basic part, SOT-223)
+- 1A output (far more than needed)
+- Low cost, universally available at JLCPCB
+- ~1.1V dropout means it works from 4.5V+ input
+- Place 10µF tantalum + 100nF ceramic on input and output
+- Position this LDO near the DAC, not near the buck converter — it acts as a secondary filter stage for the DAC's 3.3V supply
+
+### 4.6 Supercapacitor Energy Storage
+
+The supercap serves **three critical functions**:
+
+1. **Graceful shutdown**: When ignition is turned off, the supercap provides enough energy for the Pi to execute `shutdown -h now` and complete filesystem sync, preventing SD card corruption.
+2. **Cranking ride-through**: During engine cranking, battery voltage sags to 8V or below. The buck converter's UVLO may trip at 5.5V input, causing a momentary 5V dropout. The supercap holds the Pi's 5V rail steady through the 1–5 second cranking event.
+3. **Brownout/glitch immunity**: Brief voltage dips from load switching (headlights, blower motor, power windows) are absorbed by the supercap without disturbing the Pi.
+
+#### Energy Budget
+
+**Graceful shutdown scenario:**
+- Pi 3B+ during shutdown (headless, no USB devices): ~400–500mA at 5V
+- Shutdown duration (lean Raspberry Pi OS Lite, non-essential services disabled): 5–8 seconds
+- Energy needed: 0.5A × 5V × 8s = **20 joules**, plus margin
+
+**Cranking ride-through scenario:**
+- Pi running normally: ~500mA at 5V
+- Cranking duration (worst case, cold start): 5 seconds
+- Energy needed: 0.5A × 5V × 5s = **12.5 joules**
+
+The shutdown scenario dominates. Target: **30 joules minimum** (50% safety margin).
+
+#### Supercap vs. LiPo: Why Supercap Wins for This Application
+
+| Factor | Supercap | LiPo |
+|--------|----------|------|
+| Temperature range | -40°C to +65°C | 0°C to +45°C (charge) |
+| Ohio winter (-20°F) | Works fine | Cannot charge, may be damaged |
+| Ohio summer (car interior 60°C+) | Works fine | Degrades rapidly, swelling risk |
+| Cycle life | 500,000+ cycles | 300–500 cycles |
+| Fire risk in hot car | None | Non-trivial |
+| Self-discharge | Higher (days) | Lower (weeks) |
+| Charge management | Simple (resistor) | Complex IC required |
+| Aging/replacement | 10+ year life | 2–3 year replacement cycle |
+
+**Verdict**: The supercap's temperature tolerance alone is decisive for an automotive application in Ohio. A LiPo would need active thermal management or seasonal removal, which is absurd for a car stereo accessory. The supercap's higher self-discharge is irrelevant because it recharges in seconds whenever the engine is running.
+
+#### Recommended Implementation: Direct 5V Rail Supercap
+
+The simplest effective approach is a supercap directly on the 5V output rail, with the ATtiny managing the shutdown logic.
+
+**Component: 5.5V 10F coin-type supercapacitor** (e.g., Eaton HV1030-2R7106-R or similar)
+- Pre-balanced dual-cell module in a single radial package
+- ~21mm diameter × 8mm tall — fits on the HAT
+- Rated 5.5V max (two 2.7V cells internally balanced)
+- Cost: ~$3–5
+
+**Energy calculation with 10F cap on 5V rail:**
+- Usable voltage range: 5.0V (charged) → 4.6V (Pi minimum before brownout)
+- Usable energy: ½ × 10 × (5.0² − 4.6²) = ½ × 10 × (25 − 21.16) = **19.2 joules**
+- At 500mA draw: 10F × 0.4V / 0.5A = **8 seconds** — tight for shutdown
+
+**Upgraded: 5.5V 22F supercapacitor** (slightly larger, ~25mm diameter)
+- Usable energy: ½ × 22 × 3.84 = **42.2 joules**
+- At 500mA draw: 22 × 0.4 / 0.5 = **17.6 seconds** — comfortable for shutdown
+- At 500mA draw during 5-second cranking: voltage drops only ~0.11V — cranking is invisible to the Pi
+
+**Recommendation: Use a 22F / 5.5V supercap.** The extra size and cost (~$1 more) buys substantial margin for both shutdown and cranking scenarios.
+
+#### Supercap Charging & Isolation Circuit
+
+```
+Buck converter 5V output
+        |
+        +---[2.2Ω charge resistor]---+---[Schottky diode, cathode→cap]---+--- SUPERCAP (+)
+        |                            |                                    |
+        |                            +--- 5V_RAIL (to Pi, ATtiny, DAC)   |
+        |                                                                 |
+        +--- GND --------------------------------------------------------+--- SUPERCAP (−)
+```
+
+**Key components:**
+
+1. **Charge-limiting resistor (2.2Ω, 1W)**: Limits inrush current when the supercap is empty at power-on. Without this, a discharged 22F cap looks like a dead short to the buck converter — it would current-limit or shut down. At 5V across 2.2Ω, initial inrush is limited to ~2.3A, which the buck converter can handle. The cap charges to 90% in about τ = R×C = 2.2 × 22 = 48 seconds. This is fine — the Pi takes 20 seconds to boot anyway.
+
+2. **Schottky diode (SS14 or BAT54)**: Cathode toward the supercap, anode toward the 5V rail. This prevents the supercap from backfeeding into the buck converter when 12V input disappears. When 12V drops, the buck converter output collapses, and the supercap becomes the sole power source — current flows from the cap through the 5V rail to the Pi, with the diode blocking reverse flow into the dead converter.
+
+3. **Diode bypass consideration**: The Schottky diode has a ~0.3V forward drop, meaning the supercap charges to ~4.7V rather than 5.0V. This reduces available energy slightly. To mitigate: use a very low-Vf Schottky (e.g., PMEG2010 at ~0.2V), or accept the reduced margin (still workable with a 22F cap).
+
+**Alternative: Use a P-channel MOSFET as an ideal diode** instead of the Schottky. This eliminates the voltage drop entirely. The ATtiny can control the MOSFET gate to disconnect the supercap from the 5V rail during normal operation and connect it only during a power failure. This is more complex but more efficient.
+
+### 4.7 Power Management Architecture (Revised for Always-On B.U.)
+
+**Key discovery from the KRC-3006 service manual:** Pin 3 (B.U.) is Battery Unswitched — raw 12V directly from the vehicle battery through a 3A fuse, available at ALL times regardless of ignition position. The Pi can be powered whenever the truck's battery is connected, not just when the engine is running. This transforms the power management from "survive power loss" to "intelligently decide when to stay on."
+
+**Parasitic drain budget:** A Pi 4 at idle draws ~600mA at 5V, which translates to ~250mA from the 12V battery (accounting for ~85% buck converter efficiency). Over 24 hours that's 6Ah — roughly 10% of a typical Group 78 battery (60-70Ah). The system must NOT stay on indefinitely. A mandatory maximum on-time after ignition-off prevents a dead battery.
+
+#### ATtiny Input Signals
+
+The ATtiny monitors TWO independent signals to determine system state:
+
+**Signal 1: B.U. voltage via ADC**
+```
+VBATT_FILT ---[100kΩ]---+---[33kΩ]--- GND
+                         |
+                         +--- ATtiny ADC pin (PB5)
+```
+At 14V input: ADC reads ~3.47V. At 10V input: ADC reads ~2.48V. At 6V (deep crank): ADC reads ~1.49V. This tells us battery health and detects cranking events.
+
+**Signal 2: Head unit protocol activity**
+The ATtiny monitors CH-CON (Pin 4) and/or REQH (Pin 1) polling activity. When the head unit is on and CD changer source is selected, these signals are active. When the ignition is off and the head unit powers down, these signals go inactive. This is a clean, unambiguous digital indicator of "head unit on" vs "head unit off" — much more reliable than trying to distinguish 14.4V (charging) from 12.8V (battery resting) on the B.U. line.
+
+#### Complete Power State Machine
+
+| State | Entry Condition | ATtiny Behavior | Pi Behavior | Buck Converter | Max Duration |
+|-------|----------------|-----------------|-------------|----------------|-------------|
+| **SLEEP** | Default / after shutdown | Deep sleep (<10µA). Wake on REQH interrupt or periodic ADC sample (every ~2s). | OFF | Disabled (EN LOW) | Indefinite |
+| **WAKE** | REQH activity detected OR VBATT rise from <10V to >12V | Enable buck converter. Boot immediately. Begin responding to Kenwood polls with "loading" status. | Booting | Enabled | — |
+| **RUNNING** | Pi reports ready via UART | Full protocol operation. Relay commands to Pi. | Full operation: music playback, web server on AP mode. | Enabled | Indefinite (engine running) |
+| **STANDBY** | Protocol polling stops (head unit off), VBATT >12V stable | Send `HU_OFF` to Pi via UART. Continue monitoring REQH for head unit return. Monitor VBATT for battery health. | Stop playback. Scan for home WiFi AP. If found → connect, enter update mode. If not found → start idle timer (60s). | Enabled | See STANDBY sub-states below |
+| **UPDATE** | Pi reports home WiFi connected | Monitor VBATT. Reset idle timer on Pi activity. Send `BATT_LOW` if VBATT drops below 12.0V. | Connected to home WiFi as client. Allow SSH, file transfers, web UI access, system updates. Report activity to ATtiny to reset idle timer. | Enabled | Configurable max: 30 min default |
+| **SHUTTING_DOWN** | Idle timer expired, OR `BATT_LOW` sent, OR max standby time exceeded | Wait for Pi `SHUTDOWN_ACK` or 15-second watchdog timeout. | Execute `shutdown -h now`. Send `SHUTDOWN_ACK` when halt complete. | Enabled (until ACK) | 15 seconds max |
+| **POWER_OFF** | Pi halted or watchdog expired | Disable buck converter. Enter SLEEP. | OFF | Disabled → SLEEP | Immediate |
+| **CRANKING** | VBATT <10V, duration <10s, was in RUNNING/STANDBY/UPDATE | Continue current operation on supercap energy. Do NOT change state. | Unaware (supercap maintains 5V). | Enabled (may drop out, supercap takes over) | 10 seconds |
+| **EMERGENCY** | VBATT <10V sustained >10s, OR VBATT <9V at any time | Send `SHUTDOWN_NOW` to Pi. Force disable buck after 10s regardless. | Emergency shutdown if still responsive. | Force disabled after timeout | 10 seconds |
+
+#### STANDBY Sub-States (Detailed)
+
+When the head unit turns off (STANDBY state), the system follows this decision tree:
+
+```
+Head unit off detected (CH-CON inactive, no REQH polling for >2 seconds)
+│
+├── ATtiny sends "HU_OFF" to Pi via UART
+│
+├── Pi stops music playback
+├── Pi scans for configured WiFi networks (5-second scan)
+│
+├─── Home WiFi found?
+│    ├── YES → Connect to home WiFi as client
+│    │         Enter UPDATE mode
+│    │         Start idle timer: 30 minutes (configurable)
+│    │         Reset timer on any activity:
+│    │           - Active SSH session
+│    │           - File transfer in progress (rsync, scp, web upload)
+│    │           - Web UI page load
+│    │           - System update running (apt)
+│    │         On timer expiry → SHUTTING_DOWN
+│    │         On max standby time (configurable, e.g., 2 hours) → SHUTTING_DOWN
+│    │         On BATT_LOW from ATtiny → SHUTTING_DOWN
+│    │
+│    └── NO → Start short idle timer: 60 seconds
+│             (Just enough for filesystem sync and clean shutdown)
+│             On timer expiry → SHUTTING_DOWN
+│
+├─── At ANY point during STANDBY/UPDATE:
+│    ├── REQH activity resumes (head unit back on) → Return to RUNNING
+│    │   ATtiny sends "HU_ON" to Pi
+│    │   Pi switches back to AP mode, resumes playback readiness
+│    │
+│    └── VBATT drops below threshold → EMERGENCY
+```
+
+#### Battery Protection Logic
+
+The ATtiny continuously monitors battery voltage during STANDBY and UPDATE modes to prevent over-discharge:
+
+| Battery Voltage | Condition | Action |
+|----------------|-----------|--------|
+| >12.5V | Healthy, fully charged | Normal operation, no concern |
+| 12.0V – 12.5V | Resting, adequate | Normal operation, log advisory |
+| 11.5V – 12.0V | Low | ATtiny sends `BATT_LOW` to Pi. Pi begins graceful shutdown within 60 seconds. |
+| <11.5V | Critically low | ATtiny sends `SHUTDOWN_NOW`. 15-second hard deadline. |
+| <10V for >10s | Dead/disconnected | Emergency power off. |
+
+**Note:** These thresholds are conservative. A healthy 12V lead-acid battery at rest reads 12.6-12.8V. Below 12.0V it's roughly 50% discharged. Below 11.5V is 20% or less — leaving enough to start the engine on a warm day but getting risky. The thresholds should be configurable via the web interface for users with different battery sizes or in different climates.
+
+#### Maximum Standby Time Safety Net
+
+Even with activity-based idle timer resets, there is a hard maximum standby time (configurable, default 2 hours) after which the system will shut down regardless. This prevents scenarios like: an SSH session is left connected but idle, or a file transfer stalls but the connection stays open, keeping the timer perpetually reset while the battery slowly drains overnight.
+
+The hard maximum is the last line of defense against a dead battery.
+
+### 4.8 ATtiny ↔ Pi UART Command Protocol
+
+The ATtiny and Pi communicate over UART (115200 baud, 8N1). Commands are simple ASCII strings terminated with newline (`\n`). This keeps the protocol human-readable for debugging via serial monitor.
+
+#### ATtiny → Pi Commands
+
+| Command | Meaning | Pi Action |
+|---------|---------|-----------|
+| `HU_ON\n` | Head unit is active, protocol polling detected | Switch to AP mode, prepare for playback |
+| `HU_OFF\n` | Head unit powered down, B.U. still live | Stop playback, scan for home WiFi, start idle logic |
+| `BATT_LOW\n` | Battery voltage below 12.0V threshold | Begin graceful shutdown within 60 seconds |
+| `SHUTDOWN_NOW\n` | Emergency — battery critical or sustained power loss | Execute immediate `shutdown -h now` |
+| `CRANK_START\n` | Voltage dip detected (cranking event) | Optional: pause playback to reduce current draw |
+| `CRANK_END\n` | Voltage recovered from cranking dip | Optional: resume playback |
+| `CMD:xx xx xx\n` | Kenwood protocol command received from head unit | Parse command, execute media control (play, next, prev, disc change, etc.) |
+| `VBATT:xxxx\n` | Battery voltage in millivolts (periodic, every 10s) | Display on web dashboard, log for diagnostics |
+
+#### Pi → ATtiny Commands
+
+| Command | Meaning | ATtiny Action |
+|---------|---------|---------------|
+| `READY\n` | Pi booted, Flask app running, UART link established | Transition from "loading" status to full protocol operation |
+| `PLAY\n` | Playback started | Update Kenwood status to "playing", begin time counter responses |
+| `STOP\n` | Playback stopped | Update Kenwood status to "stopped" |
+| `TRACK:dd\n` | Current track number (decimal) | Include in Kenwood time/status responses |
+| `DISC:dd\n` | Current disc number (decimal) | Include in Kenwood disc status responses |
+| `TIME:mm:ss\n` | Current playback position | Include in Kenwood time poll responses |
+| `MAG:bbbbbbbbbb\n` | Magazine bitmap (10 chars, '1'=disc present) | Include in Kenwood magazine status responses |
+| `MUTE_ON\n` | Request mute (disc change starting) | Pull MUTE line LOW |
+| `MUTE_OFF\n` | Release mute (audio ready) | Release MUTE line HIGH |
+| `SHUTDOWN_ACK\n` | Pi has completed shutdown sequence | Disable buck converter, enter SLEEP |
+| `WIFI_HOME\n` | Connected to home WiFi (UPDATE mode active) | Reset idle timer, allow extended standby |
+| `WIFI_NONE\n` | No home WiFi found | Start short (60s) idle timer |
+| `ACTIVITY\n` | User activity detected (SSH, file transfer, web UI) | Reset idle timer |
+
+### 4.9 Power Sequencing (Revised)
+
+**Normal start (ignition ON):**
+1. Key turned → ACC energizes head unit → head unit boots → begins polling on REQH
+2. ATtiny in SLEEP detects REQH interrupt → wakes → drives buck converter EN HIGH
+3. Buck converter starts → 5V rail energizes → supercap begins charging
+4. ATtiny boots fully (~1ms) → begins responding to Kenwood polls with "loading magazine" status
+5. Pi boots from SSD (~10-15s) → Flask app starts → sends `READY` over UART
+6. ATtiny transitions to RUNNING state → full protocol operation → music playback available
+
+**Normal stop (ignition OFF):**
+1. Key turned off → ACC drops → head unit powers down → REQH polling stops → CH-CON goes inactive
+2. ATtiny detects 2 seconds of no polling → enters STANDBY → sends `HU_OFF` to Pi
+3. Pi stops playback → scans for home WiFi (5 seconds)
+4. **Home WiFi found**: Pi connects as client → sends `WIFI_HOME` → ATtiny allows extended standby (up to 2 hours). User can access Pi over home network for music management, updates, SSH.
+5. **No WiFi found**: Pi sends `WIFI_NONE` → ATtiny starts 60-second idle timer → Pi syncs filesystems
+6. Timer expires → ATtiny sends `BATT_LOW` or Pi's internal idle timer triggers → Pi executes `shutdown -h now` → sends `SHUTDOWN_ACK`
+7. ATtiny receives ACK → disables buck converter → enters SLEEP
+
+**Re-start while in STANDBY/UPDATE:**
+1. Key turned back on while Pi is still running in standby/update mode
+2. ATtiny detects REQH polling → sends `HU_ON` to Pi
+3. Pi switches WiFi back to AP mode → resumes playback readiness → sends `READY`
+4. Seamless transition — no reboot needed. Music available within 1-2 seconds.
+
+**This seamless resume is a huge usability win.** If you pull into the driveway, turn the truck off, go inside for 5 minutes to grab something, and come back — the Pi is still running (connected to home WiFi), and when you start the truck, music is available instantly without a 15-second boot wait.
+
+**Cranking event (engine restart):**
+1. Starter motor engages → B.U. voltage sags to 8-9V
+2. Buck converter may drop out of regulation
+3. Supercap maintains 5V rail for the Pi — cranking is invisible to the software
+4. ATtiny detects voltage dip via ADC → sends `CRANK_START` to Pi (informational)
+5. Engine catches → voltage recovers to 14V → ATtiny sends `CRANK_END`
+6. Normal operation continues — no state change, no reboot
+
+### 4.10 Feeding 5V to the Pi via GPIO
+
+The Pi is powered through GPIO pins 2 and 4 (5V) and pins 6, 9, etc. (GND). **This bypasses the Pi's USB-C power input and its onboard protection.** The HAT's 5V rail must be well-regulated and protected. The input protection circuit, buck converter, and supercap collectively ensure this. As a last-resort clamp, add a 5.1V Zener diode from the 5V rail to ground — if the buck converter ever overshoots (unlikely but possible during transient recovery), the Zener clamps it before it reaches the Pi.
+
+### 4.11 Audio-Specific Power Considerations for HEI Ignition Environment
+
+Alternator whine (a pitched whine that varies with engine RPM) is the most common audio complaint in car Pi/DAC installations, and it's worse in vehicles with older alternators. Prevention strategy:
+
+1. **The pi-filter on the 12V input** (Section 4.3) is the first defense — it prevents conducted noise from reaching the buck converter.
+2. **Separate analog and digital ground pours** on the HAT PCB, connected at a single star point near the 3.3V LDO. This prevents switching converter return currents from flowing through the DAC's ground reference.
+3. **The AMS1117-3.3 LDO** between the switching 5V rail and the DAC's 3.3V supply provides an additional ~40dB of high-frequency power supply rejection.
+4. **Route the PCM5102A's analog outputs (OUTL, OUTR) away from the buck converter's inductor and switching node** — these are the highest-EMI areas on the board.
+5. **The audio coupling capacitors** (2.2µF in series with each output) block any DC offset, and the optional output RC filter (1kΩ + 100pF) attenuates any ultrasonic switching noise that might couple into the audio path.
+6. **If alternator whine persists after all of the above**: Add the optional common-mode choke on the 12V/GND input lines, and consider a small ferrite bead (e.g., 600Ω @ 100MHz) in series with each audio output line before it reaches the DIN connector.
+
+---
+
+## 5. HAT PCB Mechanical Design
+
+### Dimensions
+- **Full HAT**: 65mm × 56.5mm (matches Pi 3B+ footprint)
+- **Mounting holes**: 4x M2.5, matching Pi hole pattern (58mm × 49mm spacing)
+- **GPIO connector**: 2×20 pin female header, positioned to align with Pi's male header
+- **Corner radius**: 3mm on all corners
+
+### KiCad Starting Point
+Use the `devbisme/RPi_Hat_Template` from GitHub — includes correct outline, mounting holes, and GPIO connector footprint. Multiple forks exist with EEPROM circuitry pre-wired.
+
+### EEPROM (Optional but Recommended)
+A 24C32 I2C EEPROM on the HAT's ID_SC/ID_SD pins (GPIO 0/1) allows the Pi to auto-detect the HAT and load the correct device-tree overlay (hifiberry-dac) on boot without manual config.txt editing. This is a nice-to-have for an open-source project — makes first-time setup trivial.
+
+### Connector Strategy for the 13-Pin DIN
+
+The round 13-pin DIN connector itself won't mount directly on a HAT PCB. Options:
+1. **Cable with pin header**: Solder a 13-pin DIN cable (from a sacrificial Kenwood changer cable) to a 2×7 or 1×14 pin header on the HAT edge. Simple, cheap, flexible.
+2. **Screw terminal blocks**: 14-position 3.5mm pitch screw terminal on the HAT edge. User wires from DIN connector to terminals. More professional, easier to debug individual signals.
+3. **JST-XH or Molex connector**: Keyed connector prevents miswiring. Requires a matching adapter cable.
+
+**Recommendation**: Use a 2×7 2.54mm pin header during prototyping (easy breadboard access), then switch to a keyed JST-XH or similar for the final design. Include all 13 signal labels on the silkscreen.
+
+---
+
+## 6. WiFi Access Point & Web Interface
+
+### Tri-Mode WiFi Architecture
+
+The WiFi subsystem operates in three modes, tightly integrated with the power management state machine (Section 4.7):
+
+| Power State | WiFi Mode | Purpose |
+|-------------|-----------|---------|
+| RUNNING (engine on, head unit active) | **AP Mode** | Broadcast local hotspot for phone/tablet control of playback and magazine management |
+| STANDBY → UPDATE (engine off, home WiFi found) | **Client Mode** | Connect to home network for music transfers, system updates, SSH access |
+| STANDBY (engine off, no WiFi found) | **Off / Minimal** | WiFi can be disabled to reduce power draw during short shutdown countdown |
+
+**Boot sequence (triggered by ATtiny `HU_ON` command or fresh boot):**
+1. Pi boots, runs startup script
+2. Check power state from ATtiny via UART — fresh boot (head unit on) or resume from standby?
+3. If head unit active → start AP mode immediately (primary use case: in the truck, controlling from phone)
+4. If resuming from standby → maintain current WiFi state
+
+**Ignition-off transition (triggered by ATtiny `HU_OFF` command):**
+1. Pi stops music playback
+2. Pi switches WiFi from AP mode to client scan mode
+3. Scans for configured home networks (5-second timeout)
+4. If home network found → connect as client, send `WIFI_HOME` to ATtiny, enter UPDATE mode
+5. If no network found → send `WIFI_NONE` to ATtiny, prepare for short-timer shutdown
+
+**AP Mode defaults (while driving / head unit active):**
+- SSID: `KRC3006-Changer` (user-configurable via web UI)
+- Password: `changeme` (user must change on first setup)
+- IP: `192.168.4.1`
+- DHCP range: `192.168.4.10 – 192.168.4.50`
+- DNS: dnsmasq serves a captive portal redirect to `http://changer.local` or `192.168.4.1`
+- Channel: Auto-select least congested 2.4GHz channel
+
+**Client Mode behavior (parked at home / UPDATE state):**
+- Connect to user-configured home WiFi SSID/password
+- Obtain IP via DHCP from home router
+- Advertise `changer.local` via mDNS (avahi-daemon) so the user can find it on the home network
+- All web UI features available over the home network
+- SSH access available for advanced administration
+- rsync/scp available for bulk music transfers (much faster over home WiFi than AP mode)
+- The Pi 4's gigabit Ethernet port is also available if the user wants to run a cable for maximum transfer speed when loading large music libraries
+
+**Packages needed:** `hostapd`, `dnsmasq`, `flask`, `avahi-daemon`, `wpa_supplicant`
+
+### Web Interface (Flask Application)
+
+**Backend: Python + Flask**
+- Lightweight, runs on Pi with minimal memory/CPU overhead
+- REST API endpoints for all operations
+- Communicates with ATtiny over UART (pyserial)
+- Controls MPD or mplayer for audio playback
+- Reports activity to ATtiny (sends `ACTIVITY` command on user interaction to reset standby idle timer)
+
+**Key pages/features:**
+1. **Dashboard** — Current status: playing/stopped, disc number, track number, head unit connection status, battery voltage (from ATtiny `VBATT` reports), WiFi mode (AP/Client), power state, uptime, SSD usage
+2. **Magazine Manager** — Drag-and-drop interface to assign music folders/playlists to virtual disc slots (CD01–CD10). Browse SSD storage, create playlists.
+3. **Music Library** — Browse all music on the SSD. Upload new music via web UI (drag-and-drop file upload). Delete tracks. Organize into folders. Available in both AP mode (from phone in the truck) and client mode (from any device on home network).
+4. **WiFi Settings** — Configure home network SSID/password for automatic standby connection. Set AP mode SSID/password. View connected clients in AP mode. Current WiFi status and signal strength.
+5. **Power Settings** — Battery voltage history graph. Low-battery threshold (configurable). Maximum standby duration (default 2 hours). Short-timer duration when no WiFi found (default 60 seconds). Toggle: enable/disable WiFi standby mode entirely.
+6. **Firmware Update** — Upload new ATtiny firmware (.hex file), flash via pyupdi with progress bar. System update (apt upgrade) — can be auto-scheduled during UPDATE mode standby.
+7. **Protocol Debug** — Live view of Kenwood bus commands (ATtiny relays decoded commands to Pi via UART). Invaluable during development, useful for other reverse engineers contributing to the open-source project.
+8. **System Settings** — Hostname, passwords, audio output config, shutdown button, reboot button, SSH enable/disable.
+
+**Activity tracking for standby idle timer:**
+The Flask app tracks user activity and sends `ACTIVITY` to the ATtiny whenever:
+- Any web page is loaded (HTTP request received)
+- A file upload/download is in progress
+- An SSH session is active (monitored via `who` output or utmp)
+- A system update (apt) is running
+- An rsync/scp transfer is active (monitored via process list or network I/O)
+
+This ensures the ATtiny's idle timer stays reset as long as anyone is actively using the system, preventing premature shutdown during a large music library transfer.
+
+**Frontend:** Responsive HTML/CSS/JS — must work well on phone screens since primary use is controlling from a mobile device. Consider Alpine.js or vanilla JS with CSS Grid. The UI should clearly indicate the current power/WiFi state (e.g., "Connected to Home WiFi — system will sleep in 28 minutes" or "Head unit active — playing CD3 Track 7").
+
+### mDNS / Captive Portal
+Install `avahi-daemon` so the Pi advertises `changer.local` via mDNS in both AP and client modes. In AP mode, dnsmasq can redirect all DNS queries to `192.168.4.1`, creating a captive-portal experience (phone auto-opens the control page). In client mode, mDNS allows discovery via `changer.local` from any device on the home network without needing to know the DHCP-assigned IP address.
+
+---
+
+## 7. JLCPCB Assembly Checklist
+
+### Design-for-Assembly Rules
+- Use **0805 or larger** passives where possible (0402 may require Standard PCBA tier)
+- Keep all SMD components on **one side** if using Economic assembly
+- Mark **pin 1** on all ICs with a silkscreen dot
+- Mark **polarity** on all diodes, LEDs, and electrolytic caps
+- Verify every part has a **JLCPCB part number** (not just LCSC — they have separate stock)
+- Limit **extended parts** to minimize per-part setup fees
+
+### Critical Parts to Verify Stock Before Layout
+
+| Component | JLCPCB Part # | Notes |
+|-----------|--------------|-------|
+| ATtiny1616-MNR | C507118 | Confirmed available |
+| PCM5102APWR | Check at order time | Has had stock issues; have backup plan |
+| AMS1117-3.3 | C6186 | Basic part, always in stock |
+| TPS5430DDAR | Check at order time | Or substitute MP1584EN |
+| 24C32 EEPROM | C6482 (AT24C32) | For HAT auto-detection |
+| Schottky SS34 | C8678 | Input protection |
+| Various passives | Use basic parts | 0805 preferred |
+
+### Files Needed for JLCPCB Order
+1. **Gerber files** — Generated from KiCad (use JLCPCB's Gerber export plugin or follow their spec)
+2. **BOM file** — CSV with columns: Comment, Designator, Footprint, LCSC Part #
+3. **Pick-and-place file** — CSV with columns: Designator, Mid X, Mid Y, Rotation, Layer
+4. KiCad can generate all three with the JLCPCB fabrication toolkit plugin
+
+---
+
+## 8. Development Phases (Post-Reverse-Engineering)
+
+### Phase A: Breadboard Prototype
+- ATtiny1616 on a breakout board (Adafruit sells one)
+- GY-PCM5102 module on breadboard
+- LM2596 buck module for power
+- Validate all connections match the reverse-engineered protocol from TP-KRC3006-001
+
+### Phase B: HAT Rev 1
+- Full KiCad schematic and layout
+- JLCPCB fabrication (2-layer PCB is sufficient; 4-layer preferred for cleaner power/ground)
+- SMD assembly for ATtiny, DAC, power supply
+- Through-hole assembly (GPIO header, connectors) by hand
+- Functional test against all Phase 4 and Phase 5 test cases
+
+### Phase C: HAT Rev 2 (if needed)
+- Fix any issues found in Rev 1
+- Add EEPROM if not included in Rev 1
+- Optimize layout for noise/EMI
+- Finalize enclosure mounting strategy
+
+### Phase D: Software Polish
+- Flask web interface feature-complete
+- MPD integration with playlist management
+- OTA firmware update for ATtiny
+- Documentation for open-source release
+
+---
+
+## 9. Open Questions to Resolve During Testing
+
+1. **ATtiny operating voltage**: Can the Kenwood bus reliably read 3.3V as HIGH? If yes, run the ATtiny at 3.3V (eliminates all level shifting). If no, run at 5V with a divider on the Pi UART line.
+2. **PCM5102A JLCPCB stock**: If unavailable, switch to module-on-header or PCM5122.
+3. **Audio ground isolation**: Phase 1 testing will confirm whether Kenwood pins 2 and 6 are isolated. This determines single-point ground strategy on the HAT.
+4. **Pi boot time vs. Kenwood timeout**: If the head unit gives up on the changer before the Pi boots (~20s), the ATtiny must handle autonomous status responses for the first 20 seconds.
+5. **UART sharing**: Can the same UART TX/RX be used for both ATtiny communication and UPDI programming (with a GPIO-controlled switch), or should a second UART/bit-banged interface be used?
+6. **Thermal**: Does the buck converter need a thermal relief area or heatsink pad? Depends on efficiency at 14V→5V at 1.5A load. Calculate: Pin = 14V × 1.5A/0.9 (90% efficiency) = 2.33W, Ploss = 0.23W — should be fine without a heatsink.
+7. **Kenwood Pin 3 supply path**: ~~Examine the KRC-3006 service manual schematic to confirm whether Pin 3 is raw battery voltage or has any internal filtering/regulation.~~ **RESOLVED: Confirmed raw B.U. (Battery Unswitched) through 3A fuse only. No filtering. Always-on regardless of ignition. See SA-KRC3006-001 Section 2.**
+8. **Supercap sizing validation**: During Phase A breadboard testing, measure actual Pi 4 current draw during shutdown with the target OS image and SSD. If shutdown completes in <5 seconds on a stripped OS, a 10F cap may be sufficient instead of 22F, saving board space.
+9. **Cranking voltage profile**: During Phase A, connect the logic analyzer or a scope to the 12V line at the Kenwood changer connector while cranking the Silverado. Record the actual voltage minimum, sag duration, and any spike transients. This is the definitive data for input protection design.
+10. **Supercap diode vs. MOSFET switch**: Test whether the ~0.3V Schottky drop (cap charges to 4.7V instead of 5.0V) still provides enough holdup time. If marginal, implement the P-FET ideal diode controlled by the ATtiny.
+11. **Alternator whine test**: During Phase 5 integration testing in the Silverado, listen for alternator whine at various RPMs. If present, add the common-mode choke and/or ferrite beads on audio outputs. Document which mitigation steps were necessary — this is valuable data for the open-source project since many builders will have similarly aged vehicles.
+12. **Shutdown timing with warm engine vs. cold**: The cranking-vs-ignition-off timer is now based on CH-CON/REQH activity rather than voltage, so the old 10-second voltage timer concern is less relevant. However, verify that the head unit's polling stops cleanly and promptly when ignition is turned off — if the head unit has its own power holdup that keeps it polling for several seconds after ACC drops, the ATtiny's "2 seconds of no polling" detection threshold may need adjustment.
+13. **ATtiny sleep current from B.U.**: Measure the total quiescent current draw of the ATtiny + buck converter (disabled) + voltage divider from the 12V rail when the system is in SLEEP state. Target is <50µA total. If the voltage divider (100K/33K = 133K total, ~100µA at 13V) dominates, consider increasing resistor values to 330K/100K (~30µA) with a small filter cap to maintain ADC accuracy. Alternatively, the ATtiny can power the divider through a GPIO pin, only enabling it during periodic ADC samples.
+14. **WiFi standby power draw from battery**: Measure actual Pi 4 power draw in UPDATE mode (WiFi client, Flask running, SSD idle). Expected ~2.5-3W. Confirm the parasitic drain math: at ~250mA from the 12V battery, 2 hours of standby = 500mAh, which is <1% of the battery. Verify this is acceptable.
+15. **Head unit polling cessation behavior**: When the ignition is turned off, does the KRC-3006's µ-COM stop polling immediately, or does it continue for some seconds on its own Q19 power holdup circuit? If the head unit keeps polling for 5-10 seconds after ACC drops, the ATtiny's standby detection needs to account for this delay. Capture a power-off sequence with the logic analyzer during Phase 2 to characterize this.
