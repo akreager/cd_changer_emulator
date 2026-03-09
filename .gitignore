@@ -41,12 +41,22 @@ build/
 # Backup files
 *.kicad_pcb-bak
 *.kicad_sch-bak
-*.sch-bak
+*.kicad_pro-bak
+*~
 *-backups/
 _autosave-*
-fp-info-cache
+*.bak
 *.dsn
 *.ses
+# KiCad lock files
+*.lck
+# KiCad netlist/BOM intermediates
+*.net
+*.tmp
+*.xml~
+# KiCad local settings (per-user, not project)
+fp-info-cache
+*.kicad_prl
 
 # Gerber output (keep in hardware/gerbers/ but ignore stray outputs)
 *.gbr
