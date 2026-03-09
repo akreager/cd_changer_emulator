@@ -1,0 +1,18 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "ec820c3b-2501-487a-9168-0023447c9bdd")
+	(paper "A")
+	(title_block
+		(title "KENWOOD CD CHANGER EMULATOR HAT")
+		(rev "-")
+	)
+	(lib_symbols)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
