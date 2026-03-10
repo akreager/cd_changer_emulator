@@ -1,3 +1,11 @@
+# ===== LibreOffice =====
+# Lock files created when a document is open
+.~lock.TP-KRC3006-01.odt#
+.~lock.TL-KRC3006-01.ods#
+.~lock.DN-KRC3006-01.md#
+.~lock.DN-KRC3006-02.md#
+.~lock.DN-KRC3006-03.md#
+
 # ===== OS =====
 .DS_Store
 .DS_Store?
@@ -106,3 +114,4 @@ wifi_config.json
 *.bak
 *.orig
 node_modules/
+listing.csv
