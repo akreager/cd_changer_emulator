@@ -69,9 +69,9 @@ cd_changer_emulator/
 
 ## Kenwood Compatibility
 
-This project targets the **"O protocol"** (Old protocol) used by Kenwood head units with the round 13-pin DIN CD changer connector, roughly 1990–1998. Known compatible head units include models in the KRC series (cassette receivers) and some KDC series (CD receivers) from that era.
+This project targets the **"O protocol"** (Old protocol) used by Kenwood head units with the round 13-pin DIN CD changer connector, roughly 1990–1998. Known compatible head units include models in the KRC series (cassette receivers) and some KDC series (CD receivers) from that era [citation needed].
 
-Later Kenwood units with a rectangular changer connector use the "C protocol" (New protocol), which has different command encoding. This project does not currently target the C protocol, but the hardware and architecture could be adapted.
+Later Kenwood units with a rectangular changer connector use the "C protocol" (New protocol), which has different command encoding. This project does not currently target the C protocol, but the hardware and architecture could be adapted [citation needed].
 
 ## Documentation
 
