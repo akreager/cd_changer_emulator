@@ -41,10 +41,11 @@ Any vintage automobile still using a Kenwood head unit with CD changer control. 
 ```
 cd_changer_emulator/
 ├── docs/                    # Project documentation
-│   ├── TP-KRC3006-001.odt  # Test procedure (IEEE 829 structure)
-│   ├── TL-KRC3006-001.ods  # Test log workbook
-│   ├── DR-KRC3006-002.md    # HAT design research
-│   ├── SA-KRC3006-001.md    # Schematic analysis (head unit + changer)
+│   ├── TP-KRC3006-01.odt   # Test plan (IEEE 829 structure)
+│   ├── TL-KRC3006-01.ods   # Test log workbook
+│   ├── DN-KRC3006-01.md    # Design note 1: HAT design research
+│   ├── DN-KRC3006-02.md    # Design note 2: Schematic analysis
+│   ├── DN-KRC3006-03.md    # Design note 3: Bluetooth stretch goal
 │   └── protocol/            # Protocol captures and decoded data
 ├── firmware/                # ATtiny1616 firmware (Arduino/megaTinyCore)
 │   └── src/
@@ -72,10 +73,11 @@ Later Kenwood units with a rectangular changer connector use the "C protocol" (N
 
 The project follows a documentation-first approach using IEEE 829-inspired test procedures. All documentation is in the `docs/` directory:
 
-- **TP-KRC3006-001** — Five-phase test procedure from bench setup through full audio integration
-- **TL-KRC3006-001** — Companion test log workbook with forms for each phase
-- **DR-KRC3006-002** — HAT design research covering ATtiny1616 selection, PCM5102A DAC circuit, automotive power supply with supercap, WiFi architecture, and JLCPCB assembly
-- **SA-KRC3006-001** — Detailed schematic analysis of both the KRC-3006 head unit and KDC-CX85 changer, including signal routing, series resistor values, and protocol variant identification
+- **TP-KRC3006-01** — Five-phase test plan from bench setup through full audio integration
+- **TL-KRC3006-01** — Companion test log workbook with forms for each phase
+- **DN-KRC3006-01** — HAT design research covering ATtiny1616 selection, PCM5102A DAC circuit, automotive power supply with supercap, WiFi architecture, and JLCPCB assembly
+- **DN-KRC3006-02** — Detailed schematic analysis of both the KRC-3006 head unit and KDC-CX85 changer, including signal routing, series resistor values, and protocol variant identification
+- **DN-KRC3006-03** — Bluetooth stretch goal: adding wireless audio streaming while retaining factory head unit controls
 
 ## Building / Contributing
 
