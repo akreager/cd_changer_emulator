@@ -64,6 +64,8 @@ _autosave-*
 *.xml~
 # KiCad local settings (per-user, not project)
 fp-info-cache
+fp-lib-table
+sym-lib-table
 *.kicad_prl
 
 # Gerber output (keep in hardware/gerbers/ but ignore stray outputs)
