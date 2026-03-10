@@ -8,6 +8,10 @@ Reverse-engineering the proprietary serial protocol used by 1990s Kenwood head u
 
 🔬 **Phase: Protocol Reverse Engineering** — Capturing and decoding the synchronous serial protocol between a Kenwood KRC-3006 cassette receiver and a KDC-CX85 10-disc CD changer.
 
+### Immediate To-Do
+
+- [ ] **Design pass-through breakout board for 13-pin mini DIN** — Breakout board with two 13-pin mini DIN connectors and 2.54mm pin headers exposing all 13 pins in the CD changer harness, allowing passive logic analyzer capture of live bidirectional traffic between the KRC-3006 and KDC-CX85 without interrupting the connection.
+
 ## What This Project Does
 
 This project emulates a Kenwood CD changer on the 13-pin round DIN connector used by mid-1990s Kenwood head units. The emulator responds to all head unit commands (play, stop, next/previous track, disc selection, repeat, shuffle) and streams audio from a Raspberry Pi through the stereo's built-in amplifier.
