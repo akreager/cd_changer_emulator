@@ -45,11 +45,11 @@ Any vintage automobile still using a Kenwood head unit with CD changer control. 
 ```
 cd_changer_emulator/
 ├── docs/                    # Project documentation
-│   ├── TP-KRC3006-01.odt   # Test plan (IEEE 829 structure)
-│   ├── TL-KRC3006-01.ods   # Test log workbook
-│   ├── DN-KRC3006-01.md    # Design note 1: HAT design research
-│   ├── DN-KRC3006-02.md    # Design note 2: Schematic analysis
-│   ├── DN-KRC3006-03.md    # Design note 3: Bluetooth stretch goal
+│   ├── TP-KRC3006-01.odt    # Test plan (IEEE 829 structure)
+│   ├── TL-KRC3006-01.ods    # Test log workbook
+│   ├── DN-KRC3006-01.md     # Design note 1: HAT design research
+│   ├── DN-KRC3006-02.md     # Design note 2: Schematic analysis
+│   ├── DN-KRC3006-03.md     # Design note 3: Bluetooth stretch goal
 │   └── protocol/            # Protocol captures and decoded data
 ├── firmware/                # ATtiny1616 firmware (Arduino/megaTinyCore)
 │   └── src/
