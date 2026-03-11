@@ -328,4 +328,15 @@
 		(uuid "5cdcea63-b04b-4c80-b237-9d94e51838a8")
 	)
 	(embedded_fonts no)
+	(model "F:/Cloud/Dropbox/Documents/KiCAD/kenwood_cd_changer_emulator/hardware/kicad/lib/Library.pretty/SDD-130J.step"
+		(offset
+			(xyz 0 -2.8 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -0 -0 -0)
+		)
+	)
 )
