@@ -1,0 +1,4 @@
+Reference	Qty	Value	DNP	Exclude from BOM	Exclude from Board	Footprint	Datasheet
+J1,J2	2	SDD-130J				Library:CUI_SDD-130J	https://www.sameskydevices.com/product/resource/sds-j.pdf
+J3	1	Test Points				Library:PinSocket_1x11_P2.54mm_Vertical	~
+J4,J5	2	AudioJack3				Library:Jack_3.5mm_CUI_SJ1-3523N_Horizontal	~
