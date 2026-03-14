@@ -192,7 +192,7 @@
 		(layer "F.Fab")
 		(uuid "d668e04b-8e9d-4bbb-b8f7-3c96fa08baee")
 	)
-	(pad "1" thru_hole rect
+	(pad "1" thru_hole circle
 		(at 3.3 -15.7)
 		(size 1.508 1.508)
 		(drill 1)
