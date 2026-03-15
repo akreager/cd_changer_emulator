@@ -89,8 +89,10 @@ sym-lib-table
 
 # ===== Documentation Build =====
 *.pdf
+*.svg
 !docs/**/*.pdf
 !reference/**/*.pdf
+!diagrams/**/*.svg
 
 # ===== Sensitive / Local Config =====
 # WiFi credentials, API keys, etc.
