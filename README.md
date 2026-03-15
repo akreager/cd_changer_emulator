@@ -8,9 +8,23 @@ Reverse-engineering the proprietary serial protocol used by 1990s Kenwood head u
 
 🔬 **Phase: Protocol Reverse Engineering** — Capturing and decoding the synchronous serial protocol between a Kenwood KRC-3006 cassette receiver and a KDC-CX85 10-disc CD changer.
 
+### Current Milestone
+
+The pass-through breakout board (DN-KRC3006-04) has been designed in KiCad and verified against a 3D-printed connector mockup. Three boards have been ordered from OSH Park (standard fab, free shipping) with an estimated arrival between March 23–31, 2026.
+
 ### Immediate To-Do
 
-- [ ] **Design pass-through breakout board for 13-pin mini DIN** — Breakout board with two 13-pin mini DIN connectors and 2.54mm pin headers exposing all 13 pins in the CD changer harness, allowing passive logic analyzer capture of live bidirectional traffic between the KRC-3006 and KDC-CX85 without interrupting the connection.
+- [ ] **Complete TP-KRC3006-02** — Recieve, inspect, assemble and verify passthrough breakout board.
+- [ ] **Set up test bench** — Prepare bench wiring, logic analyzer connections, and head unit power for breakout board arrival.
+- [ ] **Execute Phase 1 of TP-KRC3006-01** — Power-on characterization: validate CHCON polarity (active-LOW per changer service manual), verify bus idle states, confirm O protocol selection.
+- [ ] **Begin live protocol capture** — Passive logic analyzer capture of bidirectional traffic between head unit and changer through the breakout board.
+
+### Completed
+
+- [x] **Schematic analysis** — Detailed analysis of both KRC-3006 and KDC-CX85 service manuals. Confirmed 5V TTL bus signaling, 100K series resistors on CLK and DATA lines, COMMSW protocol selection, and always-live 12V on B.U. pin. (DN-KRC3006-02)
+- [x] **Breakout board design** — KiCad layout with two 13-pin mini DIN connectors and 2.54mm pin headers (ground adjacent to each signal) using Kenwood signal names on silkscreen. (DN-KRC3006-04)
+- [x] **Connector footprint verification** — 3D-printed mockup confirmed pin spacing before committing to fab.
+- [x] **Breakout board ordered** — 3 boards, OSH Park standard fab.
 
 ## What This Project Does
 
@@ -45,11 +59,14 @@ Any vintage automobile still using a Kenwood head unit with CD changer control. 
 ```
 cd_changer_emulator/
 ├── docs/                    # Project documentation
-│   ├── TP-KRC3006-01.odt    # Test plan (IEEE 829 structure)
-│   ├── TL-KRC3006-01.ods    # Test log workbook
+│   ├── TP-KRC3006-01.odt    # Test plan 1: Protocol capture & emulator test procedure (IEEE 829)
+│   ├── TL-KRC3006-01.ods    # Test log 1: Companion log workbook to TP-KRC3006-01
+│   ├── TP-KRC3006-02.odt    # Test plan 2: Breakout board test plan
+│   ├── TL-KRC3006-02.odt    # Test log 2: Breakout board test log
 │   ├── DN-KRC3006-01.md     # Design note 1: HAT design research
 │   ├── DN-KRC3006-02.md     # Design note 2: Schematic analysis
 │   ├── DN-KRC3006-03.md     # Design note 3: Bluetooth stretch goal
+│   ├── DN-KRC3006-04.md     # Design note 4: Breakout board design
 │   └── protocol/            # Protocol captures and decoded data
 ├── firmware/                # ATtiny1616 firmware (Arduino/megaTinyCore)
 │   └── src/
@@ -75,13 +92,18 @@ Later Kenwood units with a rectangular changer connector use the "C protocol" (N
 
 ## Documentation
 
-The project follows a documentation-first approach using IEEE 829-inspired test procedures. All documentation is in the `docs/` directory:
+The project follows a documentation-first approach using IEEE 829-inspired test procedures. All documentation is in the `docs/` directory. Formal documents (test plans, test logs) use Open Document Format; design notes use Markdown for GitHub rendering.
 
-- **TP-KRC3006-01** — Five-phase test plan from bench setup through full audio integration
-- **TL-KRC3006-01** — Companion test log workbook with forms for each phase
-- **DN-KRC3006-01** — HAT design research covering ATtiny1616 selection, PCM5102A DAC circuit, automotive power supply with supercap, WiFi architecture, and JLCPCB assembly
-- **DN-KRC3006-02** — Detailed schematic analysis of both the KRC-3006 head unit and KDC-CX85 changer, including signal routing, series resistor values, and protocol variant identification
-- **DN-KRC3006-03** — Bluetooth stretch goal: adding wireless audio streaming while retaining factory head unit controls
+| ID | Type | Description |
+|----|------|-------------|
+| TP-KRC3006-01 | Test Plan | Initial overarching test plan for the reverse engineering project (five phases, bench setup through full audio integration) |
+| TL-KRC3006-01 | Test Log | Companion log workbook to TP-KRC3006-01 |
+| TP-KRC3006-02 | Test Plan | Breakout board test plan |
+| TL-KRC3006-02 | Test Log | Breakout board test log |
+| DN-KRC3006-01 | Design Note | HAT design research — ATtiny1616 selection, PCM5102A DAC circuit, automotive power supply with supercap, WiFi architecture, JLCPCB assembly |
+| DN-KRC3006-02 | Design Note | Schematic analysis — KRC-3006 head unit and KDC-CX85 changer signal routing, series resistor values, protocol variant identification |
+| DN-KRC3006-03 | Design Note | Bluetooth stretch goal — wireless audio streaming while retaining factory head unit controls |
+| DN-KRC3006-04 | Design Note | Breakout board design — pass-through 13-pin mini DIN breakout with logic analyzer headers |
 
 ## Building / Contributing
 
