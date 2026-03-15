@@ -543,7 +543,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "changer cable breakout.step",
       "svg": "",
       "vrml": ""
     },
