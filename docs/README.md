@@ -45,10 +45,12 @@ TT-KRC3006-NN
 |---|---|---|---|
 | TP-KRC3006-01 | Initial Overarching Test Plan | TL-KRC3006-01 | In progress |
 | TL-KRC3006-01 | Test Log — Companion to TP-01 | TP-KRC3006-01 | In progress |
+| TP-KRC3006-02 | Breakout Board Bare Board Testing, Assembly, and Verification | TL-KRC3006-02 | In progress |
+| TL-KRC3006-02 | Breakout Board Test Log | TP-KRC3006-02 | In progress |
 | DN-KRC3006-01 | Hardware Design Research | — | In progress |
 | DN-KRC3006-02 | Schematic Analysis | — | In progress |
 | DN-KRC3006-03 | Bluetooth Integration & Button Remapping | — | Concept |
-| DN-KRC3006-04 | 13-Pin Mini DIN Protocol Sniffer Breakout Board | — | In progress |
+| DN-KRC3006-04 | 13-Pin Mini DIN Protocol Sniffer Breakout Board | — | Complete |
 
 ---
 
