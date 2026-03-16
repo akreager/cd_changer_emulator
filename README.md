@@ -94,16 +94,16 @@ Later Kenwood units with a rectangular changer connector use the "C protocol" (N
 
 The project follows a documentation-first approach using IEEE 829-inspired test procedures. All documentation is in the `docs/` directory. Formal documents (test plans, test logs) use Open Document Format; design notes use Markdown for GitHub rendering.
 
-| ID | Type | Description |
+| Document Name | Type | Description |
 |----|------|-------------|
-| TP-KRC3006-01 | Test Plan | Initial overarching test plan for the reverse engineering project (five phases, bench setup through full audio integration) |
-| TL-KRC3006-01 | Test Log | Companion log workbook to TP-KRC3006-01 |
-| TP-KRC3006-02 | Test Plan | Breakout board test plan |
-| TL-KRC3006-02 | Test Log | Breakout board test log |
-| DN-KRC3006-01 | Design Note | HAT design research — ATtiny1616 selection, PCM5102A DAC circuit, automotive power supply with supercap, WiFi architecture, JLCPCB assembly |
-| DN-KRC3006-02 | Design Note | Schematic analysis — KRC-3006 head unit and KDC-CX85 changer signal routing, series resistor values, protocol variant identification |
-| DN-KRC3006-03 | Design Note | Bluetooth stretch goal — wireless audio streaming while retaining factory head unit controls |
-| DN-KRC3006-04 | Design Note | Breakout board design — pass-through 13-pin mini DIN breakout with logic analyzer headers |
+| [TP-KRC3006-01](./docs/TP-KRC3006-01.odt) | Test Plan | Initial overarching test plan for the reverse engineering project (five phases, bench setup through full audio integration) |
+| [TL-KRC3006-01](./docs/TL-KRC3006-01.ods) | Test Log | Companion log workbook to TP-KRC3006-01 |
+| [TP-KRC3006-02](./docs/TP-KRC3006-02.odt) | Test Plan | Breakout board test plan |
+| [TL-KRC3006-02](./docs/TL-KRC3006-02.odt) | Test Log | Breakout board test log |
+| [DN-KRC3006-01](./docs/DN-KRC3006-01.md) | Design Note | HAT design research — ATtiny1616 selection, PCM5102A DAC circuit, automotive power supply with supercap, WiFi architecture, JLCPCB assembly |
+| [DN-KRC3006-02](./docs/DN-KRC3006-02.md) | Design Note | Schematic analysis — KRC-3006 head unit and KDC-CX85 changer signal routing, series resistor values, protocol variant identification |
+| [DN-KRC3006-03](./docs/DN-KRC3006-03.md) | Design Note | Bluetooth stretch goal — wireless audio streaming while retaining factory head unit controls |
+| [DN-KRC3006-04](./docs/DN-KRC3006-04.md) | Design Note | Breakout board design — pass-through 13-pin mini DIN breakout with logic analyzer headers |
 
 ## Building / Contributing
 
