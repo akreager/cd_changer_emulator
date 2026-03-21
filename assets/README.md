@@ -1,0 +1,3 @@
+# Assets
+
+Repository assets.
