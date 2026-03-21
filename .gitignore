@@ -67,7 +67,7 @@ fp-info-cache
 fp-lib-table
 sym-lib-table
 *.kicad_prl
-
+**/.history
 # Gerber output (keep in hardware/gerbers/ but ignore stray outputs)
 *.gbr
 *.drl
