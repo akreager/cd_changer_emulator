@@ -21,7 +21,7 @@ The pass-through breakout board (DN-KRC3006-04) has been designed in KiCad and v
 
 ### Completed
 
-- [x] **Schematic analysis** — Detailed analysis of both KRC-3006 and KDC-CX85 service manuals. Confirmed 5V TTL bus signaling, 100K series resistors on CLK and DATA lines, COMMSW protocol selection, and always-live 12V on B.U. pin. (DN-KRC3006-02)
+- [x] **Schematic analysis** — Detailed analysis of both KRC-3006 and KDC-CX85 service manuals. Confirmed 5V TTL bus signaling, 100Ω–2.2KΩ inline series resistors on bus signals, all total series impedances are between 200Ω and 7.6KΩ, COMMSW protocol selection, and always-live 12V on B.U. pin. (DN-KRC3006-02)
 - [x] **Breakout board design** — KiCad layout with two 13-pin mini DIN connectors and 2.54mm pin headers (ground adjacent to each signal) using Kenwood signal names on silkscreen. (DN-KRC3006-04)
 - [x] **Connector footprint verification** — 3D-printed mockup confirmed pin spacing before committing to fab.
 - [x] **Breakout board ordered** — 3 boards, OSH Park standard fab.
