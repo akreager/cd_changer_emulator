@@ -1,10 +1,6 @@
 # ===== LibreOffice =====
 # Lock files created when a document is open
-.~lock.TP-KRC3006-01.odt#
-.~lock.TL-KRC3006-01.ods#
-.~lock.DN-KRC3006-01.md#
-.~lock.DN-KRC3006-02.md#
-.~lock.DN-KRC3006-03.md#
+.~lock.*.od*#
 
 # ===== OS =====
 .DS_Store
