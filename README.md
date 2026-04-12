@@ -10,12 +10,11 @@ Reverse-engineering the proprietary serial protocol used by 1990s Kenwood head u
 
 ### Current Milestone
 
-The pass-through breakout board (DN-KRC3006-04) has been designed in KiCad and verified against a 3D-printed connector mockup. Three boards have been ordered from OSH Park (standard fab, free shipping) with an estimated arrival between March 23–31, 2026.
+The pass-through breakout boards (DN-KRC3006-04) have been received and board serial number 1 has been assembled and tested per TP-KRC3006-02. Currently troubleshooting a possible faulty CX85 CD changer.
 
 ### Immediate To-Do
 
-- [ ] **Complete TP-KRC3006-02** — Recieve, inspect, assemble and verify passthrough breakout board.
-- [ ] **Set up test bench** — Prepare bench wiring, logic analyzer connections, and head unit power for breakout board arrival.
+- [ ] **Troubleshoot CX85** — Initial tests have shown that the CD changer laser diode may be dirty or degraded over time. Will attempt to clean diode or obtain a different compatable  CD changer. 
 - [ ] **Execute Phase 1 of TP-KRC3006-01** — Power-on characterization: validate CHCON polarity (active-LOW per changer service manual), verify bus idle states, confirm O protocol selection.
 - [ ] **Begin live protocol capture** — Passive logic analyzer capture of bidirectional traffic between head unit and changer through the breakout board.
 
@@ -25,6 +24,8 @@ The pass-through breakout board (DN-KRC3006-04) has been designed in KiCad and v
 - [x] **Breakout board design** — KiCad layout with two 13-pin mini DIN connectors and 2.54mm pin headers (ground adjacent to each signal) using Kenwood signal names on silkscreen. (DN-KRC3006-04)
 - [x] **Connector footprint verification** — 3D-printed mockup confirmed pin spacing before committing to fab.
 - [x] **Breakout board ordered** — 3 boards, OSH Park standard fab.
+- [X] **Completed TP-KRC3006-02** — Recieve, inspect, assemble and verify passthrough breakout board serial number 1.
+- [X] **Set up test bench** — Prepare bench wiring, logic analyzer connections, and head unit power for breakout board arrival.
 
 ## What This Project Does
 
@@ -44,10 +45,10 @@ This project emulates a Kenwood CD changer on the 13-pin round DIN connector use
 | Component | Role |
 |-----------|------|
 | Kenwood KRC-3006 (or similar mid-90s Kenwood head unit) | The stereo — device under test |
-| Raspberry Pi 4 | Media server, web interface, audio playback |
+| Raspberry Pi | Media server, web interface, audio playback |
 | ATtiny1616 | Real-time Kenwood protocol handler (on custom HAT) |
 | PCM5102A I2S DAC | Digital-to-analog audio conversion |
-| USB SSD | Music storage (avoids SD card corruption) |
+| SSD | Music storage (avoids SD card corruption) |
 | SparkFun USB Logic Analyzer | Protocol capture and analysis |
 
 ## Target Vehicle
@@ -67,7 +68,8 @@ cd_changer_emulator/
 │   ├── DN-KRC3006-02.md     # Design note 2: Schematic analysis
 │   ├── DN-KRC3006-03.md     # Design note 3: Bluetooth stretch goal
 │   ├── DN-KRC3006-04.md     # Design note 4: Breakout board design
-│   └── protocol/            # Protocol captures and decoded data
+│   ├── protocol/            # Protocol captures and decoded data
+│   └── records/             # Completed test logs
 ├── firmware/                # ATtiny1616 firmware (Arduino/megaTinyCore)
 │   └── src/
 ├── software/                # Raspberry Pi software
