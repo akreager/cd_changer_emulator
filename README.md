@@ -60,6 +60,7 @@ Any vintage automobile still using a Kenwood head unit with CD changer control. 
 
 ```
 cd_changer_emulator/
+├── assets/                  # Project assets. Photos and screenshots.
 ├── docs/                    # Project documentation
 │   ├── TP-KRC3006-01.odt    # Test plan 1: Protocol capture test procedure (IEEE 829)
 │   ├── TL-KRC3006-01.ods    # Test log 1: Companion log workbook to TP-KRC3006-01
@@ -71,6 +72,8 @@ cd_changer_emulator/
 │   ├── DN-KRC3006-02.md     # Design note 2: Schematic analysis
 │   ├── DN-KRC3006-03.md     # Design note 3: Bluetooth stretch goal
 │   ├── DN-KRC3006-04.md     # Design note 4: Breakout board design
+|   ├── DN-KRC3006-05.md     # Design note 5: Web Application Design for Emulator Library Management
+|   ├── DN-KRC3006-06.md     # Design note 6: Kenwood CD Changer Error Codes
 │   ├── protocol/            # Protocol captures and decoded data
 │   └── records/             # Completed test logs
 ├── firmware/                # ATtiny1616 firmware (Arduino/megaTinyCore)
@@ -111,6 +114,8 @@ The project follows a documentation-first approach using IEEE 829-inspired test 
 | [DN-KRC3006-02](./docs/DN-KRC3006-02.md) | Design Note | Schematic analysis — KRC-3006 head unit and KDC-CX85 changer signal routing, series resistor values, protocol variant identification |
 | [DN-KRC3006-03](./docs/DN-KRC3006-03.md) | Design Note | Bluetooth stretch goal — wireless audio streaming while retaining factory head unit controls |
 | [DN-KRC3006-04](./docs/DN-KRC3006-04.md) | Design Note | Breakout board design — pass-through 13-pin mini DIN breakout with logic analyzer headers |
+| [DN-KRC3006-05](./docs/DN-KRC3006-05.md) | Design Note | Web Application Design for Emulator Library Management |
+| [DN-KRC3006-06](./docs/DN-KRC3006-06.md) | Design Note | Kenwood CD Changer Error Codes |
 
 ## Building / Contributing
 
