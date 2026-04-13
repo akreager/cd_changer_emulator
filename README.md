@@ -6,15 +6,14 @@ Reverse-engineering the proprietary serial protocol used by 1990s Kenwood head u
 
 ## Project Status
 
-🔬 **Phase: Protocol Reverse Engineering** — Capturing and decoding the synchronous serial protocol between a Kenwood KRC-3006 cassette receiver and a KDC-CX85 10-disc CD changer.
+🔬 **Phase: Protocol Reverse Engineering** — Capturing and decoding the synchronous serial protocol between a Kenwood KRC-3006 cassette receiver and a KDC-C717 10-disc CD changer.
 
 ### Current Milestone
 
-The pass-through breakout boards (DN-KRC3006-04) have been received and board serial number 1 has been assembled and tested per TP-KRC3006-02. Currently troubleshooting a possible faulty CX85 CD changer.
+The pass-through breakout boards (DN-KRC3006-04) have been received and board serial number 1 has been assembled and tested per TP-KRC3006-02. KDC-CX85 changer on hand is apparently dead, further testing will be performed on a KDC-C717 CD Changer
 
 ### Immediate To-Do
 
-- [ ] **Troubleshoot CX85** — Initial tests have shown that the CD changer laser diode may be dirty or degraded over time. Will attempt to clean diode or obtain a different compatable  CD changer. 
 - [ ] **Execute Phase 1 of TP-KRC3006-01** — Power-on characterization: validate CHCON polarity (active-LOW per changer service manual), verify bus idle states, confirm O protocol selection.
 - [ ] **Begin live protocol capture** — Passive logic analyzer capture of bidirectional traffic between head unit and changer through the breakout board.
 
@@ -26,6 +25,7 @@ The pass-through breakout boards (DN-KRC3006-04) have been received and board se
 - [x] **Breakout board ordered** — 3 boards, OSH Park standard fab.
 - [X] **Completed TP-KRC3006-02** — Recieve, inspect, assemble and verify passthrough breakout board serial number 1.
 - [X] **Set up test bench** — Prepare bench wiring, logic analyzer connections, and head unit power for breakout board arrival.
+- [X] **Troubleshoot CX85** — Initial tests have shown that the CD changer laser diode may be dirty or degraded over time. Unit has been deemed inoperable. Further testing will be carried out with a KDC-C717 CD changer 
 
 ## What This Project Does
 
@@ -33,8 +33,8 @@ This project emulates a Kenwood CD changer on the 13-pin round DIN connector use
 
 ### Features (Planned)
 
-- **Full protocol emulation** — Head unit displays disc number, track number, and elapsed time.
-- **10 virtual disc slots** — Map folders or playlists to CD1–CD10, just like a real magazine.
+- **Full protocol emulation** — Head unit displays disc number and track number.
+- **10 virtual disc slots** — Map folders or playlists to CD1–CD0, just like a real magazine.
 - **Web-based control interface** — Manage your music library from your phone over WiFi.
 - **Automotive power management** — Supercapacitor-backed graceful shutdown, cranking ride-through, battery monitoring.
 - **WiFi standby mode** — When parked at home, the Pi stays on and connects to your home network for easy music transfers and system updates.
@@ -45,6 +45,7 @@ This project emulates a Kenwood CD changer on the 13-pin round DIN connector use
 | Component | Role |
 |-----------|------|
 | Kenwood KRC-3006 (or similar mid-90s Kenwood head unit) | The stereo — device under test |
+| Kenwood KDC-C717| CD Auto Changer |
 | Raspberry Pi | Media server, web interface, audio playback |
 | ATtiny1616 | Real-time Kenwood protocol handler (on custom HAT) |
 | PCM5102A I2S DAC | Digital-to-analog audio conversion |
@@ -60,10 +61,12 @@ Any vintage automobile still using a Kenwood head unit with CD changer control. 
 ```
 cd_changer_emulator/
 ├── docs/                    # Project documentation
-│   ├── TP-KRC3006-01.odt    # Test plan 1: Protocol capture & emulator test procedure (IEEE 829)
+│   ├── TP-KRC3006-01.odt    # Test plan 1: Protocol capture test procedure (IEEE 829)
 │   ├── TL-KRC3006-01.ods    # Test log 1: Companion log workbook to TP-KRC3006-01
 │   ├── TP-KRC3006-02.odt    # Test plan 2: Breakout board test plan
 │   ├── TL-KRC3006-02.odt    # Test log 2: Breakout board test log
+│   ├── TP-KRC3006-01.odt    # Test plan 3: Emulator test procedure (IEEE 829)
+│   ├── TL-KRC3006-03.ods    # Test log 3: Companion log workbook to TP-KRC3006-03
 │   ├── DN-KRC3006-01.md     # Design note 1: HAT design research
 │   ├── DN-KRC3006-02.md     # Design note 2: Schematic analysis
 │   ├── DN-KRC3006-03.md     # Design note 3: Bluetooth stretch goal
@@ -98,10 +101,12 @@ The project follows a documentation-first approach using IEEE 829-inspired test 
 
 | Document Name | Type | Description |
 |----|------|-------------|
-| [TP-KRC3006-01](./docs/TP-KRC3006-01.odt) | Test Plan | Initial overarching test plan for the reverse engineering project (five phases, bench setup through full audio integration) |
+| [TP-KRC3006-01](./docs/TP-KRC3006-01.odt) | Test Plan | Initial test plan for capturing messages between CD changer and head unit |
 | [TL-KRC3006-01](./docs/TL-KRC3006-01.ods) | Test Log | Companion log workbook to TP-KRC3006-01 |
 | [TP-KRC3006-02](./docs/TP-KRC3006-02.odt) | Test Plan | Breakout board test plan |
 | [TL-KRC3006-02](./docs/TL-KRC3006-02.odt) | Test Log | Breakout board test log |
+| [TP-KRC3006-03](./docs/TP-KRC3006-03.odt) | Test Plan | Test plan for creating and testing protocol emulation through full audio integration |
+| [TL-KRC3006-03](./docs/TL-KRC3006-03.ods) | Test Log | Companion log workbook to TP-KRC3006-03 |
 | [DN-KRC3006-01](./docs/DN-KRC3006-01.md) | Design Note | HAT design research — ATtiny1616 selection, PCM5102A DAC circuit, automotive power supply with supercap, WiFi architecture, JLCPCB assembly |
 | [DN-KRC3006-02](./docs/DN-KRC3006-02.md) | Design Note | Schematic analysis — KRC-3006 head unit and KDC-CX85 changer signal routing, series resistor values, protocol variant identification |
 | [DN-KRC3006-03](./docs/DN-KRC3006-03.md) | Design Note | Bluetooth stretch goal — wireless audio streaming while retaining factory head unit controls |
