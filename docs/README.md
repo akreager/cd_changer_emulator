@@ -43,10 +43,12 @@ TT-KRC3006-NN
 
 | Document | Title | Paired With | Status |
 |---|---|---|---|
-| TP-KRC3006-01 | Initial Overarching Test Plan | TL-KRC3006-01 | In progress |
+| TP-KRC3006-01 | Initial Protocol Capture Test Plan | TL-KRC3006-01 | In progress |
 | TL-KRC3006-01 | Test Log — Companion to TP-01 | TP-KRC3006-01 | In progress |
-| TP-KRC3006-02 | Breakout Board Bare Board Testing, Assembly, and Verification | TL-KRC3006-02 | In progress |
-| TL-KRC3006-02 | Breakout Board Test Log | TP-KRC3006-02 | In progress |
+| TP-KRC3006-02 | Breakout Board Bare Board Testing, Assembly, and Verification | TL-KRC3006-02 | Board Serial Number 1 Completed |
+| TL-KRC3006-02 | Breakout Board Test Log | TP-KRC3006-02 | Board Serial Number 1 Completed |
+| TP-KRC3006-03 | Protocol Emulation Test Plan | TL-KRC3006-03 | Waiting for TP-01 Completion |
+| TL-KRC3006-03 | Test Log — Companion to TP-03 | TP-KRC3006-03 | Waiting for TP-01 Completion |
 | DN-KRC3006-01 | Hardware Design Research | — | In progress |
 | DN-KRC3006-02 | Schematic Analysis | — | In progress |
 | DN-KRC3006-03 | Bluetooth Integration & Button Remapping | — | Concept |
@@ -58,7 +60,7 @@ TT-KRC3006-NN
 
 Test Plans and Test Logs are always created and maintained as a matched pair. A TP defines what will be tested and how; the companion TL is where results are recorded as work is executed. They share the same sequence number — `TP-KRC3006-01` and `TL-KRC3006-01` are two halves of the same body of test work.
 
-When a new test plan is created, a corresponding log document must be created at the same time.
+When a new test plan is created, a corresponding log document must be created at the same time. A filled out *copy* of a test log is to be placed in the records sub directory. 
 
 ---
 
