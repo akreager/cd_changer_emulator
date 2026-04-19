@@ -11,7 +11,9 @@ Reverse-engineering the proprietary serial protocol used by 1990s Kenwood head u
 
 ### Current Milestone
 
-The pass-through breakout boards (DN-KRC3006-04) have been received and board serial number 1 has been assembled and tested per TP-KRC3006-02. KDC-CX85 changer on hand is apparently dead, further testing will be performed on a KDC-C717 CD Changer
+The pass-through breakout boards (DN-KRC3006-04) have been received and board serial number 1 has been assembled and tested per TP-KRC3006-02.
+![Close-up view of assembled pass-through breakout board](/../main/assets/breakout_board_01.jpg)
+KDC-CX85 changer on hand is apparently dead, further testing will be performed on a KDC-C717 CD Changer
 ![Close-up front view of KDC-C717 CD Autochacger](/../main/assets/KDCC717_01.jpg)
 
 ### Immediate To-Do
