@@ -3,6 +3,7 @@
 **Raspberry Pi-based CD changer emulator for vintage Kenwood car stereos**
 
 Reverse-engineering the proprietary serial protocol used by 1990s Kenwood head units to communicate with their CD changers, and building an open-source emulator that replaces the changer with a Raspberry Pi — enabling unlimited music playback through the original stereo using its factory controls.
+![Assembled pass-through breakout board](/../main/assets/KRC3006_01.jpg)
 
 ## Project Status
 
