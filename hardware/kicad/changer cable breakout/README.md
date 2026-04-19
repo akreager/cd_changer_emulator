@@ -11,7 +11,7 @@ This KiCad project implements a passive, pass-through breakout board for the Ken
 ## Current Status
 
 **COMPLETE AND TESTED** — Boards received 2026-03-28 from OSH Park. Assembly and verification of S/N 1 completed 4/5. Breakout board is fully functional and ready for protocol reverse engineering work.  
-![Picture of assembled break-out board](/../main/assets/2026-04-10%2022.30.01.jpg)
+![Picture of assembled break-out board](/../main/assets/breakout_board_01.jpg)
 
 ## Schematic Summary
 
