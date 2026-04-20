@@ -24,7 +24,7 @@ This KiCad project implements a passive, pass-through breakout board for the Ken
 | J5 | STX-3100-3NB, 3.5 mm TRS audio jack | Changer side audio breakout |
 
 ## J1/J2 Pinout
-
+![13Pin Mini Din Pinout](/../main/assets/changer_pins.png)
 | Pin | Signal | Description |
 |-----|--------|-----------|
 | 1 | REQ H (Active Low)  | Request handshake output from head unit. |
