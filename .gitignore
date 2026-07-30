@@ -116,3 +116,6 @@ wifi_config.json
 node_modules/
 listing.csv
 /scratch
+
+# ===== Claude / AI context (local only, not committed) =====
+CLAUDE.md
