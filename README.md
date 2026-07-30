@@ -127,7 +127,7 @@ Later Kenwood units with a rectangular changer connector use the "C protocol" (N
 
 ## Documentation
 
-The project follows a documentation-first approach using IEEE 829-inspired test procedures. All documentation lives in the `docs/` directory. Design notes are written in Markdown so they render directly on GitHub; test plans and their companion logs are kept in Open Document Format because they are table- and form-heavy. Microsoft Office formats are not used anywhere in the project.
+The project follows a documentation-first approach using IEEE 829-inspired test procedures. All documentation lives in the `docs/` directory. Design notes are written in Markdown so they render directly on GitHub; test plans and their companion logs are kept in Open Document Format because they are table- and form-heavy.
 
 Test plans and test logs are created and maintained as matched pairs sharing a sequence number — `TP-KRC3006-01` defines what gets tested and how, and `TL-KRC3006-01` is where results are recorded. Filled-out copies of a log are published as PDF in `docs/records/` as each phase completes.
 
