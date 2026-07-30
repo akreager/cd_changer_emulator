@@ -6,10 +6,11 @@ This folder contains all project documentation for the KRC-3006 reverse engineer
 
 ## File Format
 
-All documents are authored in **Open Document Format (.odt)** unless the document type is inherently plain-text (e.g., Markdown). Microsoft Office formats (.docx, .xlsx, etc.) are not used. ODF files can be opened with LibreOffice, which is the recommended editor for this project.
+There is no mandated document format. **Markdown (`.md`) is preferred wherever it fits** — such as the design notes and this README — so documents render directly on GitHub. Table- and form-heavy documents like the test plans and logs are currently kept in Open Document Format (`.odt` / `.ods`) and open in LibreOffice or any compatible editor, but any format may be used where it serves the document best.
 
-Exceptions:
-- Markdown (`.md`) files such as this README
+Formats currently in use:
+- Markdown (`.md`) — design notes and READMEs
+- Open Document Format (`.odt` / `.ods`) — test plans and logs
 - Timing diagrams (WaveDrom `.json`)
 - State machine diagrams (Mermaid `.mmd`)
 
