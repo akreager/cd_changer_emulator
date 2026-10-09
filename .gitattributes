@@ -1,0 +1,7 @@
+* text=auto
+*.jpg binary
+*.png binary
+*.pdf binary
+*.sr binary
+*.ods binary
+*.odt binary
