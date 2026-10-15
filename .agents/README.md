@@ -25,7 +25,7 @@ This folder holds the standing instructions and working files for AI agents on t
 
 ## Claude Code notes
 
-**CLAUDE.md.** This repository's `.gitignore` keeps `CLAUDE.md` local. Claude Code reads `AGENTS.md` on its own (v2.1.277 and later), but only when there's no `CLAUDE.md` in the working directory or above it. If you keep a local `CLAUDE.md`, make its first line `@AGENTS.md` so the shared instructions still load.
+**CLAUDE.md.** The committed `CLAUDE.md` only imports `AGENTS.md`. When a `CLAUDE.md` exists, Claude Code reads it instead of `AGENTS.md`, so the import keeps everyone on the same instructions. Put new instructions in `AGENTS.md` or `.agents/`, not in `CLAUDE.md`.
 
 **Skills.** Claude Code loads project skills from `.claude/skills/<name>/SKILL.md`. The skills here work without that, because AGENTS.md tells every agent where they are. To get native `/skill` loading as well, symlink each skill folder:
 
