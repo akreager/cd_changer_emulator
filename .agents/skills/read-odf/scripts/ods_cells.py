@@ -1,14 +1,20 @@
 #!/usr/bin/env python3
-"""Print every non-empty cell of an .ods workbook, with its sheet and cell reference.
+"""Print every non-empty cell of an ODF spreadsheet, with its sheet and cell reference.
 
 Usage:
-    python3 ods_cells.py LOG.ods [--sheet NAME]
+    python3 ods_cells.py LOG.fods [--sheet NAME]
+    python3 ods_cells.py LOG.ods  [--sheet NAME]
 
-Reads content.xml directly, so it works where pandas' odf reader returns empty
-sheets (as it does for the TL-KRC3006 logs). Repeated rows and columns are
-expanded into the right coordinates. Output lines look like:
+Reads both flat (.fods, a single XML file) and zipped (.ods) spreadsheets. It
+detects the format from the file's content, not its name, so it also works as
+a git textconv driver, which hands it temporary files. Repeated rows and
+columns are expanded into the right coordinates. Output lines look like:
 
     [Phase 1 — Static Verification] E8: PASS
+
+Automatic style names and view settings aren't printed, so two saves of the
+same data produce identical output. That makes this the way to diff logs:
+LibreOffice renumbers styles on every save, which floods a raw XML diff.
 
 Uses only the Python 3 standard library.
 """
@@ -21,6 +27,19 @@ TABLE = "{urn:oasis:names:tc:opendocument:xmlns:table:1.0}"
 TEXT = "{urn:oasis:names:tc:opendocument:xmlns:text:1.0}"
 META = "{urn:oasis:names:tc:opendocument:xmlns:meta:1.0}"
 OFFICE = "{urn:oasis:names:tc:opendocument:xmlns:office:1.0}"
+
+
+def load(path):
+    """Return (content root, meta root) for a flat or zipped ODF spreadsheet."""
+    with open(path, "rb") as handle:
+        zipped = handle.read(2) == b"PK"
+    if zipped:
+        with zipfile.ZipFile(path) as archive:
+            content = ET.fromstring(archive.read("content.xml"))
+            meta = ET.fromstring(archive.read("meta.xml"))
+        return content, meta
+    root = ET.parse(path).getroot()
+    return root, root
 
 
 def column_letters(index):
@@ -40,15 +59,13 @@ def cell_text(cell):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    parser.add_argument("path", help=".ods file")
+    parser.add_argument("path", help=".fods or .ods file")
     parser.add_argument("--sheet", help="only print this sheet")
     args = parser.parse_args()
 
-    with zipfile.ZipFile(args.path) as archive:
-        content = ET.fromstring(archive.read("content.xml"))
-        meta = ET.fromstring(archive.read("meta.xml"))
+    content, meta = load(args.path)
     generator = meta.find(f".//{META}generator")
-    print(f"# {args.path}  (generator: {generator.text if generator is not None else 'unknown'})")
+    print(f"# generator: {generator.text if generator is not None else 'unknown'}")
 
     for sheet in content.iter(TABLE + "table"):
         name = sheet.get(TABLE + "name")

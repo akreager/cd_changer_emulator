@@ -4,7 +4,7 @@ This is the live work list for the document control agent ([handoff](../handoffs
 
 - IDs are permanent. Add new items with the next free DC number.
 - Close an item by setting its status to `Closed (#PR)`.
-- Items DC-01 to DC-19 were verified against `main` @ `11bc992` (2026-10-09). Line numbers are as of that commit; find each passage by its quoted text.
+- Items DC-01 to DC-19 were verified against `main` @ `11bc992` (2026-10-09). Line numbers are as of that commit; find each passage by its quoted text. Later items give the date they were added.
 
 Priorities:
 - **P1:** close out Phase 1 and make TL-01 live. This must happen before any Phase 2A data exists.
@@ -15,10 +15,14 @@ Priorities:
 ## P1 — Phase 1 closeout
 
 ### DC-01 · E/P — The live TL-01 is still the blank template
-- Status: Open
+- Status: Open — waiting on decision D-11
 - Finding: `docs/TL-KRC3006-01.ods` is the blank Rev B template, and its generator is ODFPY. The Phase 1 results exist only in the PDF record, so Phase 2A results would go into a log that doesn't contain Phase 1.
 - Evidence: the template's `content.xml` has no results, but `docs/records/TL-KRC3006-01-P1-20260419.pdf` does.
-- Action: get the owner's filled working copy and commit it as the live log. Re-key from the PDF only with his OK, and verify cell by cell if you do.
+- Update 2026-10-15:
+  - This was deliberate. The owner holds a filled log back until all of its phases are done.
+  - The filled log is untracked in his local clone, as `docs/records/TL-KRC3006-01-20260419.ods`. All 156 Phase 1 values match the published record.
+  - It was re-saved by Excel on 2026-06-03, which renamed the sheets and dropped the page setup. The architect has restored both and converted the log to `.fods`.
+- Action: if D-11 says to commit each phase, commit the restored log as `docs/TL-KRC3006-01.fods`. Either way, make `docs/README.md`'s rule for the working log match D-11.
 
 ### DC-02 · T (the owner dispositions) — The Phase 1 record has gaps
 - Status: Open
@@ -172,6 +176,17 @@ Priorities:
 - Status: Open
 - Finding: the names appear as "A. KREAGER", "Allen Kreager", "AK" and "Allen".
 - Action: standardize going forward (decision D-3). Published records stay as they are.
+
+### DC-20 · E — Convert the remaining test logs to flat ODF
+- Status: Open (added 2026-10-15)
+- Finding: decision D-10 makes flat ODF the log format, but none of the logs use it yet:
+  - TL-03 is `.ods`, and TL-02 is `.odt`.
+  - TP-01 (§1, §6) and TP-03 refer to their logs as `.ods` files.
+  - `docs/README.md` (File Format) and the root README (repository tree, Documentation table, Prerequisites) still describe `.ods`/`.odt` logs.
+- Action:
+  - In LibreOffice, save TL-03 as `.fods` and TL-02 as `.fodt` ("Flat XML ODF" in Save As). The cell dump from the [read-odf](../skills/read-odf/SKILL.md) skill must be identical before and after.
+  - Update the README links, the tree and the format notes in the same commit.
+  - Fix the TP references in their next revisions (TP-01 Rev C).
 
 ## P4 — Presentation
 

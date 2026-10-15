@@ -19,8 +19,13 @@ This is how the project's documents work. Every agent that writes or changes a d
 ## Formats
 
 - Use Markdown wherever it fits: design notes, READMEs, and test plans (decision D-9).
-- Test logs stay `.ods` (TL-02 is an `.odt`), because they're forms filled in at the bench in LibreOffice.
-- Edit ODF files in place, in LibreOffice or with surgical edits to `content.xml`. Never regenerate one from a script.
+- Test logs are forms filled in at the bench in LibreOffice. They're saved as flat ODF (decision D-10):
+  - `.fods` for the spreadsheet logs, and `.fodt` for TL-02, which is a text document.
+  - A flat ODF file is a single XML file, so git stores and diffs it as text.
+  - Logs that are still `.ods` or `.odt` convert at their next change (backlog DC-20).
+- **Review log changes as cell diffs, not raw XML.** LibreOffice renumbers its internal cell styles on every save. On the TL-01 log, a save with no edits rewrites about 1,200 lines, and a one-cell change is buried in them. [git-workflow.md](git-workflow.md) has the one-time setup that makes `git diff` show cell values instead.
+- Edit ODF files in LibreOffice, or with surgical edits to their XML. Never regenerate one from a script.
+- Don't open or save the logs in Excel. In June 2026 an Excel re-save of the TL-01 log renamed every sheet with underscores and dropped its page setup.
 - Records are PDFs exported from LibreOffice.
 - Diagrams follow TP-01 §2.3:
 

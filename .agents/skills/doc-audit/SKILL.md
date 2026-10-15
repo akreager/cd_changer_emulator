@@ -62,5 +62,5 @@ grep -rn 'TBD' docs README.md reference/README.md
 ```
 Gaps to track in the backlog.
 
-- `.odt` and `.ods` files need text extraction before they can be searched. See the [read-odf](../read-odf/SKILL.md) skill.
+- Zipped `.odt` and `.ods` files need text extraction before they can be searched. Flat `.fods` and `.fodt` files are XML, so grep reads them directly. See the [read-odf](../read-odf/SKILL.md) skill.
 - Check every hit against [context/technical-baseline.md](../../context/technical-baseline.md). A hit that contradicts a settled item becomes a backlog item. A hit that states an open item as settled also becomes a backlog item.
