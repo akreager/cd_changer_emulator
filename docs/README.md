@@ -10,7 +10,8 @@ There is no mandated document format. **Markdown (`.md`) is preferred wherever i
 
 Formats currently in use:
 - Markdown (`.md`) — design notes and READMEs
-- Open Document Format (`.odt` / `.ods`) — test plans and logs
+- Open Document Format (`.odt` / `.ods`) — test plans, and the test logs not yet converted to flat ODF
+- Flat ODF spreadsheet (`.fods`) — test logs, starting with TL-KRC3006-01. It's a single XML file, so git can diff it.
 - Timing diagrams (WaveDrom `.json`)
 - State machine diagrams (Mermaid `.mmd`)
 

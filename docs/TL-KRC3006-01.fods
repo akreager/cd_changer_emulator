@@ -1,0 +1,2397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<office:document xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.spreadsheet">
+ <office:meta><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator><dc:title/><dc:description/><dc:subject/><meta:initial-creator/><dc:creator>Allen Kreager</dc:creator><meta:creation-date>2026-06-03T20:23:51Z</meta:creation-date><dc:date>2026-06-03T20:23:51Z</dc:date><meta:editing-cycles>4</meta:editing-cycles><meta:document-statistic meta:table-count="6" meta:cell-count="334" meta:object-count="0"/></office:meta>
+ <office:settings>
+  <config:config-item-set config:name="ooo:view-settings">
+   <config:config-item config:name="VisibleAreaTop" config:type="int">0</config:config-item>
+   <config:config-item config:name="VisibleAreaLeft" config:type="int">0</config:config-item>
+   <config:config-item config:name="VisibleAreaWidth" config:type="int">25850</config:config-item>
+   <config:config-item config:name="VisibleAreaHeight" config:type="int">17057</config:config-item>
+  </config:config-item-set>
+  <config:config-item-set config:name="ooo:configuration-settings">
+   <config:config-item config:name="AllowPrintJobCancel" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ApplyUserData" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="AutoCalculate" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
+   <config:config-item config:name="EmbedAsianScriptFonts" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="EmbedComplexScriptFonts" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="EmbedFonts" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="EmbedLatinScriptFonts" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="EmbedOnlyUsedFonts" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="GridColor" config:type="int">12632256</config:config-item>
+   <config:config-item config:name="HasColumnRowHeaders" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="HasSheetTabs" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ImagePreferredDPI" config:type="int">0</config:config-item>
+   <config:config-item config:name="IsDocumentShared" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsKernAsianPunctuation" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsOutlineSymbolsSet" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="IsRasterAxisSynchronized" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="IsSnapToRaster" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="LinkUpdateMode" config:type="short">3</config:config-item>
+   <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrinterName" config:type="string"/>
+   <config:config-item config:name="PrinterPaperFromSetup" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
+   <config:config-item config:name="RasterIsVisible" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="RasterResolutionX" config:type="int">1270</config:config-item>
+   <config:config-item config:name="RasterResolutionY" config:type="int">1270</config:config-item>
+   <config:config-item config:name="RasterSubdivisionX" config:type="int">1</config:config-item>
+   <config:config-item config:name="RasterSubdivisionY" config:type="int">1</config:config-item>
+   <config:config-item config:name="SaveThumbnail" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="SaveVersionOnClose" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ShowFormulasMarks" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ShowNotes" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ShowPageBreaks" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ShowZeroValues" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="SyntaxStringRef" config:type="short">7</config:config-item>
+   <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
+   <config:config-item-map-named config:name="ScriptConfiguration">
+    <config:config-item-map-entry config:name="Equipment Register">
+     <config:config-item config:name="CodeName" config:type="string">Sheet1</config:config-item>
+    </config:config-item-map-entry>
+    <config:config-item-map-entry config:name="Phase 1 — Static Verification">
+     <config:config-item config:name="CodeName" config:type="string">Phase 1 — Static Verification</config:config-item>
+    </config:config-item-map-entry>
+    <config:config-item-map-entry config:name="Phase 2A — Idle Capture">
+     <config:config-item config:name="CodeName" config:type="string">Phase 2A — Idle Capture</config:config-item>
+    </config:config-item-map-entry>
+    <config:config-item-map-entry config:name="Phase 2B — Changer Capture">
+     <config:config-item config:name="CodeName" config:type="string">Phase 2B — Changer Capture</config:config-item>
+    </config:config-item-map-entry>
+    <config:config-item-map-entry config:name="Phase 3 — Command Map">
+     <config:config-item config:name="CodeName" config:type="string">Phase 3 — Command Map</config:config-item>
+    </config:config-item-map-entry>
+    <config:config-item-map-entry config:name="Incidents">
+     <config:config-item config:name="CodeName" config:type="string">Incidents</config:config-item>
+    </config:config-item-map-entry>
+   </config:config-item-map-named>
+  </config:config-item-set>
+ </office:settings>
+ <office:scripts>
+  <office:script script:language="ooo:Basic">
+   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+  </office:script>
+ </office:scripts>
+ <office:font-face-decls>
+  <style:font-face style:name="FreeSans" svg:font-family="FreeSans" style:font-family-generic="system" style:font-pitch="variable"/>
+  <style:font-face style:name="Liberation Sans" svg:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable"/>
+  <style:font-face style:name="Liberation Sans1" svg:font-family="&apos;Liberation Sans1&apos;"/>
+  <style:font-face style:name="Liberation Sans2" svg:font-family="&apos;Liberation Sans&apos;"/>
+  <style:font-face style:name="Noto Sans CJK SC" svg:font-family="&apos;Noto Sans CJK SC&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
+ </office:font-face-decls>
+ <office:styles>
+  <style:default-style style:family="table-cell">
+   <style:paragraph-properties style:tab-stop-distance="0.5in"/>
+   <style:text-properties style:font-name="Liberation Sans" fo:font-size="10pt" fo:language="en" fo:country="US" style:font-name-asian="Noto Sans CJK SC" style:font-size-asian="10pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="FreeSans" style:font-size-complex="10pt" style:language-complex="hi" style:country-complex="IN"/>
+  </style:default-style>
+  <style:default-style style:family="graphic">
+   <style:graphic-properties svg:stroke-color="#3465a4" draw:fill-color="#729fcf" fo:wrap-option="no-wrap" draw:shadow-offset-x="0.1181in" draw:shadow-offset-y="0.1181in" style:writing-mode="page"/>
+   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:punctuation-wrap="simple" style:line-break="strict" style:writing-mode="page" style:font-independent-line-spacing="false">
+    <style:tab-stops/>
+   </style:paragraph-properties>
+   <style:text-properties style:use-window-font-color="true" loext:opacity="0%" fo:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-family-asian="&apos;DejaVu Sans&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="12pt" style:language-asian="zh" style:country-asian="CN" style:font-family-complex="Inter" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
+  </style:default-style>
+  <style:style style:name="Default" style:family="graphic"/>
+  <style:style style:name="Note" style:family="graphic" style:parent-style-name="Default">
+   <style:graphic-properties draw:stroke="solid" draw:marker-start="Arrowheads_20_1" draw:marker-start-width="0.0787in" draw:marker-start-center="false" draw:fill="solid" draw:fill-color="#ffffc0" draw:auto-grow-height="true" draw:auto-grow-width="false" fo:padding-top="0.0394in" fo:padding-bottom="0.0394in" fo:padding-left="0.0394in" fo:padding-right="0.0394in" draw:shadow="visible" draw:shadow-offset-x="0.0394in" draw:shadow-offset-y="0.0394in"/>
+   <style:text-properties style:font-name="Liberation Sans2" fo:font-family="&apos;Liberation Sans&apos;" fo:font-size="10pt" style:font-name-asian="Liberation Sans2" style:font-family-asian="&apos;Liberation Sans&apos;" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans2" style:font-family-complex="&apos;Liberation Sans&apos;" style:font-size-complex="10pt"/>
+  </style:style>
+  <number:number-style style:name="N0">
+   <number:number number:min-integer-digits="1"/>
+  </number:number-style>
+  <style:style style:name="Default" style:family="table-cell" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="transparent" style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#000000" style:font-name="Liberation Sans2" fo:font-family="&apos;Liberation Sans&apos;" fo:font-size="10pt" style:font-name-asian="Liberation Sans2" style:font-family-asian="&apos;Liberation Sans&apos;" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans2" style:font-family-complex="&apos;Liberation Sans&apos;" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="Heading" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#000000" fo:font-size="24pt" fo:font-weight="bold" style:font-size-asian="24pt" style:font-weight-asian="bold" style:font-size-complex="24pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Heading_20_1" style:display-name="Heading 1" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#000000" fo:font-size="18pt" fo:font-weight="bold" style:font-size-asian="18pt" style:font-weight-asian="bold" style:font-size-complex="18pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Heading_20_2" style:display-name="Heading 2" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#000000" fo:font-size="12pt" fo:font-weight="bold" style:font-size-asian="12pt" style:font-weight-asian="bold" style:font-size-complex="12pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Text" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="automatic"/>
+  </style:style>
+  <style:style style:name="Note" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#ffffcc" fo:border="0.06pt solid #808080" style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#333333"/>
+  </style:style>
+  <style:style style:name="Footnote" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#808080" fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/>
+  </style:style>
+  <style:style style:name="Hyperlink" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#0000ee" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color"/>
+  </style:style>
+  <style:style style:name="Status" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="automatic"/>
+  </style:style>
+  <style:style style:name="Good" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#ccffcc" style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#006600"/>
+  </style:style>
+  <style:style style:name="Neutral" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#ffffcc" style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#996600"/>
+  </style:style>
+  <style:style style:name="Bad" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#ffcccc" style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#cc0000"/>
+  </style:style>
+  <style:style style:name="Warning" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#cc0000"/>
+  </style:style>
+  <style:style style:name="Error" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#cc0000" style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#ffffff" fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Accent" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="automatic"/>
+   <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Accent_20_1" style:display-name="Accent 1" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#000000" style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#ffffff" fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Accent_20_2" style:display-name="Accent 2" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#808080" style:vertical-align="automatic"/>
+   <style:text-properties fo:color="#ffffff" fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Accent_20_3" style:display-name="Accent 3" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#dddddd" style:vertical-align="automatic"/>
+   <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Result" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="automatic"/>
+   <style:text-properties fo:font-style="italic" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color" fo:font-weight="bold" style:font-style-asian="italic" style:font-weight-asian="bold" style:font-style-complex="italic" style:font-weight-complex="bold"/>
+  </style:style>
+  <draw:marker draw:name="Arrowheads_20_1" draw:display-name="Arrowheads 1" svg:viewBox="0 0 20 30" svg:d="M10 0l-10 30h20z"/>
+  <loext:theme loext:name="Office">
+   <loext:theme-colors loext:name="LibreOffice">
+    <loext:color loext:name="dark1" loext:color="#000000"/>
+    <loext:color loext:name="light1" loext:color="#ffffff"/>
+    <loext:color loext:name="dark2" loext:color="#000000"/>
+    <loext:color loext:name="light2" loext:color="#ffffff"/>
+    <loext:color loext:name="accent1" loext:color="#18a303"/>
+    <loext:color loext:name="accent2" loext:color="#0369a3"/>
+    <loext:color loext:name="accent3" loext:color="#a33e03"/>
+    <loext:color loext:name="accent4" loext:color="#8e03a3"/>
+    <loext:color loext:name="accent5" loext:color="#c99c00"/>
+    <loext:color loext:name="accent6" loext:color="#c9211e"/>
+    <loext:color loext:name="hyperlink" loext:color="#0000ee"/>
+    <loext:color loext:name="followed-hyperlink" loext:color="#551a8b"/>
+   </loext:theme-colors>
+  </loext:theme>
+ </office:styles>
+ <office:automatic-styles>
+  <style:style style:name="co1" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="2.8752in"/>
+  </style:style>
+  <style:style style:name="co2" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="0.6043in"/>
+  </style:style>
+  <style:style style:name="co3" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="2.198in"/>
+  </style:style>
+  <style:style style:name="co4" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="1.5in"/>
+  </style:style>
+  <style:style style:name="co5" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="0.6665in"/>
+  </style:style>
+  <style:style style:name="co6" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="0.9791in"/>
+  </style:style>
+  <style:style style:name="co7" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="1.302in"/>
+  </style:style>
+  <style:style style:name="co8" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="1.4374in"/>
+  </style:style>
+  <style:style style:name="co9" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="0.552in"/>
+  </style:style>
+  <style:style style:name="co10" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="1.2083in"/>
+  </style:style>
+  <style:style style:name="co11" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="0.9165in"/>
+  </style:style>
+  <style:style style:name="co12" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="2.6563in"/>
+  </style:style>
+  <style:style style:name="co13" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="0.5in"/>
+  </style:style>
+  <style:style style:name="co14" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="0.802in"/>
+  </style:style>
+  <style:style style:name="co15" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="2in"/>
+  </style:style>
+  <style:style style:name="co16" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="1.802in"/>
+  </style:style>
+  <style:style style:name="co17" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="1in"/>
+  </style:style>
+  <style:style style:name="co18" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="0.698in"/>
+  </style:style>
+  <style:style style:name="ro1" style:family="table-row">
+   <style:table-row-properties style:row-height="0.2409in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro2" style:family="table-row">
+   <style:table-row-properties style:row-height="0.1772in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro3" style:family="table-row">
+   <style:table-row-properties style:row-height="0.3492in" fo:break-before="auto" style:use-optimal-row-height="false"/>
+  </style:style>
+  <style:style style:name="ro4" style:family="table-row">
+   <style:table-row-properties style:row-height="0.6839in" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ta1" style:family="table" style:master-page-name="mp1">
+   <style:table-properties table:display="true" style:writing-mode="lr-tb"/>
+  </style:style>
+  <number:number-style style:name="N2">
+   <number:number number:decimal-places="2" number:min-decimal-places="2" number:min-integer-digits="1"/>
+  </number:number-style>
+  <number:date-style style:name="N49">
+   <number:year number:style="long"/>
+   <number:text>-</number:text>
+   <number:month number:style="long"/>
+   <number:text>-</number:text>
+   <number:day number:style="long"/>
+  </number:date-style>
+  <style:style style:name="ce1" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0"/>
+  <style:style style:name="ce2" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:text-properties fo:color="#2e5090" style:font-name="Liberation Sans1" fo:font-size="14pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="14pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="14pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce3" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:border="0.06pt solid #cccccc" style:vertical-align="top"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce4" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce5" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce6" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#2e5090" style:text-align-source="fix" style:repeat-content="false" fo:border="0.06pt solid #1a3563" style:vertical-align="middle"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties fo:color="#ffffff" style:font-name="Liberation Sans1" fo:font-size="10pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce7" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#edf2f9" fo:border="0.06pt solid #cccccc" style:vertical-align="top"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce10" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#edf2f9" fo:wrap-option="wrap" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce11" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#edf2f9" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce12" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N49">
+   <style:table-cell-properties fo:background-color="#edf2f9" style:text-align-source="fix" style:repeat-content="false" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce13" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:text-align-source="fix" style:repeat-content="false" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce14" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:wrap-option="wrap" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce15" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce16" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N49">
+   <style:table-cell-properties style:text-align-source="fix" style:repeat-content="false" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce17" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="middle"/>
+   <style:text-properties fo:color="#2e5090" style:font-name="Liberation Sans1" fo:font-size="14pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="14pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="14pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce18" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="middle"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce22" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:border-bottom="0.06pt solid #1a3563" fo:background-color="#5b7db1" fo:border-left="0.06pt solid #2e5090" fo:border-right="0.06pt solid #2e5090" fo:border-top="0.06pt solid #2e5090" style:vertical-align="middle"/>
+   <style:text-properties fo:color="#ffffff" style:font-name="Liberation Sans1" fo:font-size="10pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce23" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:border-bottom="none" fo:border-left="none" fo:border-right="0.06pt solid #cccccc" fo:border-top="none" style:vertical-align="middle"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce8" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N49">
+   <style:table-cell-properties style:text-align-source="fix" style:repeat-content="false" style:vertical-align="automatic"/>
+   <style:paragraph-properties fo:text-align="start" fo:margin-left="0in"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce9" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#edf2f9" style:text-align-source="fix" style:repeat-content="false" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce21" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#5b7db1" style:text-align-source="fix" style:repeat-content="false" fo:border="0.06pt solid #2e5090" style:vertical-align="middle"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties fo:color="#ffffff" style:font-name="Liberation Sans1" fo:font-size="10pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce43" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:text-properties fo:color="#2e5090" style:font-name="Liberation Sans1" fo:font-size="14pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="14pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="14pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce44" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce45" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:border="0.06pt solid #cccccc" style:vertical-align="top"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce46" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#2e5090" style:text-align-source="fix" style:repeat-content="false" fo:border="0.06pt solid #1a3563" style:vertical-align="middle"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties fo:color="#ffffff" style:font-name="Liberation Sans1" fo:font-size="10pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce47" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#edf2f9" fo:border="0.06pt solid #cccccc" style:vertical-align="top"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce48" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0"/>
+  <style:style style:name="ce49" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce50" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="middle"/>
+   <style:text-properties fo:color="#2e5090" style:font-name="Liberation Sans1" fo:font-size="14pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="14pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="14pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce51" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:border-bottom="0.06pt solid #1a3563" fo:background-color="#5b7db1" fo:border-left="0.06pt solid #2e5090" fo:border-right="0.06pt solid #2e5090" fo:border-top="0.06pt solid #2e5090" style:vertical-align="middle"/>
+   <style:text-properties fo:color="#ffffff" style:font-name="Liberation Sans1" fo:font-size="10pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce52" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#edf2f9" style:text-align-source="fix" style:repeat-content="false" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce53" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:text-align-source="fix" style:repeat-content="false" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce54" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#edf2f9" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce55" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:border-bottom="none" fo:border-left="none" fo:border-right="0.06pt solid #cccccc" fo:border-top="none" style:vertical-align="middle"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="ce56" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties style:vertical-align="middle"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce57" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N49">
+   <style:table-cell-properties style:text-align-source="fix" style:repeat-content="false" style:vertical-align="automatic"/>
+   <style:paragraph-properties fo:text-align="start" fo:margin-left="0in"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce58" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#edf2f9" fo:wrap-option="wrap" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce59" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:wrap-option="wrap" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce60" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce61" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N49">
+   <style:table-cell-properties fo:background-color="#edf2f9" style:text-align-source="fix" style:repeat-content="false" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce62" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N49">
+   <style:table-cell-properties style:text-align-source="fix" style:repeat-content="false" fo:border="0.06pt solid #cccccc" style:vertical-align="middle"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-size="10pt" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt"/>
+  </style:style>
+  <style:style style:name="ce63" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:background-color="#5b7db1" style:text-align-source="fix" style:repeat-content="false" fo:border="0.06pt solid #2e5090" style:vertical-align="middle"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties fo:color="#ffffff" style:font-name="Liberation Sans1" fo:font-size="10pt" fo:font-weight="bold" style:font-name-asian="Liberation Sans1" style:font-size-asian="10pt" style:font-weight-asian="bold" style:font-name-complex="Liberation Sans1" style:font-size-complex="10pt" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:page-layout style:name="pm1">
+   <style:page-layout-properties style:writing-mode="lr-tb"/>
+   <style:header-style>
+    <style:header-footer-properties fo:min-height="0.2953in" fo:margin-left="0in" fo:margin-right="0in" fo:margin-bottom="0.0984in"/>
+   </style:header-style>
+   <style:footer-style>
+    <style:header-footer-properties fo:min-height="0.2953in" fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.0984in"/>
+   </style:footer-style>
+  </style:page-layout>
+  <style:page-layout style:name="pm2">
+   <style:page-layout-properties style:writing-mode="lr-tb"/>
+   <style:header-style>
+    <style:header-footer-properties fo:min-height="0.2953in" fo:margin-left="0in" fo:margin-right="0in" fo:margin-bottom="0.0984in" fo:border="1.5pt solid #000000" fo:padding="0.0071in" fo:background-color="#c0c0c0">
+     <style:background-image/>
+    </style:header-footer-properties>
+   </style:header-style>
+   <style:footer-style>
+    <style:header-footer-properties fo:min-height="0.2953in" fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0.0984in" fo:border="1.5pt solid #000000" fo:padding="0.0071in" fo:background-color="#c0c0c0">
+     <style:background-image/>
+    </style:header-footer-properties>
+   </style:footer-style>
+  </style:page-layout>
+  <style:page-layout style:name="pm3">
+   <style:page-layout-properties fo:margin-top="0.5in" fo:margin-bottom="0.5in" fo:margin-left="0.5in" fo:margin-right="0.5in" style:scale-to-pages="1" style:print="charts drawings objects"/>
+   <style:header-style>
+    <style:header-footer-properties fo:min-height="0.4in" fo:margin-left="0in" fo:margin-right="0in" fo:margin-bottom="0in"/>
+   </style:header-style>
+   <style:footer-style>
+    <style:header-footer-properties fo:min-height="0.3937in" fo:margin-left="0in" fo:margin-right="0in" fo:margin-top="0in"/>
+   </style:footer-style>
+  </style:page-layout>
+ </office:automatic-styles>
+ <office:master-styles>
+  <style:master-page style:name="Default" style:page-layout-name="pm1">
+   <style:header>
+    <text:p><text:sheet-name>???</text:sheet-name></text:p>
+   </style:header>
+   <style:header-left style:display="false"/>
+   <style:header-first style:display="false"/>
+   <style:footer>
+    <text:p>Page <text:page-number>1</text:page-number></text:p>
+   </style:footer>
+   <style:footer-left style:display="false"/>
+   <style:footer-first style:display="false"/>
+  </style:master-page>
+  <style:master-page style:name="Report" style:page-layout-name="pm2">
+   <style:header>
+    <style:region-left>
+     <text:p><text:sheet-name>???</text:sheet-name><text:s/>(<text:title>???</text:title>)</text:p>
+    </style:region-left>
+    <style:region-right>
+     <text:p><text:date style:data-style-name="N2" text:date-value="2026-10-15">00/00/0000</text:date>, <text:time>00:00:00</text:time></text:p>
+    </style:region-right>
+   </style:header>
+   <style:header-left style:display="false"/>
+   <style:header-first style:display="false"/>
+   <style:footer>
+    <text:p>Page <text:page-number>1</text:page-number><text:s/>/ <text:page-count>99</text:page-count></text:p>
+   </style:footer>
+   <style:footer-left style:display="false"/>
+   <style:footer-first style:display="false"/>
+  </style:master-page>
+  <style:master-page style:name="mp1" style:page-layout-name="pm3">
+   <style:header>
+    <text:p><text:sheet-name>???</text:sheet-name></text:p>
+   </style:header>
+   <style:header-left style:display="false"/>
+   <style:header-first/>
+   <style:footer>
+    <text:p>Page <text:page-number>1</text:page-number></text:p>
+   </style:footer>
+   <style:footer-left style:display="false"/>
+   <style:footer-first/>
+  </style:master-page>
+ </office:master-styles>
+ <office:body>
+  <office:spreadsheet>
+   <table:calculation-settings table:automatic-find-labels="false" table:use-regular-expressions="false"/>
+   <table:table table:name="Equipment Register" table:style-name="ta1">
+    <table:table-column table:style-name="co1" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co2" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co3" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co4" table:number-columns-repeated="3" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co5" table:number-columns-repeated="16378" table:default-cell-style-name="ce48"/>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell table:style-name="ce43" office:value-type="string" calcext:value-type="string">
+      <text:p>TL-KRC3006-01 Rev B</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Project:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49" office:value-type="string" calcext:value-type="string">
+      <text:p>Kenwood CD Changer Protocol Emulator (Open Source)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Date:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49"/>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Tester:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49"/>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Equipment / Component</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Ref ID</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Description / Model</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Serial Number</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Cal Due Date</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16378"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Kenwood KRC-3006</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>KEN-01</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Head unit (DUT)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16380"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Kenwood KDC-C717</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>KEN-02</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>CD changer</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16380"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Bench Power Supply</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>PWR-01</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Staged Power Adapter</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>PWR-02</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Custom 2-stage ignition sim.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16380"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>KRC-3006 DC Cord</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>PWR-03</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Power/speaker harness</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16380"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>USB Logic Analyzer</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>LA-01</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>SparkFun TOL-18627 or equiv.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16380"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Digital Multimeter</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>DMM-01</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>13-Pin DIN Cable</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>CBL-01</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Kenwood changer cable</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16380"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>13-Pin Breakout Board</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>MOD-02</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Prototyping board</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16380"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Pass-Through Board</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>MOD-03</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>DN-KRC3006-04 custom PCB</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16380"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>PulseView (sigrok)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>SW-01</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Logic analyzer software</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16380"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2" table:number-rows-repeated="1048553">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+   </table:table>
+   <table:table table:name="Phase 1 — Static Verification" table:style-name="ta1">
+    <table:table-column table:style-name="co6" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co7" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co8" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co9" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co10" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co11" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co12" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co5" table:number-columns-repeated="16377" table:default-cell-style-name="ce48"/>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell table:style-name="ce50" office:value-type="string" calcext:value-type="string" table:number-columns-spanned="7" table:number-rows-spanned="1">
+      <text:p>TL-KRC3006-01 Rev B</text:p>
+     </table:table-cell>
+     <table:covered-table-cell table:number-columns-repeated="6"/>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Project:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce56" office:value-type="string" calcext:value-type="string" table:number-columns-spanned="6" table:number-rows-spanned="1">
+      <text:p>Kenwood CD Changer Protocol Emulator (Open Source)</text:p>
+     </table:table-cell>
+     <table:covered-table-cell table:number-columns-repeated="5"/>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Date:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce57" office:value-type="date" office:date-value="2026-04-19" calcext:value-type="date">
+      <text:p>2026-04-19</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Tester:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49" office:value-type="string" calcext:value-type="string">
+      <text:p>A. KREAGER</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce51" office:value-type="string" calcext:value-type="string" table:number-columns-spanned="7" table:number-rows-spanned="1">
+      <text:p>Initial Power-Up</text:p>
+     </table:table-cell>
+     <table:covered-table-cell table:number-columns-repeated="6"/>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Step</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Action</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Expected</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Result</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>P/F</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Date</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce52" office:value-type="float" office:value="2" calcext:value-type="float">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce58" office:value-type="string" calcext:value-type="string">
+      <text:p>PSU on, constant power on</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>PSU stable at 12.0 V</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54"/>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>PASS</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce61" office:value-type="date" office:date-value="2026-04-19" calcext:value-type="date">
+      <text:p>2026-04-19</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce58" office:value-type="string" calcext:value-type="string">
+      <text:p>INITIAL INRUSH PEAKED AT .1A. SETTLED AT .003A</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce53" office:value-type="float" office:value="3" calcext:value-type="float">
+      <text:p>3</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce59" office:value-type="string" calcext:value-type="string">
+      <text:p>Ignition power on</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>Head unit powers on</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60"/>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>PASS</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce62" office:value-type="date" office:date-value="2026-04-19" calcext:value-type="date">
+      <text:p>2026-04-19</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce59" office:value-type="string" calcext:value-type="string">
+      <text:p>RADIO IS INITTIAL SOURCE, .4A PLAYING STATIC AT LOW VOLUME</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce52" office:value-type="float" office:value="4" calcext:value-type="float">
+      <text:p>4</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce58" office:value-type="string" calcext:value-type="string">
+      <text:p>Idle current draw</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>0.5–1.5 A</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>.49V</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>PASS</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce61" office:value-type="date" office:date-value="2026-04-19" calcext:value-type="date">
+      <text:p>2026-04-19</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce58"/>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce53" office:value-type="float" office:value="5" calcext:value-type="float">
+      <text:p>5</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce59" office:value-type="string" calcext:value-type="string">
+      <text:p>Select CD-CH source</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>Error/search display</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>E01</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>PASS</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce62" office:value-type="date" office:date-value="2026-04-19" calcext:value-type="date">
+      <text:p>2026-04-19</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce59" office:value-type="string" calcext:value-type="string">
+      <text:p>NO MAGAZINE LOADED. LOADS AND PLAYS DISC UPON INSERTION</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce51" office:value-type="string" calcext:value-type="string" table:number-columns-spanned="7" table:number-rows-spanned="1">
+      <text:p>13-Pin DIN Voltage Measurements</text:p>
+     </table:table-cell>
+     <table:covered-table-cell table:number-columns-repeated="6"/>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Pin</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Signal</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Function</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Dir</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Expected V</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Measured V</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce52" office:value-type="string" calcext:value-type="string">
+      <text:p>1</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>CH-REQH</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Request (H→C)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Out</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Logic HIGH idle</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce52" office:value-type="float" office:value="4.88" calcext:value-type="float">
+      <text:p>4.88</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce58"/>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce53" office:value-type="string" calcext:value-type="string">
+      <text:p>2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>GND</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>Digital Ground</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>—</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>0 V (ref)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce53" office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p>0</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce59" office:value-type="string" calcext:value-type="string">
+      <text:p>7.5 OHM</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce52" office:value-type="string" calcext:value-type="string">
+      <text:p>3</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>+12V</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Power Supply</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Out</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>11.5–12.5 V</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce52" office:value-type="float" office:value="11.97" calcext:value-type="float">
+      <text:p>11.97</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce58"/>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce53" office:value-type="string" calcext:value-type="string">
+      <text:p>4</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>CH-CON</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>Changer Connect</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>Out</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>Toggle w/ source</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce53" office:value-type="float" office:value="4" calcext:value-type="float">
+      <text:p>4</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce59" office:value-type="string" calcext:value-type="string">
+      <text:p>LINE GOES HIGH WHEN CHANGER IS SELECTED</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce52" office:value-type="string" calcext:value-type="string">
+      <text:p>5</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>CH-MUTE</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Mute Request</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>In</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Logic HIGH idle</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce52" office:value-type="string" calcext:value-type="string"><text:p>0</text:p><text:p>3.5</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce58" office:value-type="string" calcext:value-type="string"><text:p>IDLE LOW</text:p><text:p>LOGIC HIGH ENABLE</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce53" office:value-type="string" calcext:value-type="string">
+      <text:p>6</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>AGND</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>Audio Ground</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>—</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>0 V / isolated</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce53"/>
+     <table:table-cell table:style-name="ce59" office:value-type="string" calcext:value-type="string">
+      <text:p>REFERENCE</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce52" office:value-type="string" calcext:value-type="string">
+      <text:p>7</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>CH-RST</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Reset</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Out</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Logic HIGH idle</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce52" office:value-type="string" calcext:value-type="string"><text:p>0</text:p><text:p>4</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce58" office:value-type="string" calcext:value-type="string"><text:p>IDLE LOW</text:p><text:p>LOGIC HIGH ENABLE</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce53" office:value-type="string" calcext:value-type="string">
+      <text:p>8</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>R-CH</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>Right Audio</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>In</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>0 V (no source)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce53"/>
+     <table:table-cell table:style-name="ce59" office:value-type="string" calcext:value-type="string">
+      <text:p>NOT TESTED</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce52" office:value-type="string" calcext:value-type="string">
+      <text:p>9</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>CH-REQC</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Request (C→H)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>In</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Logic HIGH idle</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce52" office:value-type="float" office:value="5.04" calcext:value-type="float">
+      <text:p>5.04</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce58"/>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce53" office:value-type="string" calcext:value-type="string">
+      <text:p>10</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>CH-DATAC</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>Data (C→H)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>In</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>Logic LOW idle</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce53" office:value-type="float" office:value="5.11" calcext:value-type="float">
+      <text:p>5.11</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce59"/>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce52" office:value-type="string" calcext:value-type="string">
+      <text:p>11</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>CH-DATAH</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Data (H→C)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Out</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Logic LOW idle</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce52" office:value-type="string" calcext:value-type="string"><text:p>0</text:p><text:p>4.87</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce58" office:value-type="string" calcext:value-type="string"><text:p>IDLE LOW</text:p><text:p>LOGIC HIGH WHILE PLAYING DISC</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce53" office:value-type="string" calcext:value-type="string">
+      <text:p>12</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>L-CH</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>Left Audio</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>In</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce60" office:value-type="string" calcext:value-type="string">
+      <text:p>0 V (no source)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce53"/>
+     <table:table-cell table:style-name="ce59" office:value-type="string" calcext:value-type="string">
+      <text:p>NOT TESTED</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro4">
+     <table:table-cell table:style-name="ce52" office:value-type="string" calcext:value-type="string">
+      <text:p>13</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>CLK</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Clock</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Out</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Toggling / 0 V</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce52" office:value-type="float" office:value="5.15" calcext:value-type="float">
+      <text:p>5.15</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce58" office:value-type="string" calcext:value-type="string"><text:p>IDLE 0HZ</text:p><text:p>DISC PLAYING 31.6 HZ</text:p><text:p>TRACK CHANGE ~100HZ, DROP TO ~8HZ, BACK TO ~32HZ</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce51" office:value-type="string" calcext:value-type="string" table:number-columns-spanned="7" table:number-rows-spanned="1">
+      <text:p>Ground Continuity</text:p>
+     </table:table-cell>
+     <table:covered-table-cell table:number-columns-repeated="6"/>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Test</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Expected</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Result</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>P/F</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Date</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Tester</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>Pin 2 ↔ Pin 6</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce58" office:value-type="string" calcext:value-type="string">
+      <text:p>Continuity or isolated</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54" office:value-type="string" calcext:value-type="string">
+      <text:p>CONTINUITY</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54"/>
+     <table:table-cell table:style-name="ce61" office:value-type="date" office:date-value="2026-04-19" calcext:value-type="date">
+      <text:p>2026-04-19</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce52" office:value-type="string" calcext:value-type="string">
+      <text:p>AK</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce54"/>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce55" office:value-type="string" calcext:value-type="string" table:number-columns-spanned="2" table:number-rows-spanned="1">
+      <text:p>Phase 1 Overall Result:</text:p>
+     </table:table-cell>
+     <table:covered-table-cell/>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2" table:number-rows-repeated="1048542">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+   </table:table>
+   <table:table table:name="Phase 2A — Idle Capture" table:style-name="ta1">
+    <table:table-column table:style-name="co13" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co4" table:number-columns-repeated="2" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co14" table:number-columns-repeated="3" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co15" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co5" table:number-columns-repeated="16377" table:default-cell-style-name="ce48"/>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell table:style-name="ce43" office:value-type="string" calcext:value-type="string">
+      <text:p>TL-KRC3006-01 Rev B</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Project:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49" office:value-type="string" calcext:value-type="string">
+      <text:p>Kenwood CD Changer Protocol Emulator (Open Source)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Date:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49"/>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Tester:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49"/>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce63" office:value-type="string" calcext:value-type="string">
+      <text:p>Clock and Timing Measurements</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce63"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Capture #</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Clock Freq (kHz)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Polling Interval</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>CLK Behavior</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>REQH Behavior</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>P/F</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce63" office:value-type="string" calcext:value-type="string">
+      <text:p>Idle Message Decoding</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce63"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Capture #</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Total Bits</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Decoded Hex (H→C)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Header Bytes</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Command Byte</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Data Bytes</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes / Comparison to Mictronics</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce63" office:value-type="string" calcext:value-type="string">
+      <text:p>Capture File Log</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce63"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>File Name</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Date/Time</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Duration (s)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Sample Rate</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Description</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>P/F</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Phase 2A Overall Result:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2" table:number-rows-repeated="1048542">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+   </table:table>
+   <table:table table:name="Phase 2B — Changer Capture" table:style-name="ta1">
+    <table:table-column table:style-name="co13" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co7" table:number-columns-repeated="3" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co14" table:number-columns-repeated="2" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co16" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co5" table:number-columns-repeated="16377" table:default-cell-style-name="ce48"/>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell table:style-name="ce43" office:value-type="string" calcext:value-type="string">
+      <text:p>TL-KRC3006-01 Rev B</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Project:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49" office:value-type="string" calcext:value-type="string">
+      <text:p>Kenwood CD Changer Protocol Emulator (Open Source)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Date:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49"/>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Tester:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49"/>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce63" office:value-type="string" calcext:value-type="string">
+      <text:p>Setup Verification</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce63"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Check</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Expected</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Observed</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>P/F</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Date</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Tester</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Breakout board inline</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Connected</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Magazine loaded</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Disc in slot 1</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>No shorts to GND/PWR</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>All clear</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce63" office:value-type="string" calcext:value-type="string">
+      <text:p>Initialization Sequence</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce63"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Capture #</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Hex (H→C)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Hex (C→H)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Handshake Detail</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>CH-CON State</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>CH-MUTE State</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce63" office:value-type="string" calcext:value-type="string">
+      <text:p>Steady-State Status Messages</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce63"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Capture #</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Hex (H→C)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Hex (C→H)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Disc #</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Track #</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>State</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce63" office:value-type="string" calcext:value-type="string">
+      <text:p>Capture File Log</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce63"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>File Name</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Date/Time</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Duration (s)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Sample Rate</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Description</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>P/F</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Phase 2B Overall Result:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2" table:number-rows-repeated="1048534">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+   </table:table>
+   <table:table table:name="Phase 3 — Command Map" table:style-name="ta1">
+    <table:table-column table:style-name="co7" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co2" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co17" table:number-columns-repeated="3" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co14" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co15" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co5" table:number-columns-repeated="16377" table:default-cell-style-name="ce48"/>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell table:style-name="ce43" office:value-type="string" calcext:value-type="string">
+      <text:p>TL-KRC3006-01 Rev B</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Project:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49" office:value-type="string" calcext:value-type="string">
+      <text:p>Kenwood CD Changer Protocol Emulator (Open Source)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Date:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49"/>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Tester:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49"/>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce63" office:value-type="string" calcext:value-type="string">
+      <text:p>Command Mapping</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce63"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Button / Action</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Capture #</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Cmd Hex (H→C)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Response Hex (C→H)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>State Change</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Matches Mictronics?</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Play</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Pause</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Next Track</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Previous Track</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Fast Forward (hold)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Fast Reverse (hold)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Disc Up</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Disc Down</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Disc Select 1</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Disc Select 2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Disc Select 3</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Disc Select 4</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Disc Select 5</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Disc Select 6</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Repeat Toggle</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Random/Shuffle Toggle</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Next Track (last track)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Prev Track (track 1)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47" office:value-type="string" calcext:value-type="string">
+      <text:p>Disc Up (last disc)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" office:value-type="string" calcext:value-type="string">
+      <text:p>Disc Select (empty slot)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce63" office:value-type="string" calcext:value-type="string">
+      <text:p>Capture File Log</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce63"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>File Name</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Date/Time</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Duration (s)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Sample Rate</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Description</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>P/F</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Notes</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16377"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Phase 3 Overall Result:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2" table:number-rows-repeated="1048528">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+   </table:table>
+   <table:table table:name="Incidents" table:style-name="ta1">
+    <table:table-column table:style-name="co13" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co18" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co14" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co4" table:number-columns-repeated="2" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co14" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co17" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co4" table:default-cell-style-name="ce48"/>
+    <table:table-column table:style-name="co5" table:number-columns-repeated="16376" table:default-cell-style-name="ce48"/>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell table:style-name="ce43" office:value-type="string" calcext:value-type="string">
+      <text:p>TL-KRC3006-01 Rev B</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Project:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49" office:value-type="string" calcext:value-type="string">
+      <text:p>Kenwood CD Changer Protocol Emulator (Open Source)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Date:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49"/>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Tester:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49"/>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Inc #</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Severity</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Phase/Step</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Expected</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Observed</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Date</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Root Cause</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Resolution</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16376"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Severity Legend:</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Critical</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49" office:value-type="string" calcext:value-type="string">
+      <text:p>Head unit damaged, smoke, or safety concern. STOP all testing.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Major</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49" office:value-type="string" calcext:value-type="string">
+      <text:p>Protocol communication fails entirely; cannot proceed.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Minor</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49" office:value-type="string" calcext:value-type="string">
+      <text:p>Specific command fails but overall protocol works. Can proceed.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce44" office:value-type="string" calcext:value-type="string">
+      <text:p>Observation</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce49" office:value-type="string" calcext:value-type="string">
+      <text:p>Behavior differs from docs but does not affect functionality.</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce45"/>
+     <table:table-cell table:number-columns-repeated="16381"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce45" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Inc #</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Severity</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Phase/Step</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Expected</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Observed</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Date</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Root Cause</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce46" office:value-type="string" calcext:value-type="string">
+      <text:p>Resolution</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="16376"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce47"/>
+     <table:table-cell table:number-columns-repeated="16383"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:style-name="ce45" table:number-columns-repeated="2"/>
+     <table:table-cell table:number-columns-repeated="16382"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2" table:number-rows-repeated="1048551">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:number-columns-repeated="16384"/>
+    </table:table-row>
+   </table:table>
+   <table:named-expressions/>
+  </office:spreadsheet>
+ </office:body>
+</office:document>

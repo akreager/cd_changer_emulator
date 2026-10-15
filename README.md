@@ -89,7 +89,7 @@ cd_changer_emulator/
 ├── assets/                  # Project assets. Photos and screenshots.
 ├── docs/                    # Project documentation
 │   ├── TP-KRC3006-01.odt    # Test plan 1: Protocol capture test procedure (IEEE 829)
-│   ├── TL-KRC3006-01.ods    # Test log 1: Companion log workbook to TP-KRC3006-01
+│   ├── TL-KRC3006-01.fods   # Test log 1: Companion log workbook to TP-KRC3006-01 (flat ODF)
 │   ├── TP-KRC3006-02.odt    # Test plan 2: Breakout board test plan
 │   ├── TL-KRC3006-02.odt    # Test log 2: Breakout board test log
 │   ├── TP-KRC3006-03.odt    # Test plan 3: Emulator test procedure (IEEE 829)
@@ -136,7 +136,7 @@ Test plans and test logs are created and maintained as matched pairs sharing a s
 | Document Name | Type | Description |
 |----|------|-------------|
 | [TP-KRC3006-01](./docs/TP-KRC3006-01.odt) | Test Plan | Initial test plan for capturing messages between CD changer and head unit |
-| [TL-KRC3006-01](./docs/TL-KRC3006-01.ods) | Test Log | Companion log workbook to TP-KRC3006-01 |
+| [TL-KRC3006-01](./docs/TL-KRC3006-01.fods) | Test Log | Companion log workbook to TP-KRC3006-01 |
 | [TP-KRC3006-02](./docs/TP-KRC3006-02.odt) | Test Plan | Breakout board test plan |
 | [TL-KRC3006-02](./docs/TL-KRC3006-02.odt) | Test Log | Breakout board test log |
 | [TP-KRC3006-03](./docs/TP-KRC3006-03.odt) | Test Plan | Test plan for creating and testing protocol emulation through full audio integration |
@@ -169,7 +169,7 @@ If you use an AI coding agent on this repo, point it at [AGENTS.md](AGENTS.md) f
 - [PulseView](https://sigrok.org/wiki/PulseView) for logic analyzer captures
 - [KiCad](https://www.kicad.org/) for PCB design
 - Python 3 with [FastAPI](https://fastapi.tiangolo.com/) for the web interface and [python-mpv](https://github.com/jaseg/python-mpv) for playback
-- [LibreOffice](https://www.libreoffice.org/) to open the test plans and logs (`.odt` / `.ods`)
+- [LibreOffice](https://www.libreoffice.org/) to open the test plans and logs (`.odt`, `.ods`, and flat ODF `.fods`)
 - A UPDI programmer for the ATtiny1616 ([Adafruit UPDI Friend](https://www.adafruit.com/product/5879) or DIY with a serial adapter and resistor)
 
 ## References
