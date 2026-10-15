@@ -68,7 +68,7 @@ If a correction changes a calculation or a rationale, it's T, even when it looks
 
 - One topic per package. Deliver it as a branch named `docs/cp-NN-<slug>`, with a pull request ([rules/git-workflow.md](../rules/git-workflow.md)).
 - Run the [doc-audit](../skills/doc-audit/SKILL.md) skill before every package.
-- With every ODF change, include a PDF render and a plain-text redline. The owner can't review a binary diff.
+- With every ODF change, include a PDF render of the changed pages, and either a cell diff (for logs) or a text redline. Raw ODF diffs can't be reviewed: binary files don't diff, and flat files are flooded by style renumbering ([rules/git-workflow.md](../rules/git-workflow.md)).
 - Format:
 
 ```
@@ -88,8 +88,8 @@ Backlog: <DC-IDs added / closed>
 | Package | Items | Needs from the owner | Done when |
 |---|---|---|---|
 | **CP-1: Convert test plans to Markdown** | TP-01, TP-03, TP-02, using the [odt-to-markdown](../skills/odt-to-markdown/SKILL.md) skill | Confirmation that the `.odt` files can be removed | All three are in Markdown, the word-sequence check passes (or every difference is listed), and every reference is updated |
-| **CP-2: Phase 1 closeout** | DC-01, DC-02; prepare DC-03 | His filled working ODS, answers to the gap list, and decision D-1 | The live TL-01 carries the Phase 1 results, the supplement and incidents are drafted for his disposition, and the gap questions are with him |
-| **CP-3: Editorial consistency** | DC-05 (Markdown files only), DC-11, DC-13 (README date), DC-14, DC-15 (draft), DC-16 (revision-history tables only), DC-17 | — (all E) | The registers agree and the doc-audit skill comes back clean for those items |
+| **CP-2: Phase 1 closeout** | DC-01, DC-02; prepare DC-03 | Decisions D-11 and D-1, and answers to the gap list | The live TL-01 is in the place D-11 sets, the supplement and incidents are drafted for his disposition, and the gap questions are with him |
+| **CP-3: Editorial consistency** | DC-05 (Markdown files only), DC-11, DC-13 (README date), DC-14, DC-15 (draft), DC-16 (revision-history tables only), DC-17, DC-20 | — (all E) | The registers agree and the doc-audit skill comes back clean for those items |
 | **CP-4: Propagate settled corrections** | The P and E parts of DC-06, DC-07, DC-08, DC-09 and DC-10 | — | DN-01 through DN-04 are updated, with the T parts listed under "For the architect" |
 
 CP-1 and CP-2 don't depend on each other, and both have to be done before Phase 2A.

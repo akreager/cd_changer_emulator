@@ -39,7 +39,7 @@ This is a summary. The files in [`.agents/rules/`](.agents/rules/) are authorita
 4. **Never push to `main`.** Work on a branch and open a pull request. Say exactly what you changed, what you checked and what you didn't. ([git-workflow.md](.agents/rules/git-workflow.md))
 5. **Published records are immutable.** Never edit anything in `docs/records/`. ([documents.md](.agents/rules/documents.md))
 6. **IP posture.** Use no service-manual text or figures beyond short factual items, never commit manuals or datasheets, and keep brand names off hardware silkscreen. ([ip-posture.md](.agents/rules/ip-posture.md))
-7. **Formats.** Use Markdown wherever it fits. Test logs stay `.ods`. Never use Microsoft Office formats. ([documents.md](.agents/rules/documents.md))
+7. **Formats.** Use Markdown wherever it fits. Test logs are flat ODF spreadsheets (`.fods`), reviewed as cell diffs. Never use Microsoft Office formats or tools. ([documents.md](.agents/rules/documents.md))
 8. **Ask the owner first** before you delete or rename a file, change a document ID, create a new document, touch a published record, or change a pass/fail criterion.
 9. **Write for a busy reviewer.** Be concise and technically precise. Lead with what changed and what needs a decision.
 
@@ -48,7 +48,7 @@ This is a summary. The files in [`.agents/rules/`](.agents/rules/) are authorita
 | Skill | Use it when you're |
 |---|---|
 | [odt-to-markdown](.agents/skills/odt-to-markdown/SKILL.md) | Converting a test plan from `.odt` to Markdown without changing its content |
-| [read-odf](.agents/skills/read-odf/SKILL.md) | Reading the cells of an `.ods` log, the text of an `.odt`, or a record PDF |
+| [read-odf](.agents/skills/read-odf/SKILL.md) | Reading or diffing the cells of a `.fods` or `.ods` log, the text of an `.odt`, or a record PDF |
 | [doc-audit](.agents/skills/doc-audit/SKILL.md) | Checking that registers, links and documents agree: before every change package, and at phase gates |
 | [test-session-records](.agents/skills/test-session-records/SKILL.md) | Preparing for a bench session, or closing one out: logs, captures, records |
 

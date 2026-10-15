@@ -19,7 +19,7 @@ import os
 import re
 import sys
 
-DOC_FILE = re.compile(r"^((TP|TL|DN)-KRC3006-(\d{2}))\.(md|odt|ods)$")
+DOC_FILE = re.compile(r"^((TP|TL|DN)-KRC3006-(\d{2}))\.(md|odt|ods|fodt|fods)$")
 RECORD_NAME = re.compile(r"TL-KRC3006-\d{2}-[A-Za-z0-9]+-\d{8}(?:-S\d+)?")
 
 

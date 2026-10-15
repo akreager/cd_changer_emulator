@@ -5,3 +5,5 @@
 *.sr binary
 *.ods binary
 *.odt binary
+*.fods text diff=odscells
+*.fodt text

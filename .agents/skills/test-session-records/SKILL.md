@@ -24,7 +24,7 @@ Start this when the owner says a session is coming.
 
 ## After a session
 
-1. **Collect from the owner:** the filled TL (`.ods`), every capture (`.sr` and `.png`), and any photos.
+1. **Collect from the owner:** the filled TL (`.fods`), every capture (`.sr` and `.png`), and any photos.
 2. **Check that the log is complete.** Report each gap with its sheet and cell reference.
    - Every row has a result, a P/F and a date.
    - The phase has an overall result.
@@ -33,7 +33,7 @@ Start this when the owner says a session is coming.
    - The Capture File Log, the files and the naming all agree.
 3. **Send the gaps back to the owner as questions.** Don't fill them yourself ([rules/evidence.md](../../rules/evidence.md)).
 4. **Once the log is complete:**
-   - Commit the live TL to `docs/`.
+   - Commit the live TL to `docs/`, at the point decision D-11 sets. Paste its cell diff into the pull request ([read-odf](../read-odf/SKILL.md)).
    - Export a PDF snapshot of the whole TL to `docs/records/`, named `{TL-ID}-{phase}-{YYYYMMDD}` with the completion date.
    - Render the snapshot's pages and check for clipped cells before you commit it.
    - Commit the captures to `captures/`.
