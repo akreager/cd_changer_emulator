@@ -31,8 +31,17 @@ As of `main` @ `11bc992` (2026-10-09).
 
 - TP-01 Phase 1 is complete (2026-04-19), but its record has gaps (backlog DC-02).
 - Phases 2A, 2B and 3 haven't started. No captures exist yet.
-- The HAT schematic is partial. The power section isn't drawn, and there's no PCB layout.
-- Firmware and software haven't started.
+- The HAT schematic is partial. According to the owner's notes of 2026-07-29:
+  - It has U1–U4 (ATtiny1616, 2× SN74LVC8T245, PCM5102A), the 40-pin Pi header J1, the SDD-130J changer port J3, R1–R4, C1–C12 and D1.
+  - The automotive power section (regulators, supercap, TVS) isn't drawn.
+  - The PCB has 4 footprints and no tracks, vias or zones.
+  - J1 uses KiCad's `Raspberry_Pi_4` symbol as a stand-in for the Pi 5. The pinout is the same, but a generated BOM will name the wrong board.
+  - These KiCad changes are uncommitted in the owner's working tree. The committed schematic is older, so check with the owner before describing the HAT from the repo.
+- Firmware and software haven't started. The planned firmware interfaces (DN-01) are:
+  - SPI slave on PA3 (SCK ← CLK), PA4 (MOSI ← DATA H) and PA5 (MISO → DATA C)
+  - USART0 to the Pi on PA1/PA2
+  - UPDI from Pi UART3 (GPIO4/5, `dtoverlay=uart3`)
+  - the PCM5102A driven through the `hifiberry-dac` overlay
 
 ## Settled
 
@@ -46,7 +55,9 @@ As of `main` @ `11bc992` (2026-10-09).
 | The KDC-C717 is the reference changer. The KDC-CX85 is retired. | DN-06 |
 | The level shifters are SN74LVC8T245. The TXB0108 and TXS0108E were rejected. | DN-01. The rationale text still needs correcting (backlog DC-06). |
 | The ATtiny1616 runs at 3.3 V. UPDI uses Pi UART3 (GPIO4/5). | DN-01 |
-| The web app covers library, playlist and magazine management only. It has no playback controls and handles FLAC only. | DN-05 |
+| The HAT puts a 100 Ω inline series resistor on every bus signal, matching the KDC-CX85's protection scheme. | HAT README |
+| The KDC-CX85's J2 is an independent output driven by its MCU, with its own signal lines. It isn't a pass-through of J1, so it can't be used as a monitoring tap. | Owner finding. It isn't in a DN yet. |
+| The web app covers library, playlist and magazine management only. It has no playback controls; every playback command comes from the head unit. It handles FLAC only, and its main devices are phones and tablets. "Magazine overflow" (playlists of playlists) allows more than 10 playlists per magazine, moving to the next bank when disc 10 finishes. | DN-05 §5.2 |
 
 ## Open
 
@@ -62,6 +73,7 @@ Never state these as settled.
 | MUTE and RESET idle levels | Measured 0 V at idle. TP-01 expected HIGH. | Phase 2 |
 | Pull-downs R145/R146 confirmed on the bench | Not measured yet. This is DN-02 §8 item 3, and TP-01 Rev B doesn't include it. | TP-01 Rev C |
 | KDC-C717 changer-side interface | Not analyzed. Part 2 of DN-02 covers the KDC-CX85. | Architect |
+| Pi ↔ ATtiny UART baud rate | DN-01 and DN-05 say 115200 baud, 8N1. The owner's working notes say 9600. | Architect |
 
 ## Sources outside this repository
 

@@ -8,6 +8,8 @@ This is an open-source (MIT) Raspberry Pi 5 HAT that emulates a Kenwood CD chang
 
 The project is documentation-first. `docs/` is the record of what is known, and anyone should be able to reproduce the work from this repo alone. The current phase is protocol reverse engineering under TP-KRC3006-01.
 
+If anything in these agent files disagrees with `docs/`, `docs/` wins. Report the disagreement to the architect.
+
 - Status and milestones: [README.md](README.md#project-status)
 - Document register: [docs/README.md](docs/README.md)
 - What's technically settled and what's still open: [.agents/context/technical-baseline.md](.agents/context/technical-baseline.md)
@@ -62,3 +64,10 @@ This is a summary. The files in [`.agents/rules/`](.agents/rules/) are authorita
 | `firmware/`, `software/` | ATtiny1616 firmware and Pi software (not started) |
 | `reference/README.md` | Citation register. It holds links only, never hosted manuals. |
 | `.agents/` | This workspace: rules, context, decisions, handoffs, backlogs and skills ([index](.agents/README.md)) |
+| `scratch/` | The owner's working files. Git ignores it, so never rely on it for history. |
+
+## Working with the repo
+
+- Fetch single files from `raw.githubusercontent.com/akreager/cd_changer_emulator/main/<path>`, or clone. Avoid the GitHub API without authentication; it's rate-limited.
+- `grep -n` with targeted keywords is the fastest way to find stale references in the long design notes.
+- The owner's local working tree can be ahead of `main`. For example, the HAT KiCad files are uncommitted ([technical baseline](.agents/context/technical-baseline.md)). Ask before you describe work the repo doesn't show.
