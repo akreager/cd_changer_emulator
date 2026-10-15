@@ -15,7 +15,7 @@ Priorities:
 ## P1 — Phase 1 closeout
 
 ### DC-01 · E/P — The live TL-01 is still the blank template
-- Status: Open — waiting on decision D-11
+- Status: Closed 2026-10-15, by commit "docs: commit TL-KRC3006-01 as the live log, in flat ODF". The restored log is `docs/TL-KRC3006-01.fods`, and its cell values are identical to the owner's file.
 - Finding: `docs/TL-KRC3006-01.ods` is the blank Rev B template, and its generator is ODFPY. The Phase 1 results exist only in the PDF record, so Phase 2A results would go into a log that doesn't contain Phase 1.
 - Evidence: the template's `content.xml` has no results, but `docs/records/TL-KRC3006-01-P1-20260419.pdf` does.
 - Update 2026-10-15:
@@ -179,10 +179,10 @@ Priorities:
 
 ### DC-20 · E — Convert the remaining test logs to flat ODF
 - Status: Open (added 2026-10-15)
-- Finding: decision D-10 makes flat ODF the log format, but none of the logs use it yet:
+- Finding: decision D-10 makes flat ODF the log format. TL-01 is converted (DC-01). The rest isn't done yet:
   - TL-03 is `.ods`, and TL-02 is `.odt`.
   - TP-01 (§1, §6) and TP-03 refer to their logs as `.ods` files.
-  - `docs/README.md` (File Format) and the root README (repository tree, Documentation table, Prerequisites) still describe `.ods`/`.odt` logs.
+  - `docs/README.md` (File Format) and the root README (repository tree, Documentation table, Prerequisites) cover TL-01's `.fods`, but still list TL-02 and TL-03 in their old formats.
 - Action:
   - In LibreOffice, save TL-03 as `.fods` and TL-02 as `.fodt` ("Flat XML ODF" in Save As). The cell dump from the [read-odf](../skills/read-odf/SKILL.md) skill must be identical before and after.
   - Update the README links, the tree and the format notes in the same commit.
