@@ -84,6 +84,8 @@ Any vintage automobile still using a Kenwood head unit with CD changer control. 
 
 ```
 cd_changer_emulator/
+├── AGENTS.md                # Instructions for AI agents working on this repo
+├── .agents/                 # Agent workspace: rules, context, decisions, handoffs, backlogs, skills
 ├── assets/                  # Project assets. Photos and screenshots.
 ├── docs/                    # Project documentation
 │   ├── TP-KRC3006-01.odt    # Test plan 1: Protocol capture test procedure (IEEE 829)
@@ -158,6 +160,8 @@ Per-document revision status is tracked in the [documentation index](./docs/READ
 ## Building / Contributing
 
 This project is in early development. If you have a compatible Kenwood head unit and want to help with protocol capture, testing, or firmware development, contributions are welcome.
+
+If you use an AI coding agent on this repo, point it at [AGENTS.md](AGENTS.md) first.
 
 ### Prerequisites
 
