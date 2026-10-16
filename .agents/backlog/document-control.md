@@ -188,6 +188,13 @@ Priorities:
   - Update the README links, the tree and the format notes in the same commit.
   - Fix the TP references in their next revisions (TP-01 Rev C).
 
+### DC-21 · P — Remove the UART baud rate from the design notes
+- Status: Open (added 2026-10-15)
+- Finding: decision D-12 leaves the Pi ↔ ATtiny baud rate unspecified until hardware testing. Two design notes still state a rate:
+  - DN-01 line 451: "UART (115200 baud, 8N1)"
+  - DN-05 line 269: "pyserial, 115200 baud, 8N1"
+- Action: replace the rate with "baud rate set during hardware testing (D-12)" and keep 8N1 only if the source supports it. Add revision-history rows. Search for any other mention with `grep -rn -i baud docs/`.
+
 ## P4 — Presentation
 
 ### DC-18 · E — The TL-01 record clips text
