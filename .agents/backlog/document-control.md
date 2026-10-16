@@ -136,9 +136,10 @@ Priorities:
   - Add a revision-history table.
 
 ### DC-10 · P — "Arduino" is still named as the protocol controller
-- Status: Open
+- Status: Closed ([#3](https://github.com/akreager/cd_changer_emulator/pull/3))
 - Finding: DN-03 (lines 35, 98 and 107, e.g. "Arduino Nano firmware extension") and DN-04 §2 (line 23: "Arduino/Raspberry Pi integration architecture") name an Arduino. The protocol controller is now the ATtiny1616 (DN-01, README). The README's references to the Arduino IDE and megaTinyCore are correct; they describe the toolchain.
 - Action: replace the controller name with ATtiny1616 (P), and add revision-history rows. If a passage depends on an Arduino-specific capability, flag it as T instead of rewording it.
+- Resolution (2026-10-15): replaced all five controller references in [DN-03 Rev 0.2](../../docs/DN-KRC3006-03.md) and [DN-04 Rev D](../../docs/DN-KRC3006-04.md), citing DN-01 §§1–2. Added revision-history entries and updated the document register.
 
 ## P3 — Register and README hygiene
 

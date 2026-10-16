@@ -53,8 +53,8 @@ TT-KRC3006-NN
 | TL-KRC3006-03 | Test Log — Companion to TP-03 | TP-KRC3006-03 | Template prepared; waiting for TP-01 Completion |
 | DN-KRC3006-01 | Hardware Design Research | — | In progress |
 | DN-KRC3006-02 | Schematic Analysis | — | **Rev C** — bus impedance corrected |
-| DN-KRC3006-03 | Bluetooth Integration & Button Remapping | — | Concept |
-| DN-KRC3006-04 | 13-Pin Mini DIN Protocol Sniffer Breakout Board | — | Complete |
+| DN-KRC3006-03 | Bluetooth Integration & Button Remapping | — | **Rev 0.2** — Concept; controller name aligned with DN-01 |
+| DN-KRC3006-04 | 13-Pin Mini DIN Protocol Sniffer Breakout Board | — | **Rev D** — Complete; controller name aligned with DN-01 |
 | DN-KRC3006-05 | Web Application Design for Emulator Library Management | — | Draft |
 | DN-KRC3006-06 | Kenwood CD Changer Error Codes | — | Complete |
 
