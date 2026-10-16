@@ -73,7 +73,7 @@ Never state these as settled.
 | MUTE and RESET idle levels | Measured 0 V at idle. TP-01 expected HIGH. | Phase 2 |
 | Pull-downs R145/R146 confirmed on the bench | Not measured yet. This is DN-02 §8 item 3, and TP-01 Rev B doesn't include it. | TP-01 Rev C |
 | KDC-C717 changer-side interface | Not analyzed. Part 2 of DN-02 covers the KDC-CX85. | Architect |
-| Pi ↔ ATtiny UART baud rate | DN-01 and DN-05 say 115200 baud, 8N1. The owner's working notes say 9600. | Architect |
+| Pi ↔ ATtiny UART baud rate | Deliberately unspecified (decision D-12). DN-01 and DN-05 still say 115200 baud, 8N1, and the owner's earlier notes said 9600 (backlog DC-21). | Chosen during hardware testing (TP-03) |
 
 ## Sources outside this repository
 
