@@ -144,9 +144,11 @@ Priorities:
 ## P3 — Register and README hygiene
 
 ### DC-11 · E — The README tree lists directories that don't exist
-- Status: Open
-- Finding: the root README's repository tree shows `firmware/src/`, `software/flask-app/`, `mpd-config/`, `power-mgmt/`, `wifi-manager/`, `hardware/gerbers/` and `hardware/bom/`. None of them exist, and some have legacy names.
+- Status: Closed ([#4](https://github.com/akreager/cd_changer_emulator/pull/4))
+- Finding: the root README's repository tree shows `firmware/src/`, `software/flask-app/`, `mpd-config/`, `power-mgmt/`, `wifi-manager/`, `hardware/gerbers/` and `hardware/bom/`. These paths have no tracked files, and some have legacy names.
 - Action: show what exists, plus planned directories explicitly marked "(planned)". Don't invent new names; ask the owner.
+- Verification (2026-10-15): all seven directories exist locally but are empty; `git ls-files` lists no files under them.
+- Resolution (2026-10-15): the [README tree](../../README.md#repository-structure) marks those directories as planned, identifies the legacy software names, and distinguishes tracked documentation from future implementation content.
 
 ### DC-12 · E — A non-PDF file sits in `docs/records/`
 - Status: Open
