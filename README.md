@@ -82,9 +82,12 @@ Any vintage automobile still using a Kenwood head unit with CD changer control. 
 
 ## Repository Structure
 
+This overview shows tracked project files and directories. Entries marked `(planned)` have no tracked files and will not appear in a fresh clone. The legacy software directory names are retained from the original plan; [DN-KRC3006-05](./docs/DN-KRC3006-05.md) describes the current software architecture.
+
 ```
 cd_changer_emulator/
 ├── AGENTS.md                # Instructions for AI agents working on this repo
+├── CLAUDE.md                # Imports the shared agent instructions
 ├── .agents/                 # Agent workspace: rules, context, decisions, handoffs, backlogs, skills
 ├── assets/                  # Project assets. Photos and screenshots.
 ├── docs/                    # Project documentation
@@ -100,25 +103,27 @@ cd_changer_emulator/
 │   ├── DN-KRC3006-04.md     # Design note 4: Breakout board design
 │   ├── DN-KRC3006-05.md     # Design note 5: Web application design for library management
 │   ├── DN-KRC3006-06.md     # Design note 6: Kenwood CD changer error codes
-│   ├── protocol/            # Decoded protocol data
-│   └── records/             # Completed, filled-out test logs (published as PDF)
-├── firmware/                # ATtiny1616 firmware (Arduino/megaTinyCore)
-│   └── src/
-├── software/                # Raspberry Pi software
-│   ├── flask-app/           # Web interface — legacy name; being superseded by FastAPI
-│   ├── mpd-config/          # Legacy name; playback is moving to python-mpv
-│   ├── power-mgmt/          # ATtiny UART bridge and power state management
-│   └── wifi-manager/        # AP/client mode switching
+│   ├── protocol/            # Protocol workspace; currently README only
+│   └── records/             # Published test records; see docs/README.md
+├── firmware/                # Firmware workspace
+│   ├── README.md            # Existing firmware documentation
+│   └── src/                 # (planned) Firmware source
+├── software/                # Raspberry Pi software workspace
+│   ├── README.md            # Existing software documentation
+│   ├── flask-app/           # (planned) Web interface; legacy directory name
+│   ├── mpd-config/          # (planned) Playback configuration; legacy directory name
+│   ├── power-mgmt/          # (planned) ATtiny UART bridge and power state management
+│   └── wifi-manager/        # (planned) AP/client mode switching
 ├── hardware/                # KiCad PCB design files
 │   ├── kicad/
 │   │   ├── changer cable breakout/  # Pass-through breakout board (complete, fabbed)
 │   │   ├── emulator hat/            # Raspberry Pi HAT (schematic in progress)
 │   │   └── lib/                     # Shared custom symbols and footprints
-│   ├── gerbers/             # Manufacturing files
-│   └── bom/                 # Bill of materials with JLCPCB part numbers
-├── captures/                # Logic analyzer captures (.sr files)
-├── diagrams/                # WaveDrom timing, Mermaid state machines, draw.io blocks
-└── reference/               # Datasheets, protocol documentation, forum archives
+│   ├── gerbers/             # (planned) Manufacturing files
+│   └── bom/                 # (planned) Bill of materials with JLCPCB part numbers
+├── captures/                # Capture workspace; currently README only
+├── diagrams/                # Diagram workspace; currently README only
+└── reference/               # Citation register with external links
 ```
 
 ## Kenwood Compatibility
@@ -184,3 +189,9 @@ If you use an AI coding agent on this repo, point it at [AGENTS.md](AGENTS.md) f
 ## License
 
 This project is licensed under the [MIT License](LICENSE) — you're free to use, modify, and distribute this project for any purpose, including commercial use.
+
+## Revision History
+
+| Rev | Date | Author | Changes |
+|---|---|---|---|
+| — | 2026-10-15 | A. Kreager | DC-11: distinguish tracked content from planned directories in the repository tree. |
