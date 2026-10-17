@@ -95,7 +95,7 @@ cd_changer_emulator/
 │   ├── TL-KRC3006-01.fods   # Test log 1: Companion log workbook to TP-KRC3006-01 (flat ODF)
 │   ├── TP-KRC3006-02.odt    # Test plan 2: Breakout board test plan
 │   ├── TL-KRC3006-02.odt    # Test log 2: Breakout board test log
-│   ├── TP-KRC3006-03.odt    # Test plan 3: Emulator test procedure (IEEE 829)
+│   ├── TP-KRC3006-03.md     # Test plan 3: Emulator test procedure (IEEE 829)
 │   ├── TL-KRC3006-03.ods    # Test log 3: Companion log workbook to TP-KRC3006-03
 │   ├── DN-KRC3006-01.md     # Design note 1: HAT design research
 │   ├── DN-KRC3006-02.md     # Design note 2: Schematic analysis
@@ -134,7 +134,7 @@ Later Kenwood units with a rectangular changer connector use the "C protocol" (N
 
 ## Documentation
 
-The project follows a documentation-first approach using IEEE 829-inspired test procedures. All documentation lives in the `docs/` directory. TP-01 and design notes are written in Markdown and render directly on GitHub. TP-02 and TP-03 remain in ODT pending conversion. Test logs are bench forms edited in LibreOffice: TL-01 uses flat ODF (`.fods`); TL-02 (`.odt`) and TL-03 (`.ods`) will convert to flat ODF at their next change.
+The project follows a documentation-first approach using IEEE 829-inspired test procedures. All documentation lives in the `docs/` directory. TP-01, TP-03 and design notes are written in Markdown and render directly on GitHub. TP-02 remains in ODT pending conversion. Test logs are bench forms edited in LibreOffice: TL-01 uses flat ODF (`.fods`); TL-02 (`.odt`) and TL-03 (`.ods`) will convert to flat ODF at their next change.
 
 Test plans and test logs are created and maintained as matched pairs sharing a sequence number — `TP-KRC3006-01` defines what gets tested and how, and `TL-KRC3006-01` is where results are recorded. Filled-out copies of a log are published as PDF in `docs/records/` as each phase completes.
 
@@ -144,7 +144,7 @@ Test plans and test logs are created and maintained as matched pairs sharing a s
 | [TL-KRC3006-01](./docs/TL-KRC3006-01.fods) | Test Log | Companion log workbook to TP-KRC3006-01 |
 | [TP-KRC3006-02](./docs/TP-KRC3006-02.odt) | Test Plan | Breakout board test plan |
 | [TL-KRC3006-02](./docs/TL-KRC3006-02.odt) | Test Log | Breakout board test log |
-| [TP-KRC3006-03](./docs/TP-KRC3006-03.odt) | Test Plan | Test plan for creating and testing protocol emulation through full audio integration |
+| [TP-KRC3006-03](./docs/TP-KRC3006-03.md) | Test Plan | Test plan for creating and testing protocol emulation through full audio integration |
 | [TL-KRC3006-03](./docs/TL-KRC3006-03.ods) | Test Log | Companion log workbook to TP-KRC3006-03 |
 | [DN-KRC3006-01](./docs/DN-KRC3006-01.md) | Design Note | HAT design research — ATtiny1616 selection, PCM5102A DAC circuit, automotive power supply with supercap, WiFi architecture, JLCPCB assembly |
 | [DN-KRC3006-02](./docs/DN-KRC3006-02.md) | Design Note | Schematic analysis — KRC-3006 head unit and KDC-CX85 changer signal routing, series resistor values, protocol variant identification |
@@ -196,3 +196,4 @@ This project is licensed under the [MIT License](LICENSE) — you're free to use
 |---|---|---|---|
 | — | 2026-10-15 | A. Kreager | DC-11: distinguish tracked content from planned directories in the repository tree. |
 | — | 2026-10-17 | A. Kreager | CP-1: link TP-01 in Markdown and update format notes per D-9/D-10; plan content unchanged. |
+| — | 2026-10-17 | A. Kreager | CP-1: link TP-03 in Markdown; plan content unchanged. |
