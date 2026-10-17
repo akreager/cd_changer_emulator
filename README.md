@@ -91,7 +91,7 @@ cd_changer_emulator/
 ├── .agents/                 # Agent workspace: rules, context, decisions, handoffs, backlogs, skills
 ├── assets/                  # Project assets. Photos and screenshots.
 ├── docs/                    # Project documentation
-│   ├── TP-KRC3006-01.odt    # Test plan 1: Protocol capture test procedure (IEEE 829)
+│   ├── TP-KRC3006-01.md     # Test plan 1: Protocol capture test procedure (IEEE 829)
 │   ├── TL-KRC3006-01.fods   # Test log 1: Companion log workbook to TP-KRC3006-01 (flat ODF)
 │   ├── TP-KRC3006-02.odt    # Test plan 2: Breakout board test plan
 │   ├── TL-KRC3006-02.odt    # Test log 2: Breakout board test log
@@ -134,13 +134,13 @@ Later Kenwood units with a rectangular changer connector use the "C protocol" (N
 
 ## Documentation
 
-The project follows a documentation-first approach using IEEE 829-inspired test procedures. All documentation lives in the `docs/` directory. Markdown is preferred wherever it fits, so design notes are written in Markdown and render directly on GitHub. The test plans and companion logs are currently kept in Open Document Format because they are table- and form-heavy, but no particular document format is required.
+The project follows a documentation-first approach using IEEE 829-inspired test procedures. All documentation lives in the `docs/` directory. TP-01 and design notes are written in Markdown and render directly on GitHub. TP-02 and TP-03 remain in ODT pending conversion. Test logs are bench forms edited in LibreOffice: TL-01 uses flat ODF (`.fods`); TL-02 (`.odt`) and TL-03 (`.ods`) will convert to flat ODF at their next change.
 
 Test plans and test logs are created and maintained as matched pairs sharing a sequence number — `TP-KRC3006-01` defines what gets tested and how, and `TL-KRC3006-01` is where results are recorded. Filled-out copies of a log are published as PDF in `docs/records/` as each phase completes.
 
 | Document Name | Type | Description |
 |----|------|-------------|
-| [TP-KRC3006-01](./docs/TP-KRC3006-01.odt) | Test Plan | Initial test plan for capturing messages between CD changer and head unit |
+| [TP-KRC3006-01](./docs/TP-KRC3006-01.md) | Test Plan | Initial test plan for capturing messages between CD changer and head unit |
 | [TL-KRC3006-01](./docs/TL-KRC3006-01.fods) | Test Log | Companion log workbook to TP-KRC3006-01 |
 | [TP-KRC3006-02](./docs/TP-KRC3006-02.odt) | Test Plan | Breakout board test plan |
 | [TL-KRC3006-02](./docs/TL-KRC3006-02.odt) | Test Log | Breakout board test log |
@@ -174,7 +174,7 @@ If you use an AI coding agent on this repo, point it at [AGENTS.md](AGENTS.md) f
 - [PulseView](https://sigrok.org/wiki/PulseView) for logic analyzer captures
 - [KiCad](https://www.kicad.org/) for PCB design
 - Python 3 with [FastAPI](https://fastapi.tiangolo.com/) for the web interface and [python-mpv](https://github.com/jaseg/python-mpv) for playback
-- [LibreOffice](https://www.libreoffice.org/) to open the test plans and logs (`.odt`, `.ods`, and flat ODF `.fods`)
+- [LibreOffice](https://www.libreoffice.org/) to open the remaining ODT test plans and the test logs (`.odt`, `.ods`, and flat ODF `.fods`)
 - A UPDI programmer for the ATtiny1616 ([Adafruit UPDI Friend](https://www.adafruit.com/product/5879) or DIY with a serial adapter and resistor)
 
 ## References
@@ -195,3 +195,4 @@ This project is licensed under the [MIT License](LICENSE) — you're free to use
 | Rev | Date | Author | Changes |
 |---|---|---|---|
 | — | 2026-10-15 | A. Kreager | DC-11: distinguish tracked content from planned directories in the repository tree. |
+| — | 2026-10-17 | A. Kreager | CP-1: link TP-01 in Markdown and update format notes per D-9/D-10; plan content unchanged. |
