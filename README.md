@@ -3,7 +3,7 @@
 **Raspberry Pi-based CD changer emulator for vintage Kenwood car stereos**
 
 Reverse-engineering the proprietary serial protocol used by 1990s Kenwood head units to communicate with their CD changers, and building an open-source emulator that replaces the changer with a Raspberry Pi — enabling unlimited music playback through the original stereo using its factory controls.
-![Close-up front view of KRC-3006 cassette receiver](/../main/assets/KRC3006_01.jpg)
+![Close-up front view of KRC-3006 cassette receiver](/../main/assets/krc3006_01.jpg)
 
 ## Project Status
 
@@ -25,7 +25,7 @@ Testing runs inline through the DN-KRC3006-04 pass-through breakout board, seria
 ![Close-up view of assembled pass-through breakout board](/../main/assets/breakout_board_01.jpg)
 
 The KDC-CX85 originally used as the reference changer was diagnosed with a dead or degraded laser diode and retired. All further testing uses the KDC-C717:
-![Close-up front view of KDC-C717 CD auto changer](/../main/assets/KDCC717_01.jpg)
+![Close-up front view of KDC-C717 CD auto changer](/../main/assets/kdcc717_01.jpg)
 
 For reference, the 13-pin mini DIN changer connector pinout:
 ![Kenwood 13-pin mini DIN CD changer connector pinout and signal names](/../main/assets/changer_pins.png)
