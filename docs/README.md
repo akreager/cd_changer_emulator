@@ -6,13 +6,13 @@ This folder contains all project documentation for the KRC-3006 reverse engineer
 
 ## File Format
 
-Test plans, design notes and READMEs use **Markdown (`.md`)** so they render directly on GitHub. Test logs are bench forms edited in LibreOffice and use flat ODF: `.fods` for spreadsheets and `.fodt` for text documents. The remaining zipped ODF logs convert at their next change (decisions [D-9 and D-10](../.agents/decisions.md)).
+Test plans, design notes and READMEs use **Markdown (`.md`)** so they render directly on GitHub. Test logs are bench forms edited in LibreOffice and use flat ODF: `.fods` for spreadsheets and `.fodt` for text documents. Remaining zipped logs convert at their next change (decisions [D-9 and D-10](../.agents/decisions.md)).
 
 Formats currently in use:
 
 - Markdown (`.md`) — test plans, design notes and READMEs
-- Open Document Format (`.odt` / `.ods`) — TL-KRC3006-02 and TL-KRC3006-03, pending conversion to flat ODF
-- Flat ODF spreadsheet (`.fods`) — TL-KRC3006-01. It's a single XML file; review changes as cell diffs.
+- Flat ODF spreadsheet (`.fods`) — TL-KRC3006-01; review changes as cell diffs.
+- Open Document Format (`.odt` / `.ods`) — TL-KRC3006-02 and TL-KRC3006-03, pending D-10 conversion.
 - Timing diagrams (WaveDrom `.json`)
 - State machine diagrams (Mermaid `.mmd`)
 
@@ -46,8 +46,8 @@ TT-KRC3006-NN
 
 | Document | Title | Paired With | Status |
 |---|---|---|---|
-| [TP-KRC3006-01](TP-KRC3006-01.md) | Protocol Reverse Engineering Test Plan | TL-KRC3006-01 | **Rev B** — in progress; Phase 1 complete |
-| TL-KRC3006-01 | Test Log — Companion to TP-01 | TP-KRC3006-01 | **Rev B** — Phase 1 recorded 2026-04-19 |
+| [TP-KRC3006-01](TP-KRC3006-01.md) | Protocol Reverse Engineering Test Plan | TL-KRC3006-01 | **Rev C** — inline Phase 2A and CLK-driver Phase 2C; Phase 1 closeout pending |
+| TL-KRC3006-01 | Test Log — Companion to TP-01 | TP-KRC3006-01 | **Rev C** — Phase 2 forms prepared; Phase 1 Rev B entries preserved (2026-04-19) |
 | [TP-KRC3006-02](TP-KRC3006-02.md) | Breakout Board Bare Board Testing, Assembly, and Verification | TL-KRC3006-02 | Board Serial Number 1 Completed |
 | TL-KRC3006-02 | Breakout Board Test Log | TP-KRC3006-02 | Board Serial Number 1 Completed |
 | [TP-KRC3006-03](TP-KRC3006-03.md) | Protocol Emulation Test Plan | TL-KRC3006-03 | Waiting for TP-01 Completion |
@@ -55,7 +55,7 @@ TT-KRC3006-NN
 | DN-KRC3006-01 | Hardware Design Research | — | In progress |
 | DN-KRC3006-02 | Schematic Analysis | — | **Rev C** — bus impedance corrected |
 | DN-KRC3006-03 | Bluetooth Integration & Button Remapping | — | **Rev 0.2** — Concept; controller name aligned with DN-01 |
-| DN-KRC3006-04 | 13-Pin Mini DIN Protocol Sniffer Breakout Board | — | **Rev D** — Complete; controller name aligned with DN-01 |
+| DN-KRC3006-04 | 13-Pin Mini DIN Protocol Sniffer Breakout Board | — | **Rev D** — procedural protection and FIX-01 build documented; fixture not yet verified |
 | DN-KRC3006-05 | Web Application Design for Emulator Library Management | — | Draft |
 | DN-KRC3006-06 | Kenwood CD Changer Error Codes | — | Complete |
 
@@ -65,10 +65,11 @@ TP-KRC3006-01 Rev B (2026-04-12) restricted the plan's scope to protocol reverse
 
 | Phase | Scope | Status |
 |---|---|---|
-| 1 | Power-on characterization — supply, idle bus voltages, CH-CON polarity, ground continuity | Complete (2026-04-19) |
-| 2A | Idle-state capture and first message decode | Not started |
+| 1 | Power-on characterization — supply, idle bus voltages, ON (CH-CON) polarity, ground continuity | Executed 2026-04-19; overall disposition / supplement pending (DC-02) |
+| 2A | Inline idle capture, no magazine; A/B/C source/power transitions and first decode | Not started; Phase 1 disposition required |
 | 2B | Inline bidirectional capture, head unit ↔ KDC-C717 | Not started |
-| 3 | Command mapping | Not started |
+| 2C | CLK driver identification through FIX-01 (S/N 2); gates CLK shifter choice | Not started; Phase 2B passed and FIX-01 verified required |
+| 3 | Command mapping; entry remains Phase 2B passed | Not started |
 
 ---
 
@@ -98,3 +99,5 @@ The working log in this folder stays live and accumulates results as phases are 
 | — | 2026-10-17 | A. Kreager | CP-1: link TP-01 in Markdown and update format notes per D-9/D-10; plan revision and execution status unchanged. |
 | — | 2026-10-17 | A. Kreager | CP-1: link TP-03 in Markdown; plan revision and execution status unchanged. |
 | — | 2026-10-17 | A. Kreager | CP-1: link TP-02 in Markdown and complete the format updates; plan revision and execution status unchanged. |
+| — | 2026-10-17 | A. Kreager | TP-01/TL-01 Rev C per approved rulings R-1; add Phase 2C and distinguish Phase 1 execution from pending closeout. |
+| — | 2026-10-17 | A. Kreager | DN-04 Rev D: apply R-2 and document FIX-01; distinguish instructions from completed build evidence. |

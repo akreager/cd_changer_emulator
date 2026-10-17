@@ -11,7 +11,7 @@ Reverse-engineering the proprietary serial protocol used by 1990s Kenwood head u
 
 ### Current Milestone
 
-**Phase 1 of TP-KRC3006-01 — power-on characterization — is complete.** Executed 2026-04-19 on the KRC-3006 with a KDC-C717 changer connected through the pass-through breakout board. Every recorded step passed; results are published in [TL-KRC3006-01-P1-20260419](./docs/records/TL-KRC3006-01-P1-20260419.pdf).
+**Phase 1 of TP-KRC3006-01 — power-on characterization — was executed; closeout is pending.** Executed 2026-04-19 on the KRC-3006 with a KDC-C717 changer connected through the pass-through breakout board. The overall result, continuity P/F and several dispositions remain blank (DC-02); results are published in [TL-KRC3006-01-P1-20260419](./docs/records/TL-KRC3006-01-P1-20260419.pdf).
 
 Findings that matter for the emulator design:
 
@@ -32,10 +32,10 @@ For reference, the 13-pin mini DIN changer connector pinout:
 
 ### Immediate To-Do
 
-- [ ] **Execute Phase 2A of TP-KRC3006-01** — Idle-state logic analyzer capture and first message decode: establish the bit clock, polling interval, and frame structure.
+- [ ] **Execute Phase 2A of TP-KRC3006-01** — Use TP-01 Rev C with the C717 connected and no magazine: capture A/B/C transitions, measure timing and decode a repeatable frame. Resolve the Phase 1 closeout entry gate first.
 - [ ] **Execute Phase 2B** — Inline bidirectional capture of head unit ↔ KDC-C717 traffic. Inline capture is mandatory: the head unit will not switch to the changer source unless a changer is electrically present, so isolated head unit testing is impractical.
 - [ ] **Execute Phase 3** — Command mapping: correlate each head unit control to its bus command and the changer's response, and compare against the Mictronics tables.
-- [ ] **Resolve CLK directionality** — The CX85 service manual lists CLK as I/O. If Phase 2B confirms it is bidirectional, the fixed-direction SN74LVC8T245 will not work for CLK; an SN74LVC1T45 (independent DIR pin) is the planned substitute.
+- [ ] **Build FIX-01 and execute Phase 2C** — Identify the CLK driver using breakout S/N 2 and the approved series-resistor method (TP-01 §4.4). This gates the CLK level-shifter choice; it does not gate Phase 3.
 - [ ] **Continue the emulator HAT schematic** — The protocol and audio front end is placed (ATtiny1616, two SN74LVC8T245 level shifters, PCM5102A DAC, 40-pin Pi header, 13-pin mini DIN changer port, supporting passives). The automotive power supply section is not yet drawn and no PCB layout has begun; the schematic cannot be finalized until command mapping is complete.
 
 ### Completed
@@ -47,7 +47,7 @@ For reference, the 13-pin mini DIN changer connector pinout:
 - [X] **Completed TP-KRC3006-02** — Receive, inspect, assemble and verify pass-through breakout board serial number 1.
 - [X] **Set up test bench** — Bench wiring, logic analyzer connections, and a custom staged power adapter with two toggle switches that simulate constant and ignition-switched power independently.
 - [X] **Troubleshoot CX85** — Initial tests showed the CD changer laser diode is dirty or degraded (E-04, all discs unreadable). Unit deemed inoperable and retired. Further testing is carried out with a KDC-C717 CD changer. (DN-KRC3006-06)
-- [X] **Completed Phase 1 of TP-KRC3006-01** — Power-on characterization with the KDC-C717 inline: supply and idle current draw, 13-pin DIN idle voltages on every signal pin, CH-CON polarity, CLK gating behavior, and pin 2 ↔ pin 6 ground continuity. Record: TL-KRC3006-01-P1-20260419.
+- [X] **Executed Phase 1 of TP-KRC3006-01; closeout pending** — Power-on characterization with the KDC-C717 inline: supply and idle current draw, 13-pin DIN idle voltages on every signal pin, CH-CON polarity, CLK gating behavior, and pin 2 ↔ pin 6 ground continuity. Record: TL-KRC3006-01-P1-20260419.
 
 ## What This Project Does
 
@@ -140,8 +140,8 @@ Test plans and test logs are created and maintained as matched pairs sharing a s
 
 | Document Name | Type | Description |
 |----|------|-------------|
-| [TP-KRC3006-01](./docs/TP-KRC3006-01.md) | Test Plan | Initial test plan for capturing messages between CD changer and head unit |
-| [TL-KRC3006-01](./docs/TL-KRC3006-01.fods) | Test Log | Companion log workbook to TP-KRC3006-01 |
+| [TP-KRC3006-01](./docs/TP-KRC3006-01.md) | Test Plan | Rev C: inline idle/loaded captures, CLK driver identification and command mapping |
+| [TL-KRC3006-01](./docs/TL-KRC3006-01.fods) | Test Log | Rev C forms for TP-01; historical Phase 1 results retained |
 | [TP-KRC3006-02](./docs/TP-KRC3006-02.md) | Test Plan | Breakout board test plan |
 | [TL-KRC3006-02](./docs/TL-KRC3006-02.odt) | Test Log | Breakout board test log |
 | [TP-KRC3006-03](./docs/TP-KRC3006-03.md) | Test Plan | Test plan for creating and testing protocol emulation through full audio integration |
@@ -186,6 +186,8 @@ If you use an AI coding agent on this repo, point it at [AGENTS.md](AGENTS.md) f
 - [SpenceKonde/megaTinyCore](https://github.com/SpenceKonde/megaTinyCore) (ATtiny1616 Arduino support)
 - [pyupdi / pymcuprog](https://github.com/mraardvark/pyupdi) (UPDI programming from Raspberry Pi)
 
+- [SparkFun TOL-18627 analyzer specifications](https://www.sparkfun.com/usb-logic-analyzer-24mhz-8-channel.html) (REF-006)
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE) — you're free to use, modify, and distribute this project for any purpose, including commercial use.
@@ -198,3 +200,5 @@ This project is licensed under the [MIT License](LICENSE) — you're free to use
 | — | 2026-10-17 | A. Kreager | CP-1: link TP-01 in Markdown and update format notes per D-9/D-10; plan content unchanged. |
 | — | 2026-10-17 | A. Kreager | CP-1: link TP-03 in Markdown; plan content unchanged. |
 | — | 2026-10-17 | A. Kreager | CP-1: link TP-02 in Markdown and complete the format and prerequisite updates; plan content unchanged. |
+| — | 2026-10-17 | A. Kreager | TP-01/TL-01 Rev C per rulings R-1; update capture work order and Phase 1 closeout status. |
+| — | 2026-10-17 | A. Kreager | R-1.1: add SparkFun analyzer specification source (REF-006). |
