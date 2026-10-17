@@ -54,8 +54,10 @@ The first output line, `# generator:`, differs between LibreOffice and other wri
 ## `.odt` documents
 
 ```sh
-pandoc -f odt -t plain --wrap=none docs/TP-KRC3006-02.odt
+pandoc -f odt -t plain --wrap=none docs/TL-KRC3006-02.odt
 ```
+
+Test plans move to Markdown in document control's CP-1 (D-9). To read a converted test plan's original `.odt`, take it from git history, e.g. `git show 11bc992:docs/TP-KRC3006-02.odt > /tmp/TP-02.odt`, then run pandoc on that file.
 
 - Pandoc drops headers and footers. In this project's test plans they only repeat the document ID, the revision and the page number.
 - In Markdown output, pandoc writes an em dash in a field as `---`. Check the plain-text output for the real character.

@@ -6,6 +6,7 @@ This folder holds the standing instructions and working files for AI agents on t
 |---|---|---|
 | [`rules/`](rules/) | Rules every agent follows | Architect |
 | [`context/`](context/) | Shared project context: what's settled, what's open, where the sources are | Architect |
+| [`rulings/`](rulings/) | The architect's answers to backlog questions, one dated file per batch. Once the owner merges them, document control applies them as P changes. | Architect |
 | [`decisions.md`](decisions.md) | Decisions that shape how agents work, open and closed | The architect records them; the owner decides |
 | [`handoffs/`](handoffs/) | One standing brief per agent role | Architect |
 | [`backlog/`](backlog/) | One live work list per role | The agent in that role |
