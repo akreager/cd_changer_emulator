@@ -10,6 +10,8 @@ CP-1 status: Closed ([#5](https://github.com/akreager/cd_changer_emulator/pull/5
 
 Work update (2026-10-17, baseline `b814b06`): approved rulings R-1–R-6 applied in review drafts. TP-01/TL-01 Rev C, DN-04 Rev D and FIX-01 instructions are prepared; Phase 1 supplement/disposition questions remain local pending D-1 and owner answers. DN-02 Rev D, breakout labels, TP-03/TL-03 and D-10 conversions are prepared, with remaining technical decisions listed below. No bench result or published record has been changed.
 
+Review packages (drafts, review in order): [#8 — Phase 2 readiness](https://github.com/akreager/cd_changer_emulator/pull/8), [#9 — emulation rulings](https://github.com/akreager/cd_changer_emulator/pull/9), [#10 — format/reference hygiene](https://github.com/akreager/cd_changer_emulator/pull/10). The later PRs target the preceding branch; the owner merges and retargets in sequence. Draft preparation does not close owner dispositions or establish bench acceptance.
+
 Priorities:
 - **P1:** close out Phase 1 and make TL-01 live. This must happen before any Phase 2A data exists.
 - **P2:** propagate settled corrections.
