@@ -6,13 +6,13 @@ This folder contains all project documentation for the KRC-3006 reverse engineer
 
 ## File Format
 
-Test plans, design notes and READMEs use **Markdown (`.md`)** so they render directly on GitHub. Test logs are bench forms edited in LibreOffice and use flat ODF: `.fods` for spreadsheets and `.fodt` for text documents. Remaining zipped logs convert at their next change (decisions [D-9 and D-10](../.agents/decisions.md)).
+Test plans, design notes and READMEs use **Markdown (`.md`)** so they render directly on GitHub. Test logs are bench forms edited in LibreOffice and use flat ODF: `.fods` for spreadsheets and `.fodt` for text documents. All working logs now use flat ODF (decisions [D-9 and D-10](../.agents/decisions.md)).
 
 Formats currently in use:
 
 - Markdown (`.md`) — test plans, design notes and READMEs
 - Flat ODF spreadsheet (`.fods`) — TL-KRC3006-01 and TL-KRC3006-03; review changes as cell diffs.
-- Open Document Format (`.odt`) — TL-KRC3006-02, pending D-10 conversion.
+- Flat ODF text (`.fodt`) — TL-KRC3006-02; review text changes against its previous version.
 - Timing diagrams (WaveDrom `.json`)
 - State machine diagrams (Mermaid `.mmd`)
 
@@ -102,3 +102,4 @@ The working log in this folder stays live and accumulates results as phases are 
 | — | 2026-10-17 | A. Kreager | TP-01/TL-01 Rev C per approved rulings R-1; add Phase 2C and distinguish Phase 1 execution from pending closeout. |
 | — | 2026-10-17 | A. Kreager | DN-04 Rev D: apply R-2 and document FIX-01; distinguish instructions from completed build evidence. |
 | — | 2026-10-17 | A. Kreager | R-3/R-5/R-6 and DC-06/08/21/25: design-note propagation, emulator plan/log fields, and D-10 TL-03 flat-ODF conversion. |
+| — | 2026-10-17 | A. Kreager | D-10/DC-16: TL-02 flat-ODF conversion and DN-06 history table; content preserved. |
