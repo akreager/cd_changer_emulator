@@ -190,17 +190,30 @@ def is_tracked(root, path):
 
 
 def update_refs(root, old_path, new_path):
-    """Replace references to old_path's basename in tracked Markdown files."""
-    old, new = os.path.basename(old_path), os.path.basename(new_path)
-    forms = {old: new, urllib.parse.quote(old): new, old.replace(" ", "%20"): new}
-    md = subprocess.run(["git", "-C", root, "ls-files", "*.md"], capture_output=True, text=True).stdout.split()
+    """Replace links to old_path in tracked Markdown files.
+
+    Links are matched by their path relative to each Markdown file, so two
+    images with the same name in different folders aren't confused.
+    """
+    old_abs, new_abs = os.path.abspath(old_path), os.path.abspath(new_path)
+    out = subprocess.run(["git", "-C", root, "ls-files", "-z", "*.md"], capture_output=True, text=True).stdout
     changed = []
-    for rel in md:
+    for rel in filter(None, out.split("\0")):
         p = os.path.join(root, rel)
+        if not os.path.exists(p):
+            continue
+        here = os.path.dirname(p)
+        old_rel = os.path.relpath(old_abs, here).replace(os.sep, "/")
+        new_rel = os.path.relpath(new_abs, here).replace(os.sep, "/")
         text = open(p, encoding="utf-8").read()
         new_text = text
-        for a, b in forms.items():
-            new_text = new_text.replace(a, b)
+        old_root = os.path.relpath(old_abs, root).replace(os.sep, "/")
+        new_root = os.path.relpath(new_abs, root).replace(os.sep, "/")
+        # Relative links ("../assets/x.jpg") and repo-root links ("/../main/assets/x.jpg").
+        for a_old, a_new, lead in ((old_rel, new_rel, r"(?<=[(<\"'\s])"), (old_root, new_root, r"(?<=/)")):
+            for a in {a_old, a_old.replace(" ", "%20"), urllib.parse.quote(a_old)}:
+                new_text = re.sub(lead + r"(\./)?" + re.escape(a) + r"(?=[)>\"'\s#?])",
+                                  lambda m, n=a_new: (m.group(1) or "") + n, new_text)
         if new_text != text:
             open(p, "w", encoding="utf-8").write(new_text)
             changed.append(rel)
