@@ -6,12 +6,12 @@ This folder contains all project documentation for the KRC-3006 reverse engineer
 
 ## File Format
 
-TP-01, design notes and READMEs use **Markdown (`.md`)** so they render directly on GitHub. TP-02 and TP-03 remain in ODT pending conversion. Test logs are bench forms edited in LibreOffice and use flat ODF: `.fods` for spreadsheets and `.fodt` for text documents. The remaining zipped ODF logs convert at their next change (decisions [D-9 and D-10](../.agents/decisions.md)).
+TP-01, TP-03, design notes and READMEs use **Markdown (`.md`)** so they render directly on GitHub. TP-02 remains in ODT pending conversion. Test logs are bench forms edited in LibreOffice and use flat ODF: `.fods` for spreadsheets and `.fodt` for text documents. The remaining zipped ODF logs convert at their next change (decisions [D-9 and D-10](../.agents/decisions.md)).
 
 Formats currently in use:
 
-- Markdown (`.md`) — TP-01, design notes and READMEs
-- Open Document Format (`.odt` / `.ods`) — TP-KRC3006-02 and TP-KRC3006-03, pending conversion to Markdown; TL-KRC3006-02 and TL-KRC3006-03, pending conversion to flat ODF
+- Markdown (`.md`) — TP-01, TP-03, design notes and READMEs
+- Open Document Format (`.odt` / `.ods`) — TP-KRC3006-02, pending conversion to Markdown; TL-KRC3006-02 and TL-KRC3006-03, pending conversion to flat ODF
 - Flat ODF spreadsheet (`.fods`) — TL-KRC3006-01. It's a single XML file; review changes as cell diffs.
 - Timing diagrams (WaveDrom `.json`)
 - State machine diagrams (Mermaid `.mmd`)
@@ -50,7 +50,7 @@ TT-KRC3006-NN
 | TL-KRC3006-01 | Test Log — Companion to TP-01 | TP-KRC3006-01 | **Rev B** — Phase 1 recorded 2026-04-19 |
 | TP-KRC3006-02 | Breakout Board Bare Board Testing, Assembly, and Verification | TL-KRC3006-02 | Board Serial Number 1 Completed |
 | TL-KRC3006-02 | Breakout Board Test Log | TP-KRC3006-02 | Board Serial Number 1 Completed |
-| TP-KRC3006-03 | Protocol Emulation Test Plan | TL-KRC3006-03 | Waiting for TP-01 Completion |
+| [TP-KRC3006-03](TP-KRC3006-03.md) | Protocol Emulation Test Plan | TL-KRC3006-03 | Waiting for TP-01 Completion |
 | TL-KRC3006-03 | Test Log — Companion to TP-03 | TP-KRC3006-03 | Template prepared; waiting for TP-01 Completion |
 | DN-KRC3006-01 | Hardware Design Research | — | In progress |
 | DN-KRC3006-02 | Schematic Analysis | — | **Rev C** — bus impedance corrected |
@@ -96,3 +96,4 @@ The working log in this folder stays live and accumulates results as phases are 
 | Rev | Date | Author | Changes |
 |---|---|---|---|
 | — | 2026-10-17 | A. Kreager | CP-1: link TP-01 in Markdown and update format notes per D-9/D-10; plan revision and execution status unchanged. |
+| — | 2026-10-17 | A. Kreager | CP-1: link TP-03 in Markdown; plan revision and execution status unchanged. |
