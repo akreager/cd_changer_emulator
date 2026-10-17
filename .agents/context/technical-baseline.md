@@ -22,7 +22,7 @@ As of `main` @ `11bc992` (2026-10-09).
   | KEN-01 | KRC-3006 head unit (device under test) |
   | KEN-02 | KDC-C717 changer (reference changer) |
   | MOD-03 | Pass-through breakout board S/N 1 (DN-04, verified per TP-02) |
-  | LA-01 | SparkFun TOL-18627 logic analyzer, used with PulseView |
+  | LA-01 | SparkFun TOL-18627 logic analyzer, used with PulseView: 8 channels, 24 MHz, 5.25 V maximum input (SparkFun product page; [rulings R-1.1](../rulings/2026-10-16.md)) |
   | PWR-02 | Staged power adapter |
 
   The KDC-CX85 is retired because its laser failed (DN-06).
