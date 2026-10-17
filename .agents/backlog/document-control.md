@@ -6,6 +6,8 @@ This is the live work list for the document control agent ([handoff](../handoffs
 - Close an item by setting its status to `Closed (#PR)`.
 - Items DC-01 to DC-19 were verified against `main` @ `11bc992` (2026-10-09). Line numbers are as of that commit; find each passage by its quoted text. Later items give the date they were added.
 
+CP-1 status (2026-10-17, baseline `96d09e0`): TP-01, TP-03 and TP-02 are converted to Markdown on `docs/cp-01-tp-markdown`. Each content-only conversion passes the word-sequence check; the final files add only the conversion-history row. The owner removed the ODT originals and requested the commits on 2026-10-17, satisfying the removal confirmation required by the [handoff §6](../handoffs/document-control.md#6-first-assignments). The package awaits pull request submission and owner review.
+
 Priorities:
 - **P1:** close out Phase 1 and make TL-01 live. This must happen before any Phase 2A data exists.
 - **P2:** propagate settled corrections.
@@ -121,6 +123,7 @@ Priorities:
 
 ### DC-09 · T (architect) + E — DN-02 Rev C leftovers
 - Status: Open
+- Reverified 2026-10-16: the root README's Completed section also repeats the CLK idle-LOW claim. DN-02 §1 repeats the obsolete Phase 1 ground-continuity question. DN-02 §10.1/§16.1 and DN-04 §5 pin 4 need the ON-polarity conflict carried forward from the Phase 1 record; do not choose a polarity. DN-02 §16.2's “Clock Is Bidirectional” heading states an open question as settled; the architect must review it against the technical baseline.
 - Findings:
   - §3.1 and the HAT README say R145/R146 "define the idle LOW state" on CLK, but Phase 1 read 5.15 V on CLK (technical baseline, Open).
   - The pull-down claim hasn't been verified on the bench (DN-02 §8 item 3).
@@ -157,6 +160,7 @@ Priorities:
 
 ### DC-13 · E — TL-02 dates and a missing result
 - Status: Open
+- Reverified 2026-10-16: the breakout README's “Next Steps” calls TP-01 Phase 1 passive capture and still describes head-unit-only capture, unlike the current master register and root README. DN-04 §13 retains TBD build milestones; establish whether these are historical targets before changing them. Include this status text in the later editorial package.
 - Finding: the breakout README says S/N 1 was "completed 4/5". The TL-02 record shows phase results dated 2026-04-01, 04-08 and 04-10. TL-02 step 1.1 (board outline 22 × 80 mm ±0.2) has no result in the published record.
 - Action: fix the README date. Put the step 1.1 gap to the owner; he can choose a supplement under decision D-1.
 
@@ -193,10 +197,31 @@ Priorities:
 
 ### DC-21 · P — Remove the UART baud rate from the design notes
 - Status: Open (added 2026-10-15)
+- Reverified 2026-10-16: TP-03 §4.3.2 step 2 also specifies 9600 baud, with 38400 or 115200 as alternatives. Preserve this text in CP-1; apply D-12 in a separate revision. The accompanying rationale is technical and needs the architect's review.
 - Finding: decision D-12 leaves the Pi ↔ ATtiny baud rate unspecified until hardware testing. Two design notes still state a rate:
   - DN-01 line 451: "UART (115200 baud, 8N1)"
   - DN-05 line 269: "pyserial, 115200 baud, 8N1"
 - Action: replace the rate with "baud rate set during hardware testing (D-12)" and keep 8N1 only if the source supports it. Add revision-history rows. Search for any other mention with `grep -rn -i baud docs/`.
+
+### DC-22 · T review + E — Breakout README audio-channel conflict
+- Status: Open (added 2026-10-16)
+- Finding: the [breakout README](../../hardware/kicad/changer%20cable%20breakout/README.md), J4/J5 Pinout tables, labels DIN pin 8 L CH and pin 12 R CH. Its J1/J2 table and Audio Interception section give pin 8 R CH and pin 12 L CH, as does [TP-02 §6.2](../../docs/TP-KRC3006-02.md#62-bare-board-electrical-tests), steps 1.12–1.13.
+- Action: ask the architect to confirm the table correction against the hardware. Preserve both sides of the conflict until reviewed; no hardware inspection was performed in the CP-1 audit.
+
+### DC-23 · T — Elapsed-time display requirements conflict
+- Status: Open (added 2026-10-16)
+- Finding: [TP-03](../../docs/TP-KRC3006-03.md) §4.2.2 step 4 and §4.3.3 steps 3/4e require elapsed time on the head-unit display. [TL-03](../../docs/TL-KRC3006-03.ods), “Phase 3 — Integration” B37, expects “Time display correct”. [DN-05 §2.2](../../docs/DN-KRC3006-05.md#22-display-capabilities) says the head unit cannot display elapsed track time.
+- Action: the architect reconciles the capability claim, procedures and log criteria. Preserve the source text during CP-1; document control does not change acceptance criteria.
+
+### DC-24 · P + T — DN-02 assigns the ATtiny to a different supply rail
+- Status: Open (added 2026-10-16)
+- Finding: [DN-02 §16.6](../../docs/DN-KRC3006-02.md#166-kenwood-used-five-separate-5v-rails-for-audio-quality) says “5V for Pi/ATtiny”. The [HAT README](../../hardware/kicad/emulator%20hat/README.md#design-overview) specifies the ATtiny1616 at 3.3 V.
+- Action: propagate the settled controller supply voltage in a later revision. The architect reviews the surrounding rail-count and audio-quality rationale before it changes.
+
+### DC-25 · E/P — DN-05 open questions use stale test references
+- Status: Open (added 2026-10-16)
+- Finding: [DN-05 §12](../../docs/DN-KRC3006-05.md#12-open-questions), item 1, points protocol capture to TP-02, whose scope is breakout-board verification ([TP-02 §2](../../docs/TP-KRC3006-02.md#2-scope)). Item 3 proposes live testing with the retired CX85; [DN-06](../../docs/DN-KRC3006-06.md) identifies the C717 as its replacement.
+- Action: correct the plan reference and changer name in a later editorial/propagation revision, citing the plan scopes and DN-06.
 
 ## P4 — Presentation
 
