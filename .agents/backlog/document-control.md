@@ -8,7 +8,7 @@ This is the live work list for the document control agent ([handoff](../handoffs
 
 CP-1 status: Closed ([#5](https://github.com/akreager/cd_changer_emulator/pull/5)); merged before this work.
 
-Work update (2026-10-17, baseline `b814b06`): approved rulings R-1–R-6 applied in review drafts. TP-01/TL-01 Rev C, DN-04 Rev D and FIX-01 instructions are prepared; Phase 1 supplement/disposition questions remain local pending D-1 and owner answers. DN-02 Rev D, breakout labels, TP-03/TL-03 and D-10 conversions are prepared, with remaining technical decisions listed below. No bench result or published record has been changed.
+Work update (2026-10-17, baseline `b814b06`): approved rulings R-1–R-6 applied in review drafts. TP-01/TL-01 Rev C, DN-04 Rev D and FIX-01 instructions are prepared. The owner approved the separate Phase 1 supplement method on 2026-10-17; its draft and disposition questions remain local pending dated owner answers. Architect recording of D-1 remains outstanding. DN-02 Rev D, breakout labels, TP-03/TL-03 and D-10 conversions are prepared, with remaining technical decisions listed below. No bench result or published record has been changed.
 
 Review packages (drafts, review in order): [#8 — Phase 2 readiness](https://github.com/akreager/cd_changer_emulator/pull/8), [#9 — emulation rulings](https://github.com/akreager/cd_changer_emulator/pull/9), [#10 — format/reference hygiene](https://github.com/akreager/cd_changer_emulator/pull/10). The later PRs target the preceding branch; the owner merges and retargets in sequence. Draft preparation does not close owner dispositions or establish bench acceptance.
 
@@ -31,7 +31,7 @@ Priorities:
 - Action: if D-11 says to commit each phase, commit the restored log as `docs/TL-KRC3006-01.fods`. Either way, make `docs/README.md`'s rule for the working log match D-11.
 
 ### DC-02 · T (the owner dispositions) — The Phase 1 record has gaps
-- Update 2026-10-17: Supplement and gap questions drafted locally for owner disposition; original record and 146 nonempty Phase 1 live-log cells preserved. Publication awaits D-1 and completed entries. Added questions for untested audio pins and the date/setup of the changer-present observation.
+- Update 2026-10-17: Supplement and gap questions drafted locally for owner disposition; original record and 146 nonempty Phase 1 live-log cells preserved. The owner approved a separate `TL-KRC3006-01-P1-20260419-S1.pdf` in the 2026-10-17 conversation ("Approve the separate supplement (recommended)"), leaving the original untouched. Publication awaits completed, dated and initialed dispositions; the architect still needs to record D-1 in the decision register. Added questions for untested audio pins and the date/setup of the changer-present observation.
 - Status: Open
 - Findings in the record:
   - The Overall Result is blank.
