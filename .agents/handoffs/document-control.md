@@ -46,6 +46,11 @@ You keep the project's documentation accurate, consistent, traceable and current
 
 - Roles are listed in [AGENTS.md](../../AGENTS.md). You propose; the owner approves and merges.
 - Questions for the architect go in the "For the architect" section of each change package, and the owner relays them. Don't wait for answers: park the item as open and carry on.
+- **Blocking questions go in `scratch/questions.md`.** When a question stops work on a backlog item, log it there and move to the next item.
+  - The file is local and never committed: `scratch/` is git-ignored. Add, edit and remove entries freely. Create the file if it doesn't exist.
+  - One entry per question: an ID (`Q-NN`), who it's for (owner or architect), the DC item it blocks, the evidence, and what you'd do with each likely answer.
+  - Remove an entry once it's answered. Answers are recorded where they already belong: the architect's in `.agents/rulings/`, the owner's in [decisions.md](../decisions.md). Cite that location when you resume the item, never the questions file.
+  - "Move on" doesn't change §3: a T change still waits for approval.
 - When another agent's pull request changes a document, you do the follow-up on the registers and cross-references.
 
 ## 3. Classify every change
@@ -92,9 +97,19 @@ Backlog: <DC-IDs added / closed>
 | **CP-3: Editorial consistency** | DC-05 (Markdown files only), DC-11, DC-13 (README date), DC-14, DC-15 (draft), DC-16 (revision-history tables only), DC-17, DC-20 | — (all E) | The registers agree and the doc-audit skill comes back clean for those items |
 | **CP-4: Propagate settled corrections** | The P and E parts of DC-06, DC-07, DC-08, DC-09, DC-10 and DC-21 | — | DN-01 through DN-04 are updated, with the T parts listed under "For the architect" |
 
-CP-1 and CP-2 don't depend on each other, and both have to be done before Phase 2A.
+CP-1 is merged (#5).
 
-Not yours: the technical content of TP-01 Rev C, and the CLK wording in DC-09, which waits for the first 2A capture. The architect writes Rev C as a change list and applies it as a diff on top of the Markdown from CP-1.
+**Work order from 2026-10-17.** Work through the backlog in this order. When an item is blocked, log the question (§2) and take the next one.
+
+1. TP-01 Rev C: apply [rulings R-1.6](../rulings/2026-10-16.md) to the Markdown TP-01.
+2. TL-01 tabs: apply R-1.7, delivered with a cell diff.
+3. CP-2: Phase 1 closeout (DC-02, DC-03). It needs decision D-1.
+4. DN-04 Rev D: apply R-2, including the FIX-01 section from R-1.5.
+5. Then, in any order: DN-02 Rev D (R-3), the breakout README J4/J5 tables (R-4), the TP-03/TL-03 edits (R-5, R-6), the SparkFun entry in `reference/README.md`, and the rest of CP-3 and CP-4.
+
+Items 1, 2 and 4 come before Phase 2A at the bench. The merged rulings make these **P** changes: cite the ruling in each package.
+
+Not yours: deciding technical content. The architect writes it in a rulings file, as with TP-01 Rev C. The CLK wording in DC-09 waits for the first 2A capture.
 
 ## 7. Procedures
 
