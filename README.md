@@ -96,7 +96,7 @@ cd_changer_emulator/
 │   ├── TP-KRC3006-02.md     # Test plan 2: Breakout board test plan
 │   ├── TL-KRC3006-02.odt    # Test log 2: Breakout board test log
 │   ├── TP-KRC3006-03.md     # Test plan 3: Emulator test procedure (IEEE 829)
-│   ├── TL-KRC3006-03.ods    # Test log 3: Companion log workbook to TP-KRC3006-03
+│   ├── TL-KRC3006-03.fods    # Test log 3: Companion log workbook to TP-KRC3006-03
 │   ├── DN-KRC3006-01.md     # Design note 1: HAT design research
 │   ├── DN-KRC3006-02.md     # Design note 2: Schematic analysis
 │   ├── DN-KRC3006-03.md     # Design note 3: Bluetooth stretch goal
@@ -134,7 +134,7 @@ Later Kenwood units with a rectangular changer connector use the "C protocol" (N
 
 ## Documentation
 
-The project follows a documentation-first approach using IEEE 829-inspired test procedures. All documentation lives in the `docs/` directory. Test plans and design notes are written in Markdown and render directly on GitHub. Test logs are bench forms edited in LibreOffice: TL-01 uses flat ODF (`.fods`); TL-02 (`.odt`) and TL-03 (`.ods`) will convert to flat ODF at their next change.
+The project follows a documentation-first approach using IEEE 829-inspired test procedures. All documentation lives in the `docs/` directory. Test plans and design notes are written in Markdown and render directly on GitHub. Test logs are bench forms edited in LibreOffice: TL-01 and TL-03 use flat ODF spreadsheets (`.fods`); TL-02 remains `.odt` pending its D-10 conversion.
 
 Test plans and test logs are created and maintained as matched pairs sharing a sequence number — `TP-KRC3006-01` defines what gets tested and how, and `TL-KRC3006-01` is where results are recorded. Filled-out copies of a log are published as PDF in `docs/records/` as each phase completes.
 
@@ -145,7 +145,7 @@ Test plans and test logs are created and maintained as matched pairs sharing a s
 | [TP-KRC3006-02](./docs/TP-KRC3006-02.md) | Test Plan | Breakout board test plan |
 | [TL-KRC3006-02](./docs/TL-KRC3006-02.odt) | Test Log | Breakout board test log |
 | [TP-KRC3006-03](./docs/TP-KRC3006-03.md) | Test Plan | Test plan for creating and testing protocol emulation through full audio integration |
-| [TL-KRC3006-03](./docs/TL-KRC3006-03.ods) | Test Log | Companion log workbook to TP-KRC3006-03 |
+| [TL-KRC3006-03](./docs/TL-KRC3006-03.fods) | Test Log | Flat-ODF log with conditional time-field and UART rate-selection tables |
 | [DN-KRC3006-01](./docs/DN-KRC3006-01.md) | Design Note | HAT design research — ATtiny1616 selection, PCM5102A DAC circuit, automotive power supply with supercap, WiFi architecture, JLCPCB assembly |
 | [DN-KRC3006-02](./docs/DN-KRC3006-02.md) | Design Note | Schematic analysis — KRC-3006 head unit and KDC-CX85 changer signal routing, series resistor values, protocol variant identification |
 | [DN-KRC3006-03](./docs/DN-KRC3006-03.md) | Design Note | Bluetooth stretch goal — wireless audio streaming while retaining factory head unit controls |
@@ -174,7 +174,7 @@ If you use an AI coding agent on this repo, point it at [AGENTS.md](AGENTS.md) f
 - [PulseView](https://sigrok.org/wiki/PulseView) for logic analyzer captures
 - [KiCad](https://www.kicad.org/) for PCB design
 - Python 3 with [FastAPI](https://fastapi.tiangolo.com/) for the web interface and [python-mpv](https://github.com/jaseg/python-mpv) for playback
-- [LibreOffice](https://www.libreoffice.org/) to open the test logs (`.odt`, `.ods`, and flat ODF `.fods`)
+- [LibreOffice](https://www.libreoffice.org/) to open the test logs (`.odt` and `.fods`)
 - A UPDI programmer for the ATtiny1616 ([Adafruit UPDI Friend](https://www.adafruit.com/product/5879) or DIY with a serial adapter and resistor)
 
 ## References
@@ -201,4 +201,5 @@ This project is licensed under the [MIT License](LICENSE) — you're free to use
 | — | 2026-10-17 | A. Kreager | CP-1: link TP-03 in Markdown; plan content unchanged. |
 | — | 2026-10-17 | A. Kreager | CP-1: link TP-02 in Markdown and complete the format and prerequisite updates; plan content unchanged. |
 | — | 2026-10-17 | A. Kreager | TP-01/TL-01 Rev C per rulings R-1; update capture work order and Phase 1 closeout status. |
+| — | 2026-10-17 | A. Kreager | D-10: convert TL-03 to flat ODF; R-5/R-6: align emulator plan/log criteria and UART rate selection. |
 | — | 2026-10-17 | A. Kreager | R-1.1: add SparkFun analyzer specification source (REF-006). |

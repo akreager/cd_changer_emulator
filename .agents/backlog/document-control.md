@@ -8,7 +8,7 @@ This is the live work list for the document control agent ([handoff](../handoffs
 
 CP-1 status: Closed ([#5](https://github.com/akreager/cd_changer_emulator/pull/5)); merged before this work.
 
-Work update (2026-10-17, baseline `b814b06`): TP-01/TL-01 Rev C, DN-04 Rev D and FIX-01 instructions prepared under R-1/R-2; breakout labels and work order aligned. Phase 1 supplement remains local pending D-1 and owner dispositions. No published record or historical Phase 1 cell changed.
+Work update (2026-10-17, baseline `b814b06`): TP-01/TL-01 Rev C, DN-04 Rev D and FIX-01 instructions prepared under R-1/R-2; breakout labels and work order aligned. Phase 1 supplement remains local pending D-1 and owner dispositions. No published record or historical Phase 1 cell changed. R-3/R-5/R-6 propagation and the TL-03 conversion are also prepared; technical decisions remain open.
 
 Priorities:
 - **P1:** close out Phase 1 and make TL-01 live. This must happen before any Phase 2A data exists.
@@ -64,7 +64,7 @@ Priorities:
 - Action: reconcile these in the next TL-01 revision, matched to TP-01 Rev C. Wait for the architect's Rev C content first.
 
 ### DC-04 · T (architect) + E — TP-01 Rev B defects
-- Update 2026-10-17: R-1 applied: TP-01 Rev C and matching TL-01 forms drafted. R-1.4 ignition timing-reference method still needs an architect ruling (new DC-28). Trace table prepared in the review report.
+- Update 2026-10-17: R-1 applied: TP-01 Rev C and matching TL-01 forms drafted; TP-03 phase references clarified. R-1.4 ignition timing-reference method still needs an architect ruling (new DC-28). Trace table prepared in the review report.
 - Status: Open
 - Findings:
   - (a) Phase 2A is head-unit-only: select CD-CH with no changer connected, and expect DATA C to be "completely flat". That contradicts the inline-capture finding.
@@ -92,6 +92,7 @@ Priorities:
 - Action: standardize on the factory names with aliases ([rules/documents.md](../rules/documents.md), Naming). The TP/TL changes ride with Rev C (DC-04).
 
 ### DC-06 · P — DN-01 still gives the old reason for rejecting TXB/TXS
+- Update 2026-10-17: Superseded 100 kΩ-series rationale removed; correct DN-02 resistances propagated. TI approximately 50 Ω guidance could not be verified from a primary document; marked source-needed, decision unchanged. Remains open for architect citation/rationale.
 - Status: Open
 - Finding: in "Level Shifting: SN74LVC8T245PWR", line 89 says the bus has 100K series resistors "on CLK (R146) and DATA H (R145), creating ~200K total impedance with very slow signal edges". Line 91 repeats "slow, rounded edges from the 100K resistors". DN-02 Rev C supersedes both.
 - Action:
@@ -118,6 +119,7 @@ Priorities:
   - §9's rationale is now inverted: REQ H and DATA H are the lowest-impedance lines on the bus. The power-down reconfiguration procedure is the only protection left, and that risk has to be explicitly accepted again. This part is T and goes to the architect and the owner.
 
 ### DC-08 · P + T — DN-01 still describes the old platform and stack
+- Update 2026-10-17: Software stack names and current platform propagated; original Pi 4-derived values remain visibly historical for architect review. Header standardization still awaits D-2/D-3. Pi 5 UART mapping conflict tracked in DC-26.
 - Status: Open
 - Finding:
   - DN-01 names the Pi 4, Flask and MPD/mplayer, and defines UART `READY` as "Flask app running". The package list at line 603 includes `flask`. The passages are at lines 19, 126, 361, 470, 491, 601–611, 625, 695–696, 711 and 717.
@@ -129,6 +131,7 @@ Priorities:
   - Values derived from the Pi 4's current draw need re-deriving: the parasitic-drain budget (§4.7) and §9 items 8 and 14. These are T and go to the architect. Don't change the numbers.
 
 ### DC-09 · T (architect) + E — DN-02 Rev C leftovers
+- Update 2026-10-17: Ground-continuity observation recorded; retired-CX85/Arduino recommendations marked historical; revision history added. CLK idle claims remain untouched pending first Phase 2A capture, and the obsolete Phase 5 reference still needs architect mapping.
 - Status: Open
 - Reverified 2026-10-16: the root README's Completed section also repeats the CLK idle-LOW claim. DN-02 §1 repeats the obsolete Phase 1 ground-continuity question. DN-02 §10.1/§16.1 and DN-04 §5 pin 4 need the ON-polarity conflict carried forward from the Phase 1 record; do not choose a polarity. DN-02 §16.2's “Clock Is Bidirectional” heading states an open question as settled; the architect must review it against the technical baseline.
 - Findings:
@@ -183,16 +186,19 @@ Priorities:
 - Action: draft one paragraph for the README footer.
 
 ### DC-16 · E — Inconsistent headers and revision schemes
+- Update 2026-10-17: Added histories where files changed, retained existing header/revision schemes pending D-2/D-3. DN-04 already had Rev D; retained that label as requested and added a dated row. No retrospective authorship rewrite.
 - Status: Open
 - Finding: see the revision-state table in the handoff (§8). DN-04's author line lists AI model names.
 - Action: standardize after decisions D-2 and D-3. Until then, only add revision-history tables.
 
 ### DC-17 · E — Tester and author names vary
+- Update 2026-10-17: New history rows use A. Kreager; future tester fields remain blank for AK at execution. Historical authors/testers retained pending D-3.
 - Status: Open
 - Finding: the names appear as "A. KREAGER", "Allen Kreager", "AK" and "Allen".
 - Action: standardize going forward (decision D-3). Published records stay as they are.
 
 ### DC-20 · E — Convert the remaining test logs to flat ODF
+- Update 2026-10-17: TL-03 converted in LibreOffice to .fods with identical cell values before R-5/R-6 edits; references updated. TL-02 conversion is the next editorial package.
 - Status: Open (added 2026-10-15)
 - Finding: decision D-10 makes flat ODF the log format. TL-01 is converted (DC-01). The rest isn't done yet:
   - TL-03 is `.ods`, and TL-02 is `.odt`.
@@ -204,6 +210,7 @@ Priorities:
   - Fix the TP references in their next revisions (TP-01 Rev C).
 
 ### DC-21 · P — Remove the UART baud rate from the design notes
+- Update 2026-10-17: D-12 propagated in DN-01/DN-05; R-6 procedure/table drafted in TP-03/TL-03. Baud remains unspecified; candidate measurements, architect bit-time margin and owner latency limit are pending. 8N1 retained from DN-01 §4.8.
 - Status: Open (added 2026-10-15)
 - Reverified 2026-10-16: TP-03 §4.3.2 step 2 also specifies 9600 baud, with 38400 or 115200 as alternatives. Preserve this text in CP-1; apply D-12 in a separate revision. The accompanying rationale is technical and needs the architect's review.
 - Finding: decision D-12 leaves the Pi ↔ ATtiny baud rate unspecified until hardware testing. Two design notes still state a rate:
@@ -217,16 +224,19 @@ Priorities:
 - Action: ask the architect to confirm the table correction against the hardware. Preserve both sides of the conflict until reviewed; no hardware inspection was performed in the CP-1 audit.
 
 ### DC-23 · T — Elapsed-time display requirements conflict
+- Update 2026-10-17: R-5 applied to TP-03 and specified TL-03 cells; protocol time data is conditional on TP-01 Phase 2B capture, and display criteria check track/disc only.
 - Status: Open (added 2026-10-16)
-- Finding: [TP-03](../../docs/TP-KRC3006-03.md) §4.2.2 step 4 and §4.3.3 steps 3/4e require elapsed time on the head-unit display. [TL-03](../../docs/TL-KRC3006-03.ods), “Phase 3 — Integration” B37, expects “Time display correct”. [DN-05 §2.2](../../docs/DN-KRC3006-05.md#22-display-capabilities) says the head unit cannot display elapsed track time.
+- Finding: [TP-03](../../docs/TP-KRC3006-03.md) §4.2.2 step 4 and §4.3.3 steps 3/4e require elapsed time on the head-unit display. [TL-03](../../docs/TL-KRC3006-03.fods), “Phase 3 — Integration” B37, expects “Time display correct”. [DN-05 §2.2](../../docs/DN-KRC3006-05.md#22-display-capabilities) says the head unit cannot display elapsed track time.
 - Action: the architect reconciles the capability claim, procedures and log criteria. Preserve the source text during CP-1; document control does not change acceptance criteria.
 
 ### DC-24 · P + T — DN-02 assigns the ATtiny to a different supply rail
+- Update 2026-10-17: R-3 applied in DN-02 Rev D; historical ATtiny 5 V/direct-drive recommendations marked superseded and divider struck. Existing DN-01 A/B supply assignments conflict with R-3; see DC-26 before hardware work.
 - Status: Open (added 2026-10-16)
 - Finding: [DN-02 §16.6](../../docs/DN-KRC3006-02.md#166-kenwood-used-five-separate-5v-rails-for-audio-quality) says “5V for Pi/ATtiny”. The [HAT README](../../hardware/kicad/emulator%20hat/README.md#design-overview) specifies the ATtiny1616 at 3.3 V.
 - Action: propagate the settled controller supply voltage in a later revision. The architect reviews the surrounding rail-count and audio-quality rationale before it changes.
 
 ### DC-25 · E/P — DN-05 open questions use stale test references
+- Update 2026-10-17: DN-05 capture references now point to TP-01 (Phase 2B time field / Phase 3 command mapping) and the C717; board verification remains TP-02.
 - Status: Open (added 2026-10-16)
 - Finding: [DN-05 §12](../../docs/DN-KRC3006-05.md#12-open-questions), item 1, points protocol capture to TP-02, whose scope is breakout-board verification ([TP-02 §2](../../docs/TP-KRC3006-02.md#2-scope)). Item 3 proposes live testing with the retired CX85; [DN-06](../../docs/DN-KRC3006-06.md) identifies the C717 as its replacement.
 - Action: correct the plan reference and changer name in a later editorial/propagation revision, citing the plan scopes and DN-06.
