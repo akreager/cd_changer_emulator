@@ -81,6 +81,8 @@ When a new test plan is created, a corresponding log document must be created at
 
 The working log in this folder stays live and accumulates results as phases are executed. Each time a phase or unit is finished, a snapshot of the filled-out log is published to `records/` and named `{TL-ID}-{phase or unit}-{YYYYMMDD}`.
 
+Corrections to a published record use a separate dated and initialed `{record}-S1.pdf`, listed directly beneath its parent in both record tables ([D-1](../.agents/decisions.md)). The Phase 1 supplement is still a draft awaiting owner dispositions; it is not a published record.
+
 ### Published Records
 
 | Record | Covers | Date |
@@ -103,3 +105,5 @@ The working log in this folder stays live and accumulates results as phases are 
 | — | 2026-10-17 | A. Kreager | DN-04 Rev D: apply R-2 and document FIX-01; distinguish instructions from completed build evidence. |
 | — | 2026-10-17 | A. Kreager | R-3/R-5/R-6 and DC-06/08/21/25: design-note propagation, emulator plan/log fields, and D-10 TL-03 flat-ODF conversion. |
 | — | 2026-10-17 | A. Kreager | D-10/DC-16: TL-02 flat-ODF conversion and DN-06 history table; content preserved. |
+
+| — | 2026-10-17 | Drafted: Codex GPT-6 2026-10-17; Approved: A. Kreager — pending | DC-12 / D-7: remove redundant editable ODT snapshot from records; retain both published PDFs and clarify D-1 supplement publication. |
