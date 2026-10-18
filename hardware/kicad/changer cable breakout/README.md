@@ -10,7 +10,7 @@ This KiCad project implements a passive, pass-through breakout board for the Ken
 
 ## Current Status
 
-**COMPLETE AND TESTED** — Boards received 2026-03-28 from OSH Park. S/N 1 verification completed 2026-04-10, per [TL-02-01-20260410](../../../docs/records/TL-KRC3006-02-01-20260410.pdf). Its step 1.1 result remains a closeout question (DC-13). Breakout board is fully functional and ready for protocol reverse engineering work.
+**S/N 1 verification record published; closeout gap remains** — Boards received 2026-03-28 from OSH Park. S/N 1 verification completed 2026-04-10, per [TL-02-01-20260410](../../../docs/records/TL-KRC3006-02-01-20260410.pdf). Its step 1.1 result remains a closeout question (DC-13). Phase 1 of TP-01 used S/N 1; further capture entry depends on Phase 1 closeout under DC-02/03.
 ![Picture of assembled break-out board](/../main/assets/breakout_board_01.jpg)
 
 ## Schematic Summary
@@ -96,12 +96,12 @@ Audio pass-through requires the external cable. The board cannot function as a f
 
 ## Next Steps
 
-S/N 1 supported TP-01 Phase 1 on 2026-04-19. Next, follow [TP-01 Rev C](../../../docs/TP-KRC3006-01.md):
+S/N 1 supported TP-01 Phase 1 on 2026-04-19. After the current [TP-01](../../../docs/TP-KRC3006-01.md) and TL-01 revisions are approved and Phase 1 is dispositioned:
 
 1. Phase 2A: inline capture with the C717 connected and no magazine, after Phase 1 closeout.
 2. Phase 2B: loaded-changer initialization, steady playback, power-on and time-field captures.
-3. Phase 2C: CLK driver identification with **FIX-01, modified S/N 2**, built and verified per [DN-04 §16](../../../docs/DN-KRC3006-04.md#16-fix-01--clk-driver-fixture-breakout-sn-2). Keep S/N 1 unmodified.
-4. Phase 3: command mapping, followed by TP-03 emulator development and integration.
+3. Build FIX-01 in parallel with the earlier capture work; execute Phase 2C after Phase 2B passes: CLK driver identification with **FIX-01, modified S/N 2**, built and verified per [DN-04 §16](../../../docs/DN-KRC3006-04.md#16-fix-01--clk-driver-fixture-breakout-sn-2). Keep S/N 1 unmodified.
+4. Phase 3: command mapping after Phase 2B passes; Phase 2C is not its entry gate (R-1.5). TP-03 emulator development and integration follows TP-01 completion.
 
 For every analyzer connection follow DN-04 §7: power down, block J3-3, ground only at J3-1, leave J3-5 empty, use the custom crimped harness and cover exposed rear joints (R-2).
 
@@ -113,6 +113,7 @@ For every analyzer connection follow DN-04 §7: power down, block J3-3, ground o
 
 ## Revision History
 
-| Rev | Date | Author | Changes |
-|---|---|---|---|
-| — | 2026-10-17 | A. Kreager | R-4: correct J4/J5 contact and channel labels. DC-05/13: factory ground name, recorded completion date and TP-01 Rev C work order; link FIX-01 instructions. |
+| Rev | Date | Legacy attribution | Drafted / date | Approved / date | Changes |
+|---|---|---|---|---|---|
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | R-4: correct J4/J5 contact and channel labels. DC-05/13: factory ground name, recorded completion date and TP-01 Rev C work order; link FIX-01 instructions. |
+| - | 2026-10-17 | — | Codex GPT-6 2026-10-17 | A. Kreager — pending | DC-13: distinguish the published S/N 1 verification from the missing step 1.1 disposition; synchronize current-plan references and FIX-01 sequencing with the root README. |

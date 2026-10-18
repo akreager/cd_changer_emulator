@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" office:version="1.4" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><meta:generator>LibreOffice/26.2.6.3$Linux_X86_64 LibreOffice_project/620$Build-3</meta:generator><dc:date>2026-10-17T18:58:50.131685565</dc:date><meta:editing-duration>PT1H5M33S</meta:editing-duration><meta:editing-cycles>8</meta:editing-cycles><meta:document-statistic meta:table-count="17" meta:image-count="0" meta:object-count="0" meta:page-count="7" meta:paragraph-count="348" meta:word-count="948" meta:character-count="4753" meta:non-whitespace-character-count="4133"/></office:meta>
+ <office:meta><meta:generator>LibreOffice/26.2.6.3$Linux_X86_64 LibreOffice_project/620$Build-3</meta:generator><dc:date>2026-10-17T22:38:37.769959550</dc:date><meta:editing-duration>PT1H5M33S</meta:editing-duration><meta:editing-cycles>10</meta:editing-cycles><meta:document-statistic meta:table-count="17" meta:image-count="0" meta:object-count="0" meta:page-count="7" meta:paragraph-count="374" meta:word-count="1033" meta:character-count="5359" meta:non-whitespace-character-count="4677"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="ViewAreaTop" config:type="long">94015</config:config-item>
@@ -128,7 +128,7 @@
    <config:config-item config:name="UseOldPrinterMetrics" config:type="boolean">false</config:config-item>
    <config:config-item config:name="RedlineProtectionKey" config:type="base64Binary"/>
    <config:config-item config:name="TabsRelativeToIndent" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="Rsid" config:type="int">1291165</config:config-item>
+   <config:config-item config:name="Rsid" config:type="int">1440305</config:config-item>
    <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
    <config:config-item config:name="ProtectForm" config:type="boolean">false</config:config-item>
    <config:config-item config:name="MsWordCompMinLineHeightByFly" config:type="boolean">false</config:config-item>
@@ -141,7 +141,11 @@
  </office:scripts>
  <office:font-face-decls>
   <style:font-face style:name="Liberation Sans" svg:font-family="&apos;Liberation Sans&apos;"/>
+  <style:font-face style:name="Liberation Sans1" svg:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable"/>
   <style:font-face style:name="Liberation Serif" svg:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
+  <style:font-face style:name="Noto Sans CJK SC" svg:font-family="&apos;Noto Sans CJK SC&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
+  <style:font-face style:name="Noto Sans Devanagari" svg:font-family="&apos;Noto Sans Devanagari&apos;" style:font-family-generic="swiss"/>
+  <style:font-face style:name="Noto Sans Devanagari1" svg:font-family="&apos;Noto Sans Devanagari&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
   <style:font-face style:name="Segoe UI" svg:font-family="&apos;Segoe UI&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
   <style:font-face style:name="Tahoma" svg:font-family="Tahoma" style:font-family-generic="system" style:font-pitch="variable"/>
  </office:font-face-decls>
@@ -151,11 +155,11 @@
    <style:paragraph-properties style:text-autospace="ideograph-alpha" style:line-break="strict" loext:tab-stop-distance="0in" style:font-independent-line-spacing="false">
     <style:tab-stops/>
    </style:paragraph-properties>
-   <style:text-properties fo:color="#000000" loext:opacity="100%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="en" fo:country="US" style:font-name-asian="Segoe UI" style:font-size-asian="12pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Tahoma" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
+   <style:text-properties fo:color="#000000" loext:opacity="100%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-name-asian="Segoe UI" style:font-size-asian="12pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Tahoma" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
   </style:default-style>
   <style:default-style style:family="paragraph">
-   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:punctuation-wrap="hanging" style:line-break="strict" style:writing-mode="page"/>
-   <style:text-properties fo:color="#000000" loext:opacity="100%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="en" fo:country="US" style:font-name-asian="Segoe UI" style:font-size-asian="12pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Tahoma" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
+   <style:paragraph-properties fo:hyphenation-ladder-count="no-limit" fo:hyphenation-keep="auto" loext:hyphenation-keep-type="column" loext:hyphenation-keep-line="false" style:text-autospace="ideograph-alpha" style:punctuation-wrap="hanging" style:line-break="strict" style:tab-stop-distance="0.4925in" style:writing-mode="page"/>
+   <style:text-properties fo:color="#000000" loext:opacity="100%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-name-asian="Segoe UI" style:font-size-asian="12pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Tahoma" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN" fo:hyphenate="false" fo:hyphenation-remain-char-count="2" fo:hyphenation-push-char-count="2" loext:hyphenation-no-caps="false" loext:hyphenation-no-last-word="false" loext:hyphenation-word-char-count="5" loext:hyphenation-zone="no-limit"/>
   </style:default-style>
   <style:default-style style:family="table">
    <style:table-properties table:border-model="separating"/>
@@ -164,6 +168,24 @@
    <style:table-row-properties fo:keep-together="auto"/>
   </style:default-style>
   <style:style style:name="Standard" style:family="paragraph" style:class="text"/>
+  <style:style style:name="Heading" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Text_20_body" style:class="chapter">
+   <style:paragraph-properties fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" fo:keep-with-next="always"/>
+   <style:text-properties style:font-name="Liberation Sans1" fo:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable" fo:font-size="14pt" style:font-name-asian="Noto Sans CJK SC" style:font-family-asian="&apos;Noto Sans CJK SC&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="14pt" style:font-name-complex="Noto Sans Devanagari1" style:font-family-complex="&apos;Noto Sans Devanagari&apos;" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="14pt"/>
+  </style:style>
+  <style:style style:name="Text_20_body" style:display-name="Text body" style:family="paragraph" style:parent-style-name="Standard" style:class="text">
+   <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0.1965in" style:contextual-spacing="false" fo:line-height="115%"/>
+  </style:style>
+  <style:style style:name="List" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="list">
+   <style:text-properties style:font-size-asian="12pt" style:font-name-complex="Noto Sans Devanagari" style:font-family-complex="&apos;Noto Sans Devanagari&apos;" style:font-family-generic-complex="swiss"/>
+  </style:style>
+  <style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
+   <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" text:number-lines="false" text:line-number="0"/>
+   <style:text-properties fo:font-size="12pt" fo:font-style="italic" style:font-size-asian="12pt" style:font-style-asian="italic" style:font-name-complex="Noto Sans Devanagari" style:font-family-complex="&apos;Noto Sans Devanagari&apos;" style:font-family-generic-complex="swiss" style:font-size-complex="12pt" style:font-style-complex="italic"/>
+  </style:style>
+  <style:style style:name="Index" style:family="paragraph" style:parent-style-name="Standard" style:class="index">
+   <style:paragraph-properties text:number-lines="false" text:line-number="0"/>
+   <style:text-properties style:font-size-asian="12pt" style:font-name-complex="Noto Sans Devanagari" style:font-family-complex="&apos;Noto Sans Devanagari&apos;" style:font-family-generic-complex="swiss"/>
+  </style:style>
   <style:style style:name="DocTitle" style:family="paragraph">
    <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0.1in" style:contextual-spacing="false"/>
    <style:text-properties style:font-name="Liberation Sans" fo:font-family="&apos;Liberation Sans&apos;" fo:font-size="14pt" fo:font-weight="bold"/>
@@ -220,9 +242,6 @@
   <style:style style:name="Table_20_Heading" style:display-name="Table Heading" style:family="paragraph" style:parent-style-name="Table_20_Contents" style:class="extra">
    <style:paragraph-properties fo:text-align="center" style:justify-single-word="false" text:number-lines="false" text:line-number="0"/>
    <style:text-properties fo:font-weight="bold" style:font-weight-asian="bold" style:font-weight-complex="bold"/>
-  </style:style>
-  <style:style style:name="Text_20_body" style:display-name="Text body" style:family="paragraph" style:parent-style-name="Standard" style:class="text">
-   <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0.1965in" style:contextual-spacing="false" fo:line-height="115%"/>
   </style:style>
   <text:outline-style style:name="Outline">
    <text:outline-level-style text:level="1" loext:num-list-format="%1%" style:num-format="">
@@ -346,6 +365,36 @@
   </style:style>
   <style:style style:name="Table1.B7" style:family="table-cell">
    <style:table-cell-properties fo:padding="0.0403in" fo:border="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table1.A8" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table1.B8" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table1.A9" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table1.B9" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table1.A10" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table1.B10" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table1.A11" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table1.B11" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table1.A12" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table1.B12" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
   </style:style>
   <style:style style:name="Table2" style:family="table">
    <style:table-properties style:width="9.6in" table:align="margins"/>
@@ -2135,19 +2184,27 @@
    <style:table-properties style:width="9.6in" table:align="margins"/>
   </style:style>
   <style:style style:name="Table18.A" style:family="table-column">
-   <style:table-column-properties style:column-width="0.4035in" style:rel-column-width="2754*"/>
+   <style:table-column-properties style:column-width="0.4799in" style:rel-column-width="3276*"/>
   </style:style>
   <style:style style:name="Table18.B" style:family="table-column">
-   <style:table-column-properties style:column-width="1.0111in" style:rel-column-width="6902*"/>
+   <style:table-column-properties style:column-width="1.1521in" style:rel-column-width="7864*"/>
   </style:style>
   <style:style style:name="Table18.C" style:family="table-column">
-   <style:table-column-properties style:column-width="1.2125in" style:rel-column-width="8277*"/>
+   <style:table-column-properties style:column-width="1.4403in" style:rel-column-width="9831*"/>
   </style:style>
   <style:style style:name="Table18.D" style:family="table-column">
-   <style:table-column-properties style:column-width="6.9729in" style:rel-column-width="47602*"/>
+   <style:table-column-properties style:column-width="1.6319in" style:rel-column-width="11141*"/>
+  </style:style>
+  <style:style style:name="Table18.F" style:family="table-column">
+   <style:table-column-properties style:column-width="3.2639in" style:rel-column-width="22282*"/>
   </style:style>
   <style:style style:name="Table18.A1" style:family="table-cell">
    <style:table-cell-properties fo:background-color="#d9e2f3" fo:padding="0.0403in" fo:border="0.5pt solid #000000">
+    <style:background-image/>
+   </style:table-cell-properties>
+  </style:style>
+  <style:style style:name="Table18.D1" style:family="table-cell">
+   <style:table-cell-properties fo:background-color="#d9e2f3" fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="none" fo:border-top="0.5pt solid #000000" fo:border-bottom="0.5pt solid #000000">
     <style:background-image/>
    </style:table-cell-properties>
   </style:style>
@@ -2161,6 +2218,12 @@
    <style:table-cell-properties fo:padding="0.0403in" fo:border="0.5pt solid #000000"/>
   </style:style>
   <style:style style:name="Table18.D2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="none" fo:border-top="0.5pt solid #000000" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.E2" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="none" fo:border-top="0.5pt solid #000000" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.F2" style:family="table-cell">
    <style:table-cell-properties fo:padding="0.0403in" fo:border="0.5pt solid #000000"/>
   </style:style>
   <style:style style:name="Table18.A3" style:family="table-cell">
@@ -2173,6 +2236,12 @@
    <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
   </style:style>
   <style:style style:name="Table18.D3" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.E3" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.F3" style:family="table-cell">
    <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
   </style:style>
   <style:style style:name="Table18.A4" style:family="table-cell">
@@ -2185,6 +2254,12 @@
    <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
   </style:style>
   <style:style style:name="Table18.D4" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.E4" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.F4" style:family="table-cell">
    <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
   </style:style>
   <style:style style:name="Table18.A5" style:family="table-cell">
@@ -2197,6 +2272,30 @@
    <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
   </style:style>
   <style:style style:name="Table18.D5" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.E5" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.F5" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.A6" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.B6" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.C6" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.D6" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.E6" style:family="table-cell">
+   <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="none" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
+  </style:style>
+  <style:style style:name="Table18.F6" style:family="table-cell">
    <style:table-cell-properties fo:padding="0.0403in" fo:border-left="0.5pt solid #000000" fo:border-right="0.5pt solid #000000" fo:border-top="none" fo:border-bottom="0.5pt solid #000000"/>
   </style:style>
   <style:style style:name="P1" style:family="paragraph" style:parent-style-name="DocTitle">
@@ -2223,25 +2322,28 @@
   <style:style style:name="P8" style:family="paragraph" style:parent-style-name="H1">
    <style:paragraph-properties fo:break-before="page"/>
   </style:style>
-  <style:style style:name="P9" style:family="paragraph" style:parent-style-name="CellText">
-   <style:text-properties officeooo:rsid="001655e5" officeooo:paragraph-rsid="001655e5"/>
+  <style:style style:name="P9" style:family="paragraph" style:parent-style-name="CellTextBold">
+   <style:text-properties style:font-name="Liberation Sans" fo:font-size="9pt"/>
   </style:style>
   <style:style style:name="P10" style:family="paragraph" style:parent-style-name="CellText">
-   <style:text-properties officeooo:rsid="001655e5"/>
+   <style:text-properties style:font-name="Liberation Sans" fo:font-size="9pt"/>
   </style:style>
   <style:style style:name="P11" style:family="paragraph" style:parent-style-name="CellText">
-   <style:text-properties officeooo:rsid="001000c4" officeooo:paragraph-rsid="001000c4"/>
+   <style:text-properties style:font-name="Liberation Sans" fo:font-size="9pt" officeooo:rsid="001655e5" officeooo:paragraph-rsid="001655e5"/>
+  </style:style>
+  <style:style style:name="P12" style:family="paragraph" style:parent-style-name="CellText">
+   <style:text-properties style:font-name="Liberation Sans" fo:font-size="9pt" officeooo:rsid="001655e5"/>
+  </style:style>
+  <style:style style:name="P13" style:family="paragraph" style:parent-style-name="CellText">
+   <style:text-properties style:font-name="Liberation Sans" fo:font-size="9pt" officeooo:rsid="001000c4" officeooo:paragraph-rsid="001000c4"/>
   </style:style>
   <style:style style:name="T1" style:family="text">
    <style:text-properties officeooo:rsid="000cd2fb"/>
   </style:style>
   <style:style style:name="T2" style:family="text">
-   <style:text-properties officeooo:rsid="000f2476"/>
-  </style:style>
-  <style:style style:name="T3" style:family="text">
    <style:text-properties officeooo:rsid="000ecdb0"/>
   </style:style>
-  <style:style style:name="T4" style:family="text">
+  <style:style style:name="T3" style:family="text">
    <style:text-properties officeooo:rsid="001449bc"/>
   </style:style>
   <style:page-layout style:name="pm1">
@@ -2302,14 +2404,14 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table1.A2" office:value-type="string">
-      <text:p text:style-name="CellText">Document Number</text:p>
+      <text:p text:style-name="CellText">Document ID</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table1.B2" office:value-type="string">
       <text:p text:style-name="CellText">TL-KRC3006-02</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row>
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
+     <table:table-cell table:style-name="Table1.A3" office:value-type="string">
       <text:p text:style-name="CellText">Companion Test Plan</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table1.B2" office:value-type="string">
@@ -2317,23 +2419,23 @@
      </table:table-cell>
     </table:table-row>
     <table:table-row>
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
+     <table:table-cell table:style-name="Table1.A3" office:value-type="string">
       <text:p text:style-name="CellText">Revision</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="Table1.B2" office:value-type="string">
-      <text:p text:style-name="CellText"><text:user-field-get text:name="Rev">B</text:user-field-get></text:p>
+     <table:table-cell table:style-name="Table1.B4" office:value-type="string">
+      <text:p text:style-name="CellText">D</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row>
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
+     <table:table-cell table:style-name="Table1.A3" office:value-type="string">
       <text:p text:style-name="CellText">Date</text:p>
      </table:table-cell>
-     <table:table-cell table:style-name="Table1.B2" office:value-type="string">
-      <text:p text:style-name="CellText">2026-03-<text:span text:style-name="T2">29</text:span></text:p>
+     <table:table-cell table:style-name="Table1.B5" office:value-type="string">
+      <text:p text:style-name="CellText">2026-10-17</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row>
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
+     <table:table-cell table:style-name="Table1.A3" office:value-type="string">
       <text:p text:style-name="CellText">Board Serial / ID</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table1.B2" office:value-type="string">
@@ -2341,11 +2443,51 @@
      </table:table-cell>
     </table:table-row>
     <table:table-row>
-     <table:table-cell table:style-name="Table1.A2" office:value-type="string">
-      <text:p text:style-name="CellText">Tester</text:p>
+     <table:table-cell table:style-name="Table1.A7" office:value-type="string">
+      <text:p text:style-name="CellText">Tester initials (AK)</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table1.B2" office:value-type="string">
       <text:p text:style-name="CellText"/>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table1.A8" office:value-type="string">
+      <text:p text:style-name="CellText">Document type</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table1.B8" office:value-type="string">
+      <text:p text:style-name="CellText">Test Log</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table1.A9" office:value-type="string">
+      <text:p text:style-name="CellText">Project</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table1.B9" office:value-type="string">
+      <text:p text:style-name="CellText">Kenwood KRC-3006 CD Changer Emulator</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table1.A10" office:value-type="string">
+      <text:p text:style-name="CellText">Status</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table1.B10" office:value-type="string">
+      <text:p text:style-name="CellText">Draft</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table1.A11" office:value-type="string">
+      <text:p text:style-name="CellText">Drafted</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table1.B11" office:value-type="string">
+      <text:p text:style-name="CellText">Codex GPT-6 2026-10-17</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table1.A12" office:value-type="string">
+      <text:p text:style-name="CellText">Approved</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table1.B12" office:value-type="string">
+      <text:p text:style-name="CellText">A. Kreager — pending</text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
@@ -2374,7 +2516,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table2.A2" office:value-type="string">
-      <text:p text:style-name="P3">1.<text:span text:style-name="T3">1</text:span></text:p>
+      <text:p text:style-name="P3">1.<text:span text:style-name="T2">1</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table2.B2" office:value-type="string">
       <text:p text:style-name="CellText">Board outline and dimensions (22 x 80 mm +/- 0.2 mm)</text:p>
@@ -2416,7 +2558,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table2.A2" office:value-type="string">
-      <text:p text:style-name="P3"><text:span text:style-name="T3">1.</text:span>4</text:p>
+      <text:p text:style-name="P3"><text:span text:style-name="T2">1.</text:span>4</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table2.B2" office:value-type="string">
       <text:p text:style-name="CellText">Through-holes (J1, J2, J3, J4, J5)</text:p>
@@ -2430,7 +2572,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table2.A2" office:value-type="string">
-      <text:p text:style-name="P3"><text:span text:style-name="T3">1.</text:span>5</text:p>
+      <text:p text:style-name="P3"><text:span text:style-name="T2">1.</text:span>5</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table2.B2" office:value-type="string">
       <text:p text:style-name="CellText">Front copper traces (F.Cu)</text:p>
@@ -2444,7 +2586,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table2.A2" office:value-type="string">
-      <text:p text:style-name="P3"><text:span text:style-name="T3">1.</text:span>6</text:p>
+      <text:p text:style-name="P3"><text:span text:style-name="T2">1.</text:span>6</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table2.B2" office:value-type="string">
       <text:p text:style-name="CellText">Back copper traces (B.Cu)</text:p>
@@ -2458,7 +2600,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table2.A2" office:value-type="string">
-      <text:p text:style-name="P3"><text:span text:style-name="T3">1.</text:span>7</text:p>
+      <text:p text:style-name="P3"><text:span text:style-name="T2">1.</text:span>7</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table2.B2" office:value-type="string">
       <text:p text:style-name="CellText">Front silkscreen legibility and correctness</text:p>
@@ -2472,7 +2614,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table2.A2" office:value-type="string">
-      <text:p text:style-name="P3"><text:span text:style-name="T3">1.</text:span>8</text:p>
+      <text:p text:style-name="P3"><text:span text:style-name="T2">1.</text:span>8</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table2.B2" office:value-type="string">
       <text:p text:style-name="CellText">Back silkscreen legibility and correctness</text:p>
@@ -2486,7 +2628,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table2.A10" office:value-type="string">
-      <text:p text:style-name="P3"><text:span text:style-name="T3">1.</text:span>9</text:p>
+      <text:p text:style-name="P3"><text:span text:style-name="T2">1.</text:span>9</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table2.B10" office:value-type="string">
       <text:p text:style-name="CellText">Solder mask coverage and alignment</text:p>
@@ -2969,7 +3111,7 @@
       <text:p text:style-name="CellText">10</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table4.C2" office:value-type="string">
-      <text:p text:style-name="CellText">DATA <text:span text:style-name="T4">H</text:span></text:p>
+      <text:p text:style-name="CellText">DATA <text:span text:style-name="T3">H</text:span></text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table4.D2" office:value-type="string">
       <text:p text:style-name="P4"/>
@@ -3033,7 +3175,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table5.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">2</text:span>a</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">2</text:span>a</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table5.B2" office:value-type="string">
       <text:p text:style-name="CellText">J1 Pin 8 (R CH)</text:p>
@@ -3053,7 +3195,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table5.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">2</text:span>b</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">2</text:span>b</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table5.B2" office:value-type="string">
       <text:p text:style-name="CellText">J1 Pin 12 (L CH)</text:p>
@@ -3073,7 +3215,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table5.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">2</text:span>c</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">2</text:span>c</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table5.B2" office:value-type="string">
       <text:p text:style-name="CellText">J1 Pin 2 (GND)</text:p>
@@ -3093,7 +3235,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table5.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">3</text:span>a</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">3</text:span>a</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table5.B2" office:value-type="string">
       <text:p text:style-name="CellText">J2 Pin 8 (R CH)</text:p>
@@ -3113,7 +3255,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table5.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">3</text:span>b</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">3</text:span>b</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table5.B2" office:value-type="string">
       <text:p text:style-name="CellText">J2 Pin 12 (L CH)</text:p>
@@ -3133,7 +3275,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table5.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">3</text:span>c</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">3</text:span>c</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table5.B2" office:value-type="string">
       <text:p text:style-name="CellText">J2 Pin 2 (GND)</text:p>
@@ -3183,7 +3325,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table6.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">4</text:span>a</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">4</text:span>a</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table6.B2" office:value-type="string">
       <text:p text:style-name="CellText">J4 Tip pad</text:p>
@@ -3203,7 +3345,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table6.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">4</text:span>b</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">4</text:span>b</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table6.B2" office:value-type="string">
       <text:p text:style-name="CellText">J4 Ring pad</text:p>
@@ -3223,7 +3365,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table6.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">5</text:span>a</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">5</text:span>a</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table6.B2" office:value-type="string">
       <text:p text:style-name="CellText">B.U. (Pin 3)</text:p>
@@ -3243,7 +3385,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table6.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">5</text:span>b</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">5</text:span>b</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table6.B2" office:value-type="string">
       <text:p text:style-name="CellText">B.U. (Pin 3)</text:p>
@@ -3263,7 +3405,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table6.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">5</text:span>c</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">5</text:span>c</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table6.B2" office:value-type="string">
       <text:p text:style-name="CellText">B.U. (J3 Pin 3)</text:p>
@@ -3283,7 +3425,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table6.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">5</text:span>d</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">5</text:span>d</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table6.B2" office:value-type="string">
       <text:p text:style-name="CellText">B.U. (J3 Pin 3)</text:p>
@@ -3303,7 +3445,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table6.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">6</text:span>a</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">6</text:span>a</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table6.B2" office:value-type="string">
       <text:p text:style-name="CellText">Spot check 1: </text:p>
@@ -3323,7 +3465,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table6.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">6</text:span>b</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">6</text:span>b</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table6.B2" office:value-type="string">
       <text:p text:style-name="CellText">Spot check 2: </text:p>
@@ -3343,7 +3485,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table6.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">6</text:span>c</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">6</text:span>c</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table6.B2" office:value-type="string">
       <text:p text:style-name="CellText">Spot check 3: </text:p>
@@ -3363,7 +3505,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table6.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">6</text:span>d</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">6</text:span>d</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table6.B2" office:value-type="string">
       <text:p text:style-name="CellText">Spot check 4: </text:p>
@@ -3383,7 +3525,7 @@
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table6.A2" office:value-type="string">
-      <text:p text:style-name="CellText">1.1<text:span text:style-name="T3">6</text:span>e</text:p>
+      <text:p text:style-name="CellText">1.1<text:span text:style-name="T2">6</text:span>e</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table6.B2" office:value-type="string">
       <text:p text:style-name="CellText">Spot check 5: </text:p>
@@ -4459,75 +4601,126 @@
     <table:table-column table:style-name="Table18.A"/>
     <table:table-column table:style-name="Table18.B"/>
     <table:table-column table:style-name="Table18.C"/>
-    <table:table-column table:style-name="Table18.D"/>
+    <table:table-column table:style-name="Table18.D" table:number-columns-repeated="2"/>
+    <table:table-column table:style-name="Table18.F"/>
     <table:table-row>
      <table:table-cell table:style-name="Table18.A1" office:value-type="string">
-      <text:p text:style-name="CellTextBold">Rev</text:p>
+      <text:p text:style-name="P9">Rev</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.A1" office:value-type="string">
-      <text:p text:style-name="CellTextBold">Date</text:p>
+      <text:p text:style-name="P9">Date</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.A1" office:value-type="string">
-      <text:p text:style-name="CellTextBold">Author</text:p>
+      <text:p text:style-name="P9">Legacy attribution</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.D1" office:value-type="string">
+      <text:p text:style-name="P9">Drafted / date</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.D1" office:value-type="string">
+      <text:p text:style-name="P9">Approved / date</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.A1" office:value-type="string">
-      <text:p text:style-name="CellTextBold">Description</text:p>
+      <text:p text:style-name="P9">Description</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table18.A2" office:value-type="string">
-      <text:p text:style-name="CellText">A</text:p>
+      <text:p text:style-name="P10">A</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.B2" office:value-type="string">
-      <text:p text:style-name="CellText">2026-03-14</text:p>
+      <text:p text:style-name="P10">2026-03-14</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.C2" office:value-type="string">
-      <text:p text:style-name="CellText">Allen</text:p>
+      <text:p text:style-name="P10">Allen</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.D2" office:value-type="string">
-      <text:p text:style-name="CellText">Initial release.</text:p>
+      <text:p text:style-name="P10">Not recorded</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.E2" office:value-type="string">
+      <text:p text:style-name="P10">Not recorded</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.F2" office:value-type="string">
+      <text:p text:style-name="P10">Initial release.</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table18.A3" office:value-type="string">
-      <text:p text:style-name="P9">B</text:p>
+      <text:p text:style-name="P11">B</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.B3" office:value-type="string">
-      <text:p text:style-name="P10">2026-03-29</text:p>
+      <text:p text:style-name="P12">2026-03-29</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.C3" office:value-type="string">
-      <text:p text:style-name="P9">A. Kreager</text:p>
+      <text:p text:style-name="P11">A. Kreager</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.D3" office:value-type="string">
-      <text:p text:style-name="P9">Add step to remove burrs</text:p>
+      <text:p text:style-name="P11">Not recorded</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.E3" office:value-type="string">
+      <text:p text:style-name="P11">Not recorded</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.F3" office:value-type="string">
+      <text:p text:style-name="P11">Add step to remove burrs</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table18.A4" office:value-type="string">
-      <text:p text:style-name="P11">C</text:p>
+      <text:p text:style-name="P13">C</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.B4" office:value-type="string">
-      <text:p text:style-name="P11">2026-04-01</text:p>
+      <text:p text:style-name="P13">2026-04-01</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.C4" office:value-type="string">
-      <text:p text:style-name="P11">A. Kreager</text:p>
+      <text:p text:style-name="P13">A. Kreager</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.D4" office:value-type="string">
-      <text:p text:style-name="P11">Formatting. Corrected 1.11 signal names.</text:p>
+      <text:p text:style-name="P13">Not recorded</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.E4" office:value-type="string">
+      <text:p text:style-name="P13">Not recorded</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.F4" office:value-type="string">
+      <text:p text:style-name="P13">Formatting. Corrected 1.11 signal names.</text:p>
      </table:table-cell>
     </table:table-row>
     <table:table-row>
      <table:table-cell table:style-name="Table18.A5" office:value-type="string">
-      <text:p text:style-name="P11">C</text:p>
+      <text:p text:style-name="P13">C</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.B5" office:value-type="string">
-      <text:p text:style-name="P11">2026-10-17</text:p>
+      <text:p text:style-name="P13">2026-10-17</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.C5" office:value-type="string">
-      <text:p text:style-name="P11">A. Kreager</text:p>
+      <text:p text:style-name="P13">A. Kreager</text:p>
      </table:table-cell>
      <table:table-cell table:style-name="Table18.D5" office:value-type="string">
-      <text:p text:style-name="P11">D-10: converted from ODT to flat ODF in LibreOffice. Original body text and table values preserved; this conversion-history row is the only added content.</text:p>
+      <text:p text:style-name="P13">Codex GPT-6 2026-10-17</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.E5" office:value-type="string">
+      <text:p text:style-name="P13">A. Kreager 2026-10-17 (PR #10)</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.F5" office:value-type="string">
+      <text:p text:style-name="P13">D-10: converted from ODT to flat ODF in LibreOffice. Original body text and table values preserved; this conversion-history row is the only added content.</text:p>
+     </table:table-cell>
+    </table:table-row>
+    <table:table-row>
+     <table:table-cell table:style-name="Table18.A6" office:value-type="string">
+      <text:p text:style-name="P13">D</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.B6" office:value-type="string">
+      <text:p text:style-name="P13">2026-10-17</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.C6" office:value-type="string">
+      <text:p text:style-name="P13">—</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.D6" office:value-type="string">
+      <text:p text:style-name="P13">Codex GPT-6 2026-10-17</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.E6" office:value-type="string">
+      <text:p text:style-name="P13">A. Kreager — pending</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="Table18.F6" office:value-type="string">
+      <text:p text:style-name="P13">D-2/D-3: standard header, Draft status, dated drafting/approval fields, and future tester-initial label. Legacy history attribution retained; Not recorded identifies missing model/date or approval/date. Body, measurements and criteria unchanged.</text:p>
      </table:table-cell>
     </table:table-row>
    </table:table>
