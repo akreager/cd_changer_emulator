@@ -105,7 +105,8 @@ CP-1 is merged (#5).
 2. TL-01 tabs: apply R-1.7, delivered with a cell diff.
 3. CP-2: Phase 1 closeout (DC-02, DC-03). It needs decision D-1.
 4. DN-04 Rev D: apply R-2, including the FIX-01 section from R-1.5.
-5. Then, in any order: DN-02 Rev D (R-3), the breakout README J4/J5 tables (R-4), the TP-03/TL-03 edits (R-5, R-6), the SparkFun entry in `reference/README.md`, and the rest of CP-3 and CP-4.
+5. DC-26: update the root README's status and to-do (owner request).
+6. Then, in any order: DC-12 (delete the `.odt` record, D-7), DC-16/DC-17 (D-2 and D-3 are decided), DN-02 Rev D (R-3), the breakout README J4/J5 tables (R-4), the TP-03/TL-03 edits (R-5, R-6), the SparkFun entry in `reference/README.md`, and the rest of CP-3 and CP-4.
 
 Items 1, 2 and 4 come before Phase 2A at the bench. The merged rulings make these **P** changes: cite the ruling in each package.
 
