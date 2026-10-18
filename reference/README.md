@@ -17,11 +17,12 @@ Datasheets, service manuals, and other cited reference material for the KRC-3006
 | REF-007 | [KDC-C517FM / KDC-C717/Y Service Manual](https://www.manualslib.com/manual/850190/Kenwood-Kdc-C517fm.html) | Factory manual hosted by ManualsLib | B51-7731-00, verified on cover. Interface analysis still pending. |
 | REF-008 | [KDC-C717/C667/C467 Instruction Manual](https://www.manualslib.com/manual/896906/Kenwood-Kdc-C717.html) | Factory manual hosted by ManualsLib | Public manual located; equivalence to DN-06's project copy B64-1652-00 has not been verified. Do not infer an edition number from the model alone. |
 
-Only links and short factual citations are retained here; no manuals or datasheets are hosted. REF-004 still needs a verified public source. A public copy of REF-008 is not proof that it is the same edition as the owner's project file.
+Only links and short factual citations are retained here; no manuals or datasheets are hosted. REF-004 still needs a verified public source (rechecked 2026-10-17); search results did not yield an inspectable factory service manual. A public copy of REF-008 is not proof that it is the same edition as the owner's project file. Kenwood's [C717 download listing](https://www.kenwood.de/support/download/bedienungsanleitungen/car/cd_wechsler/) was also checked on 2026-10-17; its linked PDF returned HTTP 404, so it did not resolve the edition question.
 
 ## Revision History
 
-| Rev | Date | Author | Changes |
-|---|---|---|---|
-| — | 2026-10-17 | A. Kreager | DC-14 / R-1.1: add verified SparkFun limits source and public CX85/C717 manual links; record remaining source/edition gaps. |
-| — | 2026-10-17 | A. Kreager | R-1.1: add the SparkFun analyzer limits source. |
+| Rev | Date | Legacy attribution | Drafted / date | Approved / date | Changes |
+|---|---|---|---|---|---|
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | DC-14 / R-1.1: add verified SparkFun limits source and public CX85/C717 manual links; record remaining source/edition gaps. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | R-1.1: add the SparkFun analyzer limits source. |
+| - | 2026-10-17 | — | Codex GPT-6 2026-10-17 | A. Kreager — pending | DC-14: recheck remaining public-source and edition gaps; retain unverified fields rather than infer document numbers. D-3 drafting/approval fields for new history. |

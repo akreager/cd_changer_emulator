@@ -142,8 +142,8 @@ Test plans and test logs are created and maintained as matched pairs sharing a s
 
 | Document Name | Type | Description |
 |----|------|-------------|
-| [TP-KRC3006-01](./docs/TP-KRC3006-01.md) | Test Plan | Rev C: inline idle/loaded captures, CLK driver identification and command mapping |
-| [TL-KRC3006-01](./docs/TL-KRC3006-01.fods) | Test Log | Rev C forms for TP-01; historical Phase 1 results retained |
+| [TP-KRC3006-01](./docs/TP-KRC3006-01.md) | Test Plan | Rev D draft: D-2/D-3 metadata; inline captures, CLK driver identification and command mapping |
+| [TL-KRC3006-01](./docs/TL-KRC3006-01.fods) | Test Log | Rev D draft: document-control header; historical Phase 1 results retained |
 | [TP-KRC3006-02](./docs/TP-KRC3006-02.md) | Test Plan | Breakout board test plan |
 | [TL-KRC3006-02](./docs/TL-KRC3006-02.fodt) | Test Log | Breakout board test log |
 | [TP-KRC3006-03](./docs/TP-KRC3006-03.md) | Test Plan | Test plan for creating and testing protocol emulation through full audio integration |
@@ -201,16 +201,19 @@ This project is licensed under the [MIT License](LICENSE) — you're free to use
 
 ## Revision History
 
-| Rev | Date | Author | Changes |
-|---|---|---|---|
-| — | 2026-10-15 | A. Kreager | DC-11: distinguish tracked content from planned directories in the repository tree. |
-| — | 2026-10-17 | A. Kreager | CP-1: link TP-01 in Markdown and update format notes per D-9/D-10; plan content unchanged. |
-| — | 2026-10-17 | A. Kreager | CP-1: link TP-03 in Markdown; plan content unchanged. |
-| — | 2026-10-17 | A. Kreager | CP-1: link TP-02 in Markdown and complete the format and prerequisite updates; plan content unchanged. |
-| — | 2026-10-17 | A. Kreager | TP-01/TL-01 Rev C per rulings R-1; update capture work order and Phase 1 closeout status. |
-| — | 2026-10-17 | A. Kreager | D-10: convert TL-03 to flat ODF; R-5/R-6: align emulator plan/log criteria and UART rate selection. |
-| — | 2026-10-17 | A. Kreager | DC-14: synchronize SparkFun and factory-manual links with the reference register. |
-| — | 2026-10-17 | A. Kreager | D-10/DC-16: convert TL-02 to flat ODF and add DN-06 revision history without changing technical content. |
-| — | 2026-10-17 | A. Kreager | R-1.1: add SparkFun analyzer specification source (REF-006). |
 
-| — | 2026-10-17 | Drafted: Codex GPT-6 2026-10-17; Approved: A. Kreager — pending | DC-29: align status and work order with R-1; keep Phase 1 and TL-02 gaps visible; distinguish committed HAT design from reviewed completeness. |
+Legacy rows retain their original revision labels, dates and attributions. “Not recorded” identifies missing drafting-model/date or approval/date evidence; it is not a retrospective sign-off. New entries follow D-2/D-3.
+
+| Rev | Date | Legacy attribution | Drafted / date | Approved / date | Changes |
+|---|---|---|---|---|---|
+| — | 2026-10-15 | A. Kreager | Not recorded | Not recorded | DC-11: distinguish tracked content from planned directories in the repository tree. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | CP-1: link TP-01 in Markdown and update format notes per D-9/D-10; plan content unchanged. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | CP-1: link TP-03 in Markdown; plan content unchanged. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | CP-1: link TP-02 in Markdown and complete the format and prerequisite updates; plan content unchanged. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | TP-01/TL-01 Rev C per rulings R-1; update capture work order and Phase 1 closeout status. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | D-10: convert TL-03 to flat ODF; R-5/R-6: align emulator plan/log criteria and UART rate selection. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | DC-14: synchronize SparkFun and factory-manual links with the reference register. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | D-10/DC-16: convert TL-02 to flat ODF and add DN-06 revision history without changing technical content. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | R-1.1: add SparkFun analyzer specification source (REF-006). |
+| — | 2026-10-17 | — | Codex GPT-6 2026-10-17 | A. Kreager — pending | DC-29: align status and work order with R-1; keep Phase 1 and TL-02 gaps visible; distinguish committed HAT design from reviewed completeness. |
+| - | 2026-10-17 | — | Codex GPT-6 2026-10-17 | A. Kreager — pending | DC-16/17: synchronize TP/TL-01 metadata revision and distinguish drafts from execution progress. D-2/D-3 applies to controlled-document headers. |

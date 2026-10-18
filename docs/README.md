@@ -44,22 +44,30 @@ TT-KRC3006-NN
 
 ## Document Register
 
-| Document | Title | Paired With | Status |
-|---|---|---|---|
-| [TP-KRC3006-01](TP-KRC3006-01.md) | Protocol Reverse Engineering Test Plan | TL-KRC3006-01 | **Rev C** — inline Phase 2A and CLK-driver Phase 2C; Phase 1 closeout pending |
-| TL-KRC3006-01 | Test Log — Companion to TP-01 | TP-KRC3006-01 | **Rev C** — Phase 2 forms prepared; Phase 1 Rev B entries preserved (2026-04-19) |
-| [TP-KRC3006-02](TP-KRC3006-02.md) | Breakout Board Bare Board Testing, Assembly, and Verification | TL-KRC3006-02 | Board Serial Number 1 Completed |
-| TL-KRC3006-02 | Breakout Board Test Log | TP-KRC3006-02 | Board Serial Number 1 Completed |
-| [TP-KRC3006-03](TP-KRC3006-03.md) | Protocol Emulation Test Plan | TL-KRC3006-03 | R-5/R-6 applied; waiting for TP-01 completion |
-| TL-KRC3006-03 | Test Log — Companion to TP-03 | TP-KRC3006-03 | Flat-ODF template with R-5/R-6 fields; waiting for TP-01 completion |
-| DN-KRC3006-01 | Hardware Design Research | — | In progress; DC-06/08/21 propagation applied; technical questions remain |
-| DN-KRC3006-02 | Schematic Analysis | — | **Rev D** — historical supply/direct-drive recommendations marked superseded (R-3) |
-| DN-KRC3006-03 | Bluetooth Integration & Button Remapping | — | **Rev 0.2** — Concept; controller name aligned with DN-01 |
-| DN-KRC3006-04 | 13-Pin Mini DIN Protocol Sniffer Breakout Board | — | **Rev D** — procedural protection and FIX-01 build documented; fixture not yet verified |
-| DN-KRC3006-05 | Web Application Design for Emulator Library Management | — | Draft; D-12 baud deferral and test references aligned |
-| DN-KRC3006-06 | Kenwood CD Changer Error Codes | — | Complete |
+| Document | Title | Paired With | Revision | Status |
+|---|---|---|---|---|
+| [TP-KRC3006-01](TP-KRC3006-01.md) | Protocol Reverse Engineering Test Plan | TL-KRC3006-01 | D | Draft — approval pending |
+| [TL-KRC3006-01](TL-KRC3006-01.fods) | Test Log — Companion to TP-01 | TP-KRC3006-01 | D | Draft — approval pending |
+| [TP-KRC3006-02](TP-KRC3006-02.md) | Breakout Board Bare Board Testing, Assembly, and Verification | TL-KRC3006-02 | C | Draft — approval pending |
+| [TL-KRC3006-02](TL-KRC3006-02.fodt) | Breakout Board Test Log | TP-KRC3006-02 | D | Draft — approval pending |
+| [TP-KRC3006-03](TP-KRC3006-03.md) | Protocol Emulation Test Plan | TL-KRC3006-03 | A | Draft — approval pending |
+| [TL-KRC3006-03](TL-KRC3006-03.fods) | Test Log — Companion to TP-03 | TP-KRC3006-03 | A | Draft — approval pending |
+| [DN-KRC3006-01](DN-KRC3006-01.md) | Hardware Design Research | — | A | Draft — approval pending |
+| [DN-KRC3006-02](DN-KRC3006-02.md) | Schematic Analysis | — | E | Draft — approval pending |
+| [DN-KRC3006-03](DN-KRC3006-03.md) | Bluetooth Integration & Button Remapping | — | B | Draft — approval pending |
+| [DN-KRC3006-04](DN-KRC3006-04.md) | 13-Pin Mini DIN Protocol Sniffer Breakout Board | — | E | Draft — approval pending |
+| [DN-KRC3006-05](DN-KRC3006-05.md) | Web Application Design for Emulator Library Management | — | A | Draft — approval pending |
+| [DN-KRC3006-06](DN-KRC3006-06.md) | Kenwood CD Changer Error Codes | — | A | Draft — approval pending |
 
 TP-KRC3006-01 Rev B (2026-04-12) restricted the plan's scope to protocol reverse engineering only — emulator development and audio integration moved to TP-KRC3006-03 — replaced KDC-CX85 references with the KDC-C717, and added Phase 2B for changer-connected capture through the breakout board.
+
+### Revision and approval control
+
+[D-2/D-3](../.agents/decisions.md) require a standard header and dated drafting/approval fields. The initial release uses `-`; subsequent revisions use A–Z, skipping I, O and Q, then AA, AB and so on using the same alphabet. Status is Draft, Released or Superseded. These metadata revisions are Draft until A. Kreager approves them; their preparation does not release a test phase or certify hardware.
+
+Existing lettered sequences continue. DN-03's historical 0.1/0.2 correspond to initial `-`/A; the new editorial draft is B. DN-06's 0.1 corresponds to initial `-`; the new draft is A. Historical history rows and immutable PDFs retain their original labels and attribution. Missing historical model/date or approval/date evidence is explicitly marked “Not recorded”; new drafting details are not assigned to old work.
+
+Execution progress belongs in the phase table below, independently of document status. TL-02 is a working template; the S/N 1 PDF records execution, with step 1.1 still awaiting disposition (DC-13). TL-03 execution has not started. FIX-01 build instructions exist, but no completed S/N 2 record exists.
 
 ### TP-KRC3006-01 Phase Progress
 
@@ -96,14 +104,17 @@ Corrections to a published record use a separate dated and initialed `{record}-S
 
 ## Revision History
 
-| Rev | Date | Author | Changes |
-|---|---|---|---|
-| — | 2026-10-17 | A. Kreager | CP-1: link TP-01 in Markdown and update format notes per D-9/D-10; plan revision and execution status unchanged. |
-| — | 2026-10-17 | A. Kreager | CP-1: link TP-03 in Markdown; plan revision and execution status unchanged. |
-| — | 2026-10-17 | A. Kreager | CP-1: link TP-02 in Markdown and complete the format updates; plan revision and execution status unchanged. |
-| — | 2026-10-17 | A. Kreager | TP-01/TL-01 Rev C per approved rulings R-1; add Phase 2C and distinguish Phase 1 execution from pending closeout. |
-| — | 2026-10-17 | A. Kreager | DN-04 Rev D: apply R-2 and document FIX-01; distinguish instructions from completed build evidence. |
-| — | 2026-10-17 | A. Kreager | R-3/R-5/R-6 and DC-06/08/21/25: design-note propagation, emulator plan/log fields, and D-10 TL-03 flat-ODF conversion. |
-| — | 2026-10-17 | A. Kreager | D-10/DC-16: TL-02 flat-ODF conversion and DN-06 history table; content preserved. |
 
-| — | 2026-10-17 | Drafted: Codex GPT-6 2026-10-17; Approved: A. Kreager — pending | DC-12 / D-7: remove redundant editable ODT snapshot from records; retain both published PDFs and clarify D-1 supplement publication. |
+Legacy rows retain their original revision labels, dates and attributions. “Not recorded” identifies missing drafting-model/date or approval/date evidence; it is not a retrospective sign-off. New entries follow D-2/D-3.
+
+| Rev | Date | Legacy attribution | Drafted / date | Approved / date | Changes |
+|---|---|---|---|---|---|
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | CP-1: link TP-01 in Markdown and update format notes per D-9/D-10; plan revision and execution status unchanged. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | CP-1: link TP-03 in Markdown; plan revision and execution status unchanged. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | CP-1: link TP-02 in Markdown and complete the format updates; plan revision and execution status unchanged. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | TP-01/TL-01 Rev C per approved rulings R-1; add Phase 2C and distinguish Phase 1 execution from pending closeout. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | DN-04 Rev D: apply R-2 and document FIX-01; distinguish instructions from completed build evidence. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | R-3/R-5/R-6 and DC-06/08/21/25: design-note propagation, emulator plan/log fields, and D-10 TL-03 flat-ODF conversion. |
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | D-10/DC-16: TL-02 flat-ODF conversion and DN-06 history table; content preserved. |
+| — | 2026-10-17 | — | Codex GPT-6 2026-10-17 | A. Kreager — pending | DC-12 / D-7: remove redundant editable ODT snapshot from records; retain both published PDFs and clarify D-1 supplement publication. |
+| - | 2026-10-17 | — | Codex GPT-6 2026-10-17 | A. Kreager — pending | DC-16/17: standardize all 12 controlled-document headers and revision histories under D-2/D-3; D-4 lineage; separate document status from execution progress. |

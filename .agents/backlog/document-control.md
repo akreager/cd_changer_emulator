@@ -88,7 +88,7 @@ Priorities:
 ## P2 — Propagate settled corrections
 
 ### DC-05 · E — Pin 2 / pin 6 naming conflicts across documents
-- Update 2026-10-17: Factory names propagated in TP-01, DN-04 and breakout README; existing Phase 1 log labels retained with the historical record until DC-03 is dispositioned. New phase forms use factory names.
+- Update 2026-10-17: CP-07 adds a sourced factory-name crosswalk to TL-01 Document Control. Current Markdown and future phase forms use factory names; all 146 historical Phase 1 cells remain unchanged pending DC-03. Existing naming propagation is in #8; close the remaining crosswalk work on CP-07 merge.
 - Status: Open
 - Finding: DN-02 §1 and the HAT README follow the factory names (2 GND, 6 D. GND). TP-01 and TL-01 call pin 2 "Digital Ground" and pin 6 "AGND / Audio Ground", and the breakout README describes pin 2 as "Audio ground".
 - Action: standardize on the factory names with aliases ([rules/documents.md](../rules/documents.md), Naming). The TP/TL changes ride with Rev C (DC-04).
@@ -168,20 +168,20 @@ Priorities:
 - Resolution (2026-10-15): the [README tree](../../README.md#repository-structure) marks those directories as planned, identifies the legacy software names, and distinguishes tracked documentation from future implementation content.
 
 ### DC-12 · E — A non-PDF file sits in `docs/records/`
-- Update 2026-10-17: Applied D-7: deleted the redundant ODT record; both published PDFs are unchanged and the deleted file remains in git history. Prepared in CP-06 for owner review.
+- Update 2026-10-17: Applied D-7: deleted the redundant ODT record; both published PDFs are unchanged and the deleted file remains in git history. Prepared in [#15](https://github.com/akreager/cd_changer_emulator/pull/15) for owner review; close on merge.
 - Status: Open
 - Finding: `docs/records/TL-KRC3006-02-01-20260401.odt` breaks the PDF-only rule, and neither records table lists it. It appears to be TL-02's snapshot after its Phase 1.
 - Action: delete the `.odt` in a PR. The PDF export already exists (D-7, decided 2026-10-17).
 
 ### DC-13 · E — TL-02 dates and a missing result
-- Update 2026-10-17: Breakout README completion date corrected to record date 2026-04-10 and work order updated. DN-04 schedule labeled original targets. Missing TL-02 step 1.1 disposition remains for owner.
+- Update 2026-10-17: README completion-date correction is merged in #8. CP-06/07 make the missing step 1.1 disposition visible in both status summaries and synchronize the work order. Only owner evidence/disposition for the board-outline result remains open.
 - Status: Open
 - Reverified 2026-10-16: the breakout README's “Next Steps” calls TP-01 Phase 1 passive capture and still describes head-unit-only capture, unlike the current master register and root README. DN-04 §13 retains TBD build milestones; establish whether these are historical targets before changing them. Include this status text in the later editorial package.
 - Finding: the breakout README says S/N 1 was "completed 4/5". The TL-02 record shows phase results dated 2026-04-01, 04-08 and 04-10. TL-02 step 1.1 (board outline 22 × 80 mm ±0.2) has no result in the published record.
 - Action: fix the README date. Put the step 1.1 gap to the owner; he can choose a supplement under decision D-1.
 
 ### DC-14 · E — Reference register gaps
-- Update 2026-10-17: REF-005 public CX85 service manual linked; REF-006 SparkFun limits and REF-007/008 C717 manuals added; root references synchronized. KRC-3006 SM public source and C717 OM edition match remain unverified.
+- Update 2026-10-17: Public-source search refreshed. REF-004 still has no inspectable factory manual; the manufacturer-listed C717 PDF returns 404, and REF-008 edition equivalence remains unverified. Owner/architect source evidence is requested locally; no manual copied into the repo.
 - Status: Open
 - Finding: REF-004 (KRC-3006 SM) and REF-005 (KDC-CX85 SM) are listed with "Source TBD", although DN-06 cites ManualsLib for the CX85 SM. The KDC-C717 manuals have no entries; DN-06 cites the OM as B64-1652-00, and the SM is B51-7731-00.
 - Action: add public links (archive.org preferred) where they exist, and never host the PDFs. Take document numbers only from the documents themselves.
@@ -193,13 +193,13 @@ Priorities:
 - Action: draft one paragraph for the README footer.
 
 ### DC-16 · E — Inconsistent headers and revision schemes
-- Update 2026-10-17: Added histories where files changed, retained existing header/revision schemes pending D-2/D-3. DN-04 already had Rev D; retained that label as requested and added a dated row. No retrospective authorship rewrite.
+- Update 2026-10-17: CP-07 standardizes all 12 controlled-document headers and histories under decided D-2/D-3, with D-4 lineage. New metadata revisions are Draft; approval dates remain pending. Known merged approvals are cited; other historical attribution stays explicit instead of invented. Numeric legacy equivalents are documented in docs/README.md. Prepared for review.
 - Status: Open
 - Finding: see the revision-state table in the handoff (§8). DN-04's author line lists AI model names.
 - Action: standardize to D-2 ("-" for the initial release, then A, B, C… skipping I, O, Q) and D-3 (Drafted: <model> <date>; Approved: A. Kreager <date>), both decided 2026-10-17. Model names in author lines are now the required form; keep them, in the D-3 format.
 
 ### DC-17 · E — Tester and author names vary
-- Update 2026-10-17: New history rows use A. Kreager; future tester fields remain blank for AK at execution. Historical authors/testers retained pending D-3.
+- Update 2026-10-17: CP-07 supplies dated model drafting and pending A. Kreager approval fields; future log entry labels specify AK. Historical Phase 1 tester text and all published records remain as recorded. Prepared for review.
 - Status: Open
 - Finding: the names appear as "A. KREAGER", "Allen Kreager", "AK" and "Allen".
 - Action: standardize going forward to "A. Kreager" and "AK" in log cells (D-3, decided 2026-10-17). Published records stay as they are.
@@ -279,8 +279,8 @@ Priorities:
 ## P4 — Presentation
 
 ### DC-18 · E — The TL-01 record clips text
-- Update 2026-10-17: Adjusted future TL-01 form widths, wrapping and print areas; exported review PDF. April published record unchanged. Original Phase 1 cells unchanged.
-- Status: Open
+- Update 2026-10-17: Rechecked the live TL-01 review PDF: the future-phase headings and columns are readable after #8 layout changes. Published April PDF unchanged. Current CP-07 metadata pages also render without clipped text.
+- Status: Closed ([#8](https://github.com/akreager/cd_changer_emulator/pull/8))
 - Finding: on pages 3–6 of the TL-01 record PDF, column A is too narrow, so titles, section labels and headers are cut off.
 - Action: fix the column widths in the TL-01 template for future snapshots. Don't re-issue the April record for this alone.
 
@@ -290,7 +290,7 @@ Priorities:
 - Action: decided 2026-10-17 (D-8): a design agent replaces it with an original port graphic and a Pin | Name | Description table. Once that's merged, remove the crop and repoint its links.
 
 ### DC-29 · P — The root README's status and to-do are stale
-- Update 2026-10-17: Reordered the README around Phase 1 closeout, Phase 2A, parallel FIX-01 build, Phase 2B then 2C; Phase 3 retains its independent Phase 2B gate. Removed the idle-LOW assertion from the status summary and made HAT review status explicit. Prepared in CP-06 for owner review.
+- Update 2026-10-17: Reordered the README around Phase 1 closeout, Phase 2A, parallel FIX-01 build, Phase 2B then 2C; Phase 3 retains its independent Phase 2B gate. Removed the idle-LOW assertion from the status summary and made HAT review status explicit. Prepared in [#15](https://github.com/akreager/cd_changer_emulator/pull/15) for owner review; close on merge.
 - Status: Open
 - Source: owner, 2026-10-17; [rulings R-1](../rulings/2026-10-16.md).
 - Finding: the README's "Immediate To-Do" and "Completed" sections predate the rulings.
@@ -298,6 +298,12 @@ Priorities:
   - FIX-01 (breakout S/N 2) and Phase 2C aren't mentioned. "Resolve CLK directionality" should point to Phase 2C (R-1.5).
   - The schematic-analysis entry says R145/R146 "define the idle-LOW state". Phase 1 read CLK HIGH at idle; the technical baseline lists CLK idle level as open.
 - Action: next at the bench is Phase 2A (after TP-01 Rev C and the TL-01 tabs); in parallel, build FIX-01 from S/N 2; Phase 2C follows 2B. Rewrite the to-do in that order and correct the stale entries.
+
+## Current review packages
+
+- [#14](https://github.com/akreager/cd_changer_emulator/pull/14): merged-work reconciliation and the refreshed Phase 1 supplement/gap questions.
+- [#15](https://github.com/akreager/cd_changer_emulator/pull/15): README work order and D-7 deletion.
+- CP-07: controlled-document metadata and remaining editorial updates; review after #15. New work remains open until its PR is merged; owner/architect questions remain open independently.
 
 ## Already resolved (don't re-raise)
 

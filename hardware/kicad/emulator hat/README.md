@@ -43,9 +43,9 @@ Several items still depend on data from the ongoing reverse engineering effort (
 | Document | Description |
 |----------|-------------|
 | DN-KRC3006-01 | HAT design research — component selection, pin mapping, architecture |
-| DN-KRC3006-02 Rev C | KRC-3006 and KDC-CX85 schematic analysis — bus impedance, signal conditioning |
+| DN-KRC3006-02 | KRC-3006 and KDC-CX85 schematic analysis — bus impedance, signal conditioning |
 | DN-KRC3006-04 | 13-pin mini DIN breakout board (complete, used for protocol capture) |
-| TP-KRC3006-01 Rev C | Reverse engineering plan: Phase 1 executed, closeout pending; inline Phase 2A next; Phase 2C identifies CLK driver |
+| TP-KRC3006-01 | Reverse engineering plan: Phase 1 executed, closeout pending; inline Phase 2A next; Phase 2C identifies CLK driver |
 | TP-KRC3006-03 | Emulator development and integration test plan (waiting for TP-01) |
 
 ## License
@@ -54,6 +54,7 @@ MIT — see repository root.
 
 ## Revision History
 
-| Rev | Date | Author | Changes |
-|---|---|---|---|
-| — | 2026-10-17 | A. Kreager | Align test-plan revision and CLK direction gate with approved R-1.5/R-1.6. Existing hardware summary remains unverified against initial-state commit 96d09e0; CLK idle wording awaits Phase 2A. |
+| Rev | Date | Legacy attribution | Drafted / date | Approved / date | Changes |
+|---|---|---|---|---|---|
+| — | 2026-10-17 | A. Kreager | Not recorded | Not recorded | Align test-plan revision and CLK direction gate with approved R-1.5/R-1.6. Existing hardware summary remains unverified against initial-state commit 96d09e0; CLK idle wording awaits Phase 2A. |
+| - | 2026-10-17 | — | Codex GPT-6 2026-10-17 | A. Kreager — pending | Synchronize current document references after D-2/D-3 metadata revisions. Historical Rev C analysis and unresolved CLK idle claim remain for DC-09. |
