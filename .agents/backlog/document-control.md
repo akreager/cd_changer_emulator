@@ -303,7 +303,7 @@ Priorities:
 
 - [#14](https://github.com/akreager/cd_changer_emulator/pull/14): merged-work reconciliation and the refreshed Phase 1 supplement/gap questions.
 - [#15](https://github.com/akreager/cd_changer_emulator/pull/15): README work order and D-7 deletion.
-- CP-07: controlled-document metadata and remaining editorial updates; review after #15. New work remains open until its PR is merged; owner/architect questions remain open independently.
+- [#16](https://github.com/akreager/cd_changer_emulator/pull/16): controlled-document metadata and remaining editorial updates; review after #15. New work remains open until its PR is merged; owner/architect questions remain open independently.
 
 ## Already resolved (don't re-raise)
 
