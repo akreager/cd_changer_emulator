@@ -156,7 +156,7 @@ Priorities:
 ### DC-12 · E — A non-PDF file sits in `docs/records/`
 - Status: Open
 - Finding: `docs/records/TL-KRC3006-02-01-20260401.odt` breaks the PDF-only rule, and neither records table lists it. It appears to be TL-02's snapshot after its Phase 1.
-- Action: decision D-7.
+- Action: delete the `.odt` in a PR. The PDF export already exists (D-7, decided 2026-10-17).
 
 ### DC-13 · E — TL-02 dates and a missing result
 - Status: Open
@@ -177,12 +177,12 @@ Priorities:
 ### DC-16 · E — Inconsistent headers and revision schemes
 - Status: Open
 - Finding: see the revision-state table in the handoff (§8). DN-04's author line lists AI model names.
-- Action: standardize after decisions D-2 and D-3. Until then, only add revision-history tables.
+- Action: standardize to D-2 ("-" for the initial release, then A, B, C… skipping I, O, Q) and D-3 (Drafted: <model> <date>; Approved: A. Kreager <date>), both decided 2026-10-17. Model names in author lines are now the required form; keep them, in the D-3 format.
 
 ### DC-17 · E — Tester and author names vary
 - Status: Open
 - Finding: the names appear as "A. KREAGER", "Allen Kreager", "AK" and "Allen".
-- Action: standardize going forward (decision D-3). Published records stay as they are.
+- Action: standardize going forward to "A. Kreager" and "AK" in log cells (D-3, decided 2026-10-17). Published records stay as they are.
 
 ### DC-20 · E — Convert the remaining test logs to flat ODF
 - Status: Open (added 2026-10-15)
@@ -233,7 +233,16 @@ Priorities:
 ### DC-19 · decision — `assets/changer_pins.png`
 - Status: Open
 - Finding: the image is a crop of the factory pin table.
-- Action: check it against the IP posture (decision D-8).
+- Action: decided 2026-10-17 (D-8): a design agent replaces it with an original port graphic and a Pin | Name | Description table. Once that's merged, remove the crop and repoint its links.
+
+### DC-26 · P — The root README's status and to-do are stale
+- Status: Open
+- Source: owner, 2026-10-17; [rulings R-1](../rulings/2026-10-16.md).
+- Finding: the README's "Immediate To-Do" and "Completed" sections predate the rulings.
+  - Phase 2A is still described as an idle-state capture. R-1.3 redefined it: changer connected, no magazine.
+  - FIX-01 (breakout S/N 2) and Phase 2C aren't mentioned. "Resolve CLK directionality" should point to Phase 2C (R-1.5).
+  - The schematic-analysis entry says R145/R146 "define the idle-LOW state". Phase 1 read CLK HIGH at idle; the technical baseline lists CLK idle level as open.
+- Action: next at the bench is Phase 2A (after TP-01 Rev C and the TL-01 tabs); in parallel, build FIX-01 from S/N 2; Phase 2C follows 2B. Rewrite the to-do in that order and correct the stale entries.
 
 ## Already resolved (don't re-raise)
 
