@@ -6,13 +6,13 @@ This folder contains all project documentation for the KRC-3006 reverse engineer
 
 ## File Format
 
-Test plans, design notes and READMEs use **Markdown (`.md`)** so they render directly on GitHub. Test logs are bench forms edited in LibreOffice and use flat ODF: `.fods` for spreadsheets and `.fodt` for text documents. Remaining zipped logs convert at their next change (decisions [D-9 and D-10](../.agents/decisions.md)).
+Test plans, design notes and READMEs use **Markdown (`.md`)** so they render directly on GitHub. Test logs are bench forms edited in LibreOffice and use flat ODF: `.fods` for spreadsheets and `.fodt` for text documents. All working logs now use flat ODF (decisions [D-9 and D-10](../.agents/decisions.md)).
 
 Formats currently in use:
 
 - Markdown (`.md`) — test plans, design notes and READMEs
-- Flat ODF spreadsheet (`.fods`) — TL-KRC3006-01; review changes as cell diffs.
-- Open Document Format (`.odt` / `.ods`) — TL-KRC3006-02 and TL-KRC3006-03, pending D-10 conversion.
+- Flat ODF spreadsheet (`.fods`) — TL-KRC3006-01 and TL-KRC3006-03; review changes as cell diffs.
+- Flat ODF text (`.fodt`) — TL-KRC3006-02; review text changes against its previous version.
 - Timing diagrams (WaveDrom `.json`)
 - State machine diagrams (Mermaid `.mmd`)
 
@@ -50,13 +50,13 @@ TT-KRC3006-NN
 | TL-KRC3006-01 | Test Log — Companion to TP-01 | TP-KRC3006-01 | **Rev C** — Phase 2 forms prepared; Phase 1 Rev B entries preserved (2026-04-19) |
 | [TP-KRC3006-02](TP-KRC3006-02.md) | Breakout Board Bare Board Testing, Assembly, and Verification | TL-KRC3006-02 | Board Serial Number 1 Completed |
 | TL-KRC3006-02 | Breakout Board Test Log | TP-KRC3006-02 | Board Serial Number 1 Completed |
-| [TP-KRC3006-03](TP-KRC3006-03.md) | Protocol Emulation Test Plan | TL-KRC3006-03 | Waiting for TP-01 Completion |
-| TL-KRC3006-03 | Test Log — Companion to TP-03 | TP-KRC3006-03 | Template prepared; waiting for TP-01 Completion |
-| DN-KRC3006-01 | Hardware Design Research | — | In progress |
-| DN-KRC3006-02 | Schematic Analysis | — | **Rev C** — bus impedance corrected |
+| [TP-KRC3006-03](TP-KRC3006-03.md) | Protocol Emulation Test Plan | TL-KRC3006-03 | R-5/R-6 applied; waiting for TP-01 completion |
+| TL-KRC3006-03 | Test Log — Companion to TP-03 | TP-KRC3006-03 | Flat-ODF template with R-5/R-6 fields; waiting for TP-01 completion |
+| DN-KRC3006-01 | Hardware Design Research | — | In progress; DC-06/08/21 propagation applied; technical questions remain |
+| DN-KRC3006-02 | Schematic Analysis | — | **Rev D** — historical supply/direct-drive recommendations marked superseded (R-3) |
 | DN-KRC3006-03 | Bluetooth Integration & Button Remapping | — | **Rev 0.2** — Concept; controller name aligned with DN-01 |
 | DN-KRC3006-04 | 13-Pin Mini DIN Protocol Sniffer Breakout Board | — | **Rev D** — procedural protection and FIX-01 build documented; fixture not yet verified |
-| DN-KRC3006-05 | Web Application Design for Emulator Library Management | — | Draft |
+| DN-KRC3006-05 | Web Application Design for Emulator Library Management | — | Draft; D-12 baud deferral and test references aligned |
 | DN-KRC3006-06 | Kenwood CD Changer Error Codes | — | Complete |
 
 TP-KRC3006-01 Rev B (2026-04-12) restricted the plan's scope to protocol reverse engineering only — emulator development and audio integration moved to TP-KRC3006-03 — replaced KDC-CX85 references with the KDC-C717, and added Phase 2B for changer-connected capture through the breakout board.
@@ -101,3 +101,5 @@ The working log in this folder stays live and accumulates results as phases are 
 | — | 2026-10-17 | A. Kreager | CP-1: link TP-02 in Markdown and complete the format updates; plan revision and execution status unchanged. |
 | — | 2026-10-17 | A. Kreager | TP-01/TL-01 Rev C per approved rulings R-1; add Phase 2C and distinguish Phase 1 execution from pending closeout. |
 | — | 2026-10-17 | A. Kreager | DN-04 Rev D: apply R-2 and document FIX-01; distinguish instructions from completed build evidence. |
+| — | 2026-10-17 | A. Kreager | R-3/R-5/R-6 and DC-06/08/21/25: design-note propagation, emulator plan/log fields, and D-10 TL-03 flat-ODF conversion. |
+| — | 2026-10-17 | A. Kreager | D-10/DC-16: TL-02 flat-ODF conversion and DN-06 history table; content preserved. |
