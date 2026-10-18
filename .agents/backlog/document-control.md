@@ -8,7 +8,9 @@ This is the live work list for the document control agent ([handoff](../handoffs
 
 CP-1 status: Closed ([#5](https://github.com/akreager/cd_changer_emulator/pull/5)); merged before this work.
 
-Work update (2026-10-17, baseline `b814b06`): TP-01/TL-01 Rev C, DN-04 Rev D and FIX-01 instructions prepared under R-1/R-2; breakout labels and work order aligned. Phase 1 supplement remains local pending D-1 and owner dispositions. No published record or historical Phase 1 cell changed. R-3/R-5/R-6 propagation and the TL-03 conversion are also prepared; technical decisions remain open.
+Work update (2026-10-17, baseline `b814b06`): approved rulings R-1–R-6 applied in review drafts. TP-01/TL-01 Rev C, DN-04 Rev D and FIX-01 instructions are prepared. The owner approved the separate Phase 1 supplement method on 2026-10-17; its draft and disposition questions remain local pending dated owner answers. Architect recording of D-1 remains outstanding. DN-02 Rev D, breakout labels, TP-03/TL-03 and D-10 conversions are prepared, with remaining technical decisions listed below. No bench result or published record has been changed.
+
+Review packages (drafts, review in order): [#8 — Phase 2 readiness](https://github.com/akreager/cd_changer_emulator/pull/8), [#9 — emulation rulings](https://github.com/akreager/cd_changer_emulator/pull/9), [#10 — format/reference hygiene](https://github.com/akreager/cd_changer_emulator/pull/10). The later PRs target the preceding branch; the owner merges and retargets in sequence. Draft preparation does not close owner dispositions or establish bench acceptance.
 
 Priorities:
 - **P1:** close out Phase 1 and make TL-01 live. This must happen before any Phase 2A data exists.
@@ -29,7 +31,7 @@ Priorities:
 - Action: if D-11 says to commit each phase, commit the restored log as `docs/TL-KRC3006-01.fods`. Either way, make `docs/README.md`'s rule for the working log match D-11.
 
 ### DC-02 · T (the owner dispositions) — The Phase 1 record has gaps
-- Update 2026-10-17: Supplement and gap questions drafted locally for owner disposition; original record and 146 nonempty Phase 1 live-log cells preserved. Publication awaits D-1 and completed entries. Added questions for untested audio pins and the date/setup of the changer-present observation.
+- Update 2026-10-17: Supplement and gap questions drafted locally for owner disposition; original record and 146 nonempty Phase 1 live-log cells preserved. The owner approved a separate `TL-KRC3006-01-P1-20260419-S1.pdf` in the 2026-10-17 conversation ("Approve the separate supplement (recommended)"), leaving the original untouched. Publication awaits completed, dated and initialed dispositions; the architect still needs to record D-1 in the decision register. Added questions for untested audio pins and the date/setup of the changer-present observation.
 - Status: Open
 - Findings in the record:
   - The Overall Result is blank.
@@ -176,11 +178,13 @@ Priorities:
 - Action: fix the README date. Put the step 1.1 gap to the owner; he can choose a supplement under decision D-1.
 
 ### DC-14 · E — Reference register gaps
+- Update 2026-10-17: REF-005 public CX85 service manual linked; REF-006 SparkFun limits and REF-007/008 C717 manuals added; root references synchronized. KRC-3006 SM public source and C717 OM edition match remain unverified.
 - Status: Open
 - Finding: REF-004 (KRC-3006 SM) and REF-005 (KDC-CX85 SM) are listed with "Source TBD", although DN-06 cites ManualsLib for the CX85 SM. The KDC-C717 manuals have no entries; DN-06 cites the OM as B64-1652-00, and the SM is B51-7731-00.
 - Action: add public links (archive.org preferred) where they exist, and never host the PDFs. Take document numbers only from the documents themselves.
 
 ### DC-15 · E (wording needs the owner's approval) — No disclaimer
+- Update 2026-10-17: One-paragraph footer drafted in the local review package; awaiting owner wording approval. Not inserted as approved text.
 - Status: Open
 - Finding: the repo has no non-affiliation or trademark disclaimer.
 - Action: draft one paragraph for the README footer.
@@ -198,7 +202,7 @@ Priorities:
 - Action: standardize going forward (decision D-3). Published records stay as they are.
 
 ### DC-20 · E — Convert the remaining test logs to flat ODF
-- Update 2026-10-17: TL-03 converted in LibreOffice to .fods with identical cell values before R-5/R-6 edits; references updated. TL-02 conversion is the next editorial package.
+- Update 2026-10-17: Converted TL-03 to .fods and TL-02 to .fodt in LibreOffice. TL-03 cell values identical before R-5/R-6 edits; TL-02 original 652 paragraphs/table texts identical, then conversion history added. README and TP references updated; architect-owned read-odf example needs follow-up.
 - Status: Open (added 2026-10-15)
 - Finding: decision D-10 makes flat ODF the log format. TL-01 is converted (DC-01). The rest isn't done yet:
   - TL-03 is `.ods`, and TL-02 is `.odt`.
@@ -219,6 +223,7 @@ Priorities:
 - Action: replace the rate with "baud rate set during hardware testing (D-12)" and keep 8N1 only if the source supports it. Add revision-history rows. Search for any other mention with `grep -rn -i baud docs/`.
 
 ### DC-22 · T review + E — Breakout README audio-channel conflict
+- Update 2026-10-17: R-4 applied to both J4/J5 tables: Tip = pin 8 R ch, Ring = pin 12 L ch, Sleeve = pin 2 GND; contact names replace fictitious numbers.
 - Status: Open (added 2026-10-16)
 - Finding: the [breakout README](../../hardware/kicad/changer%20cable%20breakout/README.md), J4/J5 Pinout tables, labels DIN pin 8 L CH and pin 12 R CH. Its J1/J2 table and Audio Interception section give pin 8 R CH and pin 12 L CH, as does [TP-02 §6.2](../../docs/TP-KRC3006-02.md#62-bare-board-electrical-tests), steps 1.12–1.13.
 - Action: ask the architect to confirm the table correction against the hardware. Preserve both sides of the conflict until reviewed; no hardware inspection was performed in the CP-1 audit.
