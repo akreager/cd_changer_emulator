@@ -32,22 +32,24 @@ For reference, the 13-pin mini DIN changer connector pinout:
 
 ### Immediate To-Do
 
-- [ ] **Execute Phase 2A of TP-KRC3006-01** — Use TP-01 Rev C with the C717 connected and no magazine: capture A/B/C transitions, measure timing and decode a repeatable frame. Resolve the Phase 1 closeout entry gate first.
-- [ ] **Execute Phase 2B** — Inline bidirectional capture of head unit ↔ KDC-C717 traffic. Inline capture is mandatory: the head unit will not switch to the changer source unless a changer is electrically present, so isolated head unit testing is impractical.
-- [ ] **Execute Phase 3** — Command mapping: correlate each head unit control to its bus command and the changer's response, and compare against the Mictronics tables.
-- [ ] **Build FIX-01 and execute Phase 2C** — Identify the CLK driver using breakout S/N 2 and the approved series-resistor method (TP-01 §4.4). This gates the CLK level-shifter choice; it does not gate Phase 3.
-- [ ] **Continue the emulator HAT schematic** — The protocol and audio front end is placed (ATtiny1616, two SN74LVC8T245 level shifters, PCM5102A DAC, 40-pin Pi header, 13-pin mini DIN changer port, supporting passives). The automotive power supply section is not yet drawn and no PCB layout has begun; the schematic cannot be finalized until command mapping is complete.
+- [ ] **Close out Phase 1** — Complete the missing results, deviations and changer-present observation in the separate supplement required by [D-1](.agents/decisions.md). The original [Phase 1 record](docs/records/TL-KRC3006-01-P1-20260419.pdf) stays unchanged; Phase 2A requires its overall disposition (DC-02/03).
+- [ ] **Execute Phase 2A** — With the C717 connected and no magazine, capture the A/B/C power/source transitions, measure timing and decode a repeatable frame using [TP-01 §4.2](docs/TP-KRC3006-01.md#42-phase-2a-idle-capture-changer-connected-no-magazine) and the matching TL-01 tab. The head unit needs a changer present to select CD-CH; the supplement will record the date and setup of that owner observation.
+- [ ] **Build and verify FIX-01 in parallel** — Modify breakout S/N 2 under [DN-04 §16](docs/DN-KRC3006-04.md#16-fix-01--clk-driver-fixture-breakout-sn-2); preserve S/N 1 for ordinary captures. These are approved build instructions, not a completed fixture record.
+- [ ] **Execute Phase 2B** — Capture loaded C717 traffic, power-on/RESET behavior and possible protocol time fields under TP-01 §4.3. Resolve the ignition timing-reference method (DC-28) before that measurement.
+- [ ] **Execute Phase 2C after 2B passes and FIX-01 is verified** — Identify the CLK driver under TP-01 §4.4. This result gates the CLK level-shifter choice.
+- [ ] **Execute Phase 3 after 2B passes** — Map head-unit controls to commands and responses under TP-01 §4.5. Phase 2C does not gate Phase 3 (approved [R-1.5](.agents/rulings/2026-10-16.md)).
+- [ ] **Review and continue the emulator HAT design** — The committed schematic/PCB is an initial state, not a completeness-reviewed design. Resolve the shifter A/B and Pi 5 UART mapping questions (DC-26), review the power section and layout, and use capture evidence for the remaining protocol decisions. Firmware and software implementation have not started.
 
 ### Completed
 
-- [x] **Schematic analysis** — Detailed analysis of both KRC-3006 and KDC-CX85 service manuals. Confirmed 5V TTL bus signaling, inline series resistors of 100Ω–7.5KΩ on the head unit side against a uniform 100Ω on the changer side, all total series impedances between 200Ω and 7.6KΩ, COMMSW protocol selection, and always-live 12V on the B.U. pin. **Rev C corrected an earlier error:** R145/R146 (100K) are pull-downs to ground that define the idle-LOW state on DATA H and CLK — they are *not* inline series elements, and bus edges are consequently fast (τ ≈ 2 ns), not slow. No edge-rate compensation is needed. (DN-KRC3006-02 Rev C)
+- [x] **Schematic analysis documented** — [DN-02](docs/DN-KRC3006-02.md) distinguishes the head-unit series resistors from the R145/R146 pull-downs and marks superseded controller-supply recommendations. CLK idle level remains open: the pull-down topology does not establish the driven bus level, and the [Phase 1 record](docs/records/TL-KRC3006-01-P1-20260419.pdf) measured CLK HIGH. The first Phase 2A capture will provide the evidence for the architect's wording update (DC-09).
 - [x] **Breakout board design** — KiCad layout with two 13-pin mini DIN connectors and 2.54mm pin headers (ground adjacent to each signal) using Kenwood signal names on silkscreen. (DN-KRC3006-04)
 - [x] **Connector footprint verification** — 3D-printed mockup confirmed pin spacing before committing to fab.
 - [x] **Breakout board ordered** — 3 boards, OSH Park standard fab.
-- [X] **Completed TP-KRC3006-02** — Receive, inspect, assemble and verify pass-through breakout board serial number 1.
+- [X] **Breakout S/N 1 verification record published** — [TL-KRC3006-02-01-20260410](docs/records/TL-KRC3006-02-01-20260410.pdf) records assembly and electrical verification. The missing step 1.1 board-outline result still needs owner disposition (DC-13).
 - [X] **Set up test bench** — Bench wiring, logic analyzer connections, and a custom staged power adapter with two toggle switches that simulate constant and ignition-switched power independently.
 - [X] **Troubleshoot CX85** — Initial tests showed the CD changer laser diode is dirty or degraded (E-04, all discs unreadable). Unit deemed inoperable and retired. Further testing is carried out with a KDC-C717 CD changer. (DN-KRC3006-06)
-- [X] **Executed Phase 1 of TP-KRC3006-01; closeout pending** — Power-on characterization with the KDC-C717 inline: supply and idle current draw, 13-pin DIN idle voltages on every signal pin, CH-CON polarity, CLK gating behavior, and pin 2 ↔ pin 6 ground continuity. Record: TL-KRC3006-01-P1-20260419.
+- [X] **Executed Phase 1 of TP-KRC3006-01; closeout pending** — Power-on characterization with the KDC-C717 inline: supply and idle current draw, 13-pin DIN idle-voltage readings (audio pins 8 and 12 were not tested), CH-CON polarity, CLK gating behavior, and pin 2 ↔ pin 6 ground continuity. Record: TL-KRC3006-01-P1-20260419.
 
 ## What This Project Does
 
@@ -210,3 +212,5 @@ This project is licensed under the [MIT License](LICENSE) — you're free to use
 | — | 2026-10-17 | A. Kreager | DC-14: synchronize SparkFun and factory-manual links with the reference register. |
 | — | 2026-10-17 | A. Kreager | D-10/DC-16: convert TL-02 to flat ODF and add DN-06 revision history without changing technical content. |
 | — | 2026-10-17 | A. Kreager | R-1.1: add SparkFun analyzer specification source (REF-006). |
+
+| — | 2026-10-17 | Drafted: Codex GPT-6 2026-10-17; Approved: A. Kreager — pending | DC-29: align status and work order with R-1; keep Phase 1 and TL-02 gaps visible; distinguish committed HAT design from reviewed completeness. |

@@ -168,6 +168,7 @@ Priorities:
 - Resolution (2026-10-15): the [README tree](../../README.md#repository-structure) marks those directories as planned, identifies the legacy software names, and distinguishes tracked documentation from future implementation content.
 
 ### DC-12 · E — A non-PDF file sits in `docs/records/`
+- Update 2026-10-17: Applied D-7: deleted the redundant ODT record; both published PDFs are unchanged and the deleted file remains in git history. Prepared in CP-06 for owner review.
 - Status: Open
 - Finding: `docs/records/TL-KRC3006-02-01-20260401.odt` breaks the PDF-only rule, and neither records table lists it. It appears to be TL-02's snapshot after its Phase 1.
 - Action: delete the `.odt` in a PR. The PDF export already exists (D-7, decided 2026-10-17).
@@ -289,6 +290,7 @@ Priorities:
 - Action: decided 2026-10-17 (D-8): a design agent replaces it with an original port graphic and a Pin | Name | Description table. Once that's merged, remove the crop and repoint its links.
 
 ### DC-29 · P — The root README's status and to-do are stale
+- Update 2026-10-17: Reordered the README around Phase 1 closeout, Phase 2A, parallel FIX-01 build, Phase 2B then 2C; Phase 3 retains its independent Phase 2B gate. Removed the idle-LOW assertion from the status summary and made HAT review status explicit. Prepared in CP-06 for owner review.
 - Status: Open
 - Source: owner, 2026-10-17; [rulings R-1](../rulings/2026-10-16.md).
 - Finding: the README's "Immediate To-Do" and "Completed" sections predate the rulings.
