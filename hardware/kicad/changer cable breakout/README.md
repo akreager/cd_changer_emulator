@@ -10,7 +10,7 @@ This KiCad project implements a passive, pass-through breakout board for the Ken
 
 ## Current Status
 
-**COMPLETE AND TESTED** — Boards received 2026-03-28 from OSH Park. Assembly and verification of S/N 1 completed 4/5. Breakout board is fully functional and ready for protocol reverse engineering work.  
+**COMPLETE AND TESTED** — Boards received 2026-03-28 from OSH Park. S/N 1 verification completed 2026-04-10, per [TL-02-01-20260410](../../../docs/records/TL-KRC3006-02-01-20260410.pdf). Its step 1.1 result remains a closeout question (DC-13). Breakout board is fully functional and ready for protocol reverse engineering work.
 ![Picture of assembled break-out board](/../main/assets/breakout_board_01.jpg)
 
 ## Schematic Summary
@@ -28,7 +28,7 @@ This KiCad project implements a passive, pass-through breakout board for the Ken
 | Pin | Signal | Description |
 |-----|--------|-----------|
 | 1 | REQ H (Active Low)  | Request handshake output from head unit. |
-| 2 | GND | Audio ground. |
+| 2 | GND | Ground (factory name; DN-02 §1). |
 | 3 | B.U.  | Battery Unswitched. |
 | 4 | ON  | Changer connect/enable signal. |
 | 5 | MUTE  | Mute request line. |
@@ -59,19 +59,21 @@ This KiCad project implements a passive, pass-through breakout board for the Ken
 
 ## J4 Pinout
 
-| J4 Pin | J1 Pin | Signal |
-| --- | --- | --- |
-| 1 | 2 | GND |
-| 2 | 8 | L CH to head unit |
-| 3 | 12 | R CH to Head unit |
+| J4 contact | J1 pin | Signal |
+|---|---|---|
+| Tip | 8 | R ch (to head unit) |
+| Ring | 12 | L ch (to head unit) |
+| Sleeve | 2 | GND |
 
 ## J5 Pinout
 
-| J5 Pin | J2 Pin | Signal |
-| --- | --- | --- |
-| 1 | 2 | GND |
-| 2 | 8 | L CH from changer |
-| 3 | 12 | R CH from changer |
+| J5 contact | J2 pin | Signal |
+|---|---|---|
+| Tip | 8 | R ch (from changer) |
+| Ring | 12 | L ch (from changer) |
+| Sleeve | 2 | GND |
+
+These are contact labels, not numbered pins. Mapping follows approved [R-4](../../../.agents/rulings/2026-10-16.md), which cites the PCB and TL-02 steps 1.12–1.13 and 3.3–3.4. This corrects the README labels only.
 
 ## Audio Interception
 
@@ -94,13 +96,23 @@ Audio pass-through requires the external cable. The board cannot function as a f
 
 ## Next Steps
 
-This board is now ready to support:
-1. **TP-KRC3006-01 Phase 1** — Passive capture of KRC-3006 ↔ KDC-C717 traffic
-2. **TP-KRC3006-01 Phase 2a/2b** — Analysis with head unit alone, then with real changer through breakout
-3. **TP-KRC3006-03** — Emulator development and integration testing
+S/N 1 supported TP-01 Phase 1 on 2026-04-19. Next, follow [TP-01 Rev C](../../../docs/TP-KRC3006-01.md):
+
+1. Phase 2A: inline capture with the C717 connected and no magazine, after Phase 1 closeout.
+2. Phase 2B: loaded-changer initialization, steady playback, power-on and time-field captures.
+3. Phase 2C: CLK driver identification with **FIX-01, modified S/N 2**, built and verified per [DN-04 §16](../../../docs/DN-KRC3006-04.md#16-fix-01--clk-driver-fixture-breakout-sn-2). Keep S/N 1 unmodified.
+4. Phase 3: command mapping, followed by TP-03 emulator development and integration.
+
+For every analyzer connection follow DN-04 §7: power down, block J3-3, ground only at J3-1, leave J3-5 empty, use the custom crimped harness and cover exposed rear joints (R-2).
 
 ## References
 
 - Service manual: Kenwood KRC-3006 Cassette Head Unit
 - Service manual: Kenwood KDC-C717 CD Changer
 - Related design docs: DN-KRC3006-02 (Schematic Analysis), DN-KRC3006-04
+
+## Revision History
+
+| Rev | Date | Author | Changes |
+|---|---|---|---|
+| — | 2026-10-17 | A. Kreager | R-4: correct J4/J5 contact and channel labels. DC-05/13: factory ground name, recorded completion date and TP-01 Rev C work order; link FIX-01 instructions. |

@@ -6,7 +6,9 @@ This is the live work list for the document control agent ([handoff](../handoffs
 - Close an item by setting its status to `Closed (#PR)`.
 - Items DC-01 to DC-19 were verified against `main` @ `11bc992` (2026-10-09). Line numbers are as of that commit; find each passage by its quoted text. Later items give the date they were added.
 
-CP-1 status (2026-10-17, baseline `96d09e0`): TP-01, TP-03 and TP-02 are converted to Markdown on `docs/cp-01-tp-markdown`. Each content-only conversion passes the word-sequence check; the final files add only the conversion-history row. The owner removed the ODT originals and requested the commits on 2026-10-17, satisfying the removal confirmation required by the [handoff §6](../handoffs/document-control.md#6-first-assignments). The package awaits pull request submission and owner review.
+CP-1 status: Closed ([#5](https://github.com/akreager/cd_changer_emulator/pull/5)); merged before this work.
+
+Work update (2026-10-17, baseline `b814b06`): TP-01/TL-01 Rev C, DN-04 Rev D and FIX-01 instructions prepared under R-1/R-2; breakout labels and work order aligned. Phase 1 supplement remains local pending D-1 and owner dispositions. No published record or historical Phase 1 cell changed.
 
 Priorities:
 - **P1:** close out Phase 1 and make TL-01 live. This must happen before any Phase 2A data exists.
@@ -27,6 +29,7 @@ Priorities:
 - Action: if D-11 says to commit each phase, commit the restored log as `docs/TL-KRC3006-01.fods`. Either way, make `docs/README.md`'s rule for the working log match D-11.
 
 ### DC-02 · T (the owner dispositions) — The Phase 1 record has gaps
+- Update 2026-10-17: Supplement and gap questions drafted locally for owner disposition; original record and 146 nonempty Phase 1 live-log cells preserved. Publication awaits D-1 and completed entries. Added questions for untested audio pins and the date/setup of the changer-present observation.
 - Status: Open
 - Findings in the record:
   - The Overall Result is blank.
@@ -49,6 +52,7 @@ Priorities:
   - Publish only after the owner completes the supplement.
 
 ### DC-03 · E — The template, the TP and the record disagree
+- Update 2026-10-17: Prepared the step 1–5 crosswalk and proposed future Tester/P/F columns in the closeout draft. Do not invent the missing step 1 or relabel April results. Historical correction/disposition awaits owner evidence.
 - Status: Open
 - Finding: the Initial Power-Up steps don't line up:
   - TL-01 template: steps 1–4
@@ -60,6 +64,7 @@ Priorities:
 - Action: reconcile these in the next TL-01 revision, matched to TP-01 Rev C. Wait for the architect's Rev C content first.
 
 ### DC-04 · T (architect) + E — TP-01 Rev B defects
+- Update 2026-10-17: R-1 applied: TP-01 Rev C and matching TL-01 forms drafted. R-1.4 ignition timing-reference method still needs an architect ruling (new DC-28). Trace table prepared in the review report.
 - Status: Open
 - Findings:
   - (a) Phase 2A is head-unit-only: select CD-CH with no changer connected, and expect DATA C to be "completely flat". That contradicts the inline-capture finding.
@@ -81,6 +86,7 @@ Priorities:
 ## P2 — Propagate settled corrections
 
 ### DC-05 · E — Pin 2 / pin 6 naming conflicts across documents
+- Update 2026-10-17: Factory names propagated in TP-01, DN-04 and breakout README; existing Phase 1 log labels retained with the historical record until DC-03 is dispositioned. New phase forms use factory names.
 - Status: Open
 - Finding: DN-02 §1 and the HAT README follow the factory names (2 GND, 6 D. GND). TP-01 and TL-01 call pin 2 "Digital Ground" and pin 6 "AGND / Audio Ground", and the breakout README describes pin 2 as "Audio ground".
 - Action: standardize on the factory names with aliases ([rules/documents.md](../rules/documents.md), Naming). The TP/TL changes ride with Rev C (DC-04).
@@ -94,6 +100,7 @@ Priorities:
   - Add a revision-history row.
 
 ### DC-07 · P + T — DN-04 still describes 100K series impedance
+- Update 2026-10-17: R-2 applied to DN-04 Rev D with dated owner risk acceptance, corrected per-pin values and FIX-01 section (R-1.5). Prepared for review.
 - Status: Open
 - Findings, passage by passage:
 
@@ -159,6 +166,7 @@ Priorities:
 - Action: delete the `.odt` in a PR. The PDF export already exists (D-7, decided 2026-10-17).
 
 ### DC-13 · E — TL-02 dates and a missing result
+- Update 2026-10-17: Breakout README completion date corrected to record date 2026-04-10 and work order updated. DN-04 schedule labeled original targets. Missing TL-02 step 1.1 disposition remains for owner.
 - Status: Open
 - Reverified 2026-10-16: the breakout README's “Next Steps” calls TP-01 Phase 1 passive capture and still describes head-unit-only capture, unlike the current master register and root README. DN-04 §13 retains TBD build milestones; establish whether these are historical targets before changing them. Include this status text in the later editorial package.
 - Finding: the breakout README says S/N 1 was "completed 4/5". The TL-02 record shows phase results dated 2026-04-01, 04-08 and 04-10. TL-02 step 1.1 (board outline 22 × 80 mm ±0.2) has no result in the published record.
@@ -223,9 +231,25 @@ Priorities:
 - Finding: [DN-05 §12](../../docs/DN-KRC3006-05.md#12-open-questions), item 1, points protocol capture to TP-02, whose scope is breakout-board verification ([TP-02 §2](../../docs/TP-KRC3006-02.md#2-scope)). Item 3 proposes live testing with the retired CX85; [DN-06](../../docs/DN-KRC3006-06.md) identifies the C717 as its replacement.
 - Action: correct the plan reference and changer name in a later editorial/propagation revision, citing the plan scopes and DN-06.
 
+### DC-26 · T — Hardware interface claims conflict with the propagated baseline
+- Status: Open (2026-10-17)
+- Evidence: DN-01 §2 assigns VCCA = 5 V / VCCB = 3.3 V, while approved R-3 specifies the bus on B at 5 V. DN-01's UART3/GPIO4/5 and device-node assignments come from its Pi 4 analysis; the target is Pi 5 and the current schematic has not been reviewed.
+- Action: architect reconciles shifter A/B orientation, DIR/channel mapping and Pi 5 UART mapping against the actual design. No KiCad changes or silent wiring swaps by document control.
+
+### DC-27 · T — DN-01's cranking-voltage measurement proposal conflicts with analyzer limits
+- Status: Open (2026-10-17)
+- Evidence: DN-01 §9 item 9 proposes a logic analyzer or scope on the 12 V changer supply; R-1.1 limits LA-01 input to 5.25 V and R-2 prohibits B.U. on the analyzer. DN-01 §9 item 6 also has a thermal-budget expression whose stated arithmetic needs architect review.
+- Action: architect specifies appropriately rated voltage measurement equipment/probing and reviews the calculation. The old proposals are not executable approved procedures. No new probing circuit or corrected budget is invented here.
+
+### DC-28 · T — R-1.4 lacks an ignition timing reference
+- Status: Open (2026-10-17)
+- Evidence: R-1.1 occupies all eight analyzer channels; R-1.4 requires time from ignition ON to first CLK edge but assigns no ignition marker.
+- Action: architect supplies a safe timing-reference method. TP-01 §4.3.2 and the TL-01 power-on table mark it TBD. This does not block Phase 2A form preparation.
+
 ## P4 — Presentation
 
 ### DC-18 · E — The TL-01 record clips text
+- Update 2026-10-17: Adjusted future TL-01 form widths, wrapping and print areas; exported review PDF. April published record unchanged. Original Phase 1 cells unchanged.
 - Status: Open
 - Finding: on pages 3–6 of the TL-01 record PDF, column A is too narrow, so titles, section labels and headers are cut off.
 - Action: fix the column widths in the TL-01 template for future snapshots. Don't re-issue the April record for this alone.
@@ -246,6 +270,6 @@ Priorities:
 
 ## Already resolved (don't re-raise)
 
-- `TL-KRC3006-03.ods` exists. It was added on 2026-04-12 in `679f26a`; an earlier audit said it was missing.
+- TL-03 was added as `TL-KRC3006-03.ods` (now `.fods` under D-10). It was added on 2026-04-12 in `679f26a`; an earlier audit said it was missing.
 - The format policy in both READMEs now reads "no mandated format, Markdown preferred" (`6be9221`, 2026-07-29).
 - Every relative link in the Markdown files resolved at `11bc992`.

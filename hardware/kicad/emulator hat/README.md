@@ -34,7 +34,7 @@ Phase 1 also found Pin 10 (CH-DATAC) idling near 5 V rather than the LOW state t
 
 Several items still depend on data from the ongoing reverse engineering effort (TP-KRC3006-01):
 
-- **CLK signal directionality** — The CX85 service manual lists CLK as I/O on the changer side. If Phase 2B confirms it is bidirectional, the CLK channel must use an SN74LVC1T45 (independent DIR pin) instead of the fixed-direction 74LVC8T245.
+- **CLK signal directionality** — The CX85 service manual lists CLK as I/O on the changer side. If Phase 2C confirms it is bidirectional, the CLK channel must use an SN74LVC1T45 (independent DIR pin) instead of the fixed-direction 74LVC8T245.
 - **Power sequencing** — The ATtiny must be ready to respond before the Pi finishes booting (~20s). Autonomous status responses during early boot may be required.
 - **DAC output level matching** — Analog output must match the stock changer's level to avoid volume discontinuity. To be verified during integration testing.
 
@@ -45,9 +45,15 @@ Several items still depend on data from the ongoing reverse engineering effort (
 | DN-KRC3006-01 | HAT design research — component selection, pin mapping, architecture |
 | DN-KRC3006-02 Rev C | KRC-3006 and KDC-CX85 schematic analysis — bus impedance, signal conditioning |
 | DN-KRC3006-04 | 13-pin mini DIN breakout board (complete, used for protocol capture) |
-| TP-KRC3006-01 Rev B | Reverse engineering test plan (active — Phase 1 complete, Phase 2A next) |
+| TP-KRC3006-01 Rev C | Reverse engineering plan: Phase 1 executed, closeout pending; inline Phase 2A next; Phase 2C identifies CLK driver |
 | TP-KRC3006-03 | Emulator development and integration test plan (waiting for TP-01) |
 
 ## License
 
 MIT — see repository root.
+
+## Revision History
+
+| Rev | Date | Author | Changes |
+|---|---|---|---|
+| — | 2026-10-17 | A. Kreager | Align test-plan revision and CLK direction gate with approved R-1.5/R-1.6. Existing hardware summary remains unverified against initial-state commit 96d09e0; CLK idle wording awaits Phase 2A. |
